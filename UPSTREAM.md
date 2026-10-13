@@ -97,6 +97,7 @@ Exit 0 means a clean text merge, positive values below 128 count conflicts, and 
 
 | Area / paths | Disposition and required behavior |
 |---|---|
+| `.agents/plugins/marketplace.json` | Retain the Codex marketplace catalog, its stable `pstack-marketplace` name, and its local source path to the package root. |
 | `SKILL.md`, `agents/openai.yaml`, `plugin.json` | Retain the `pstack-codex` entry and local package identity. Review upstream packaging changes without replacing these files. Keep `.cursor-plugin/plugin.json` out of the port. |
 | `skills/*/SKILL.md`, `skills/*/agents/openai.yaml` | Adapt upstream behavior. Preserve lowercase names, Codex-compatible frontmatter, `$skill` examples, and existing invocation policies. Keep the runtime-contract link. For new explicit-only upstream skills, express that existing policy in `agents/openai.yaml`. |
 | `skills/poteto-mode/references/codex-runtime.md` | Retain native delegation, supported models, slot limits, explicit writer isolation, scoped history, durable run paths, scheduling IDs, recovery, cancellation, and task authorization. |

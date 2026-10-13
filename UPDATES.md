@@ -1,5 +1,9 @@
 # Pstack Codex updates
 
+## Marketplace packaging — 2026-10-13
+
+Added `.agents/plugins/marketplace.json` so this GitHub repository can be registered as `pstack-marketplace`. README now documents registration, installation, refresh, and the distinction between bundled plugin skills and the root direct-use entry. Upstream and plugin versions remain unchanged; no runtime skill behavior changed.
+
 ## 0.2.0 — 2026-10-13
 
 Updated directly from original `cursor/plugins/pstack` **0.15.15 → 0.15.21**. No source from `backnotprop/pstack` was used for this update.

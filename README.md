@@ -15,7 +15,28 @@ This port tracks the original upstream while adapting its instructions to Codex�
 - `$ketchup` for catching up on a chat’s progress and pending decisions.
 - Source provenance, a change log, and a three-way merge guide for future upstream updates.
 
-## Quick start
+## Install in Codex
+
+Register this repository as a marketplace using the Codex CLI:
+
+```bash
+codex plugin marketplace add mnlauaa/Pstack-Codex --ref main
+codex plugin marketplace list
+```
+
+Restart the desktop app, open Plugins, select **Pstack for Codex**, and install **pstack-codex**. Start a new chat and select **poteto-help** for a tour or **poteto-mode** to run a workflow. Adding the marketplace makes the plugin discoverable; it does not itself install the plugin.
+
+The [marketplace catalog](.agents/plugins/marketplace.json) points to this repository’s root plugin. Plugin installation discovers the 52 main skills under `skills/`; the root `SKILL.md` is a separate entry for direct use, and the dormant Benny skills are outside that discovery directory.
+
+To refresh the marketplace after new commits:
+
+```bash
+codex plugin marketplace upgrade pstack-marketplace
+```
+
+Then reopen the Plugins directory and apply any available plugin update. Marketplace refresh and plugin installation are separate operations. These commands require a Codex version with marketplace support; see the [official plugin documentation](https://developers.openai.com/plugins/build/plugins#add-a-marketplace-from-the-cli).
+
+## Use the source directly
 
 Clone the package:
 
@@ -28,7 +49,7 @@ Open your target project in Codex and point it at this package’s `SKILL.md`. R
 
 > Read /absolute/path/to/Pstack-Codex/SKILL.md. Use pstack to fix the reported bug in my repository. Reproduce it, make the smallest correct change, run the relevant checks, and get an independent review. Keep the result local.
 
-This folder is a source package. Creating it does not globally register it or alter Codex settings. For personal skill discovery, explicitly install or link this folder under your configured skill directory. For plugin installation, use its root plugin.json through a supported local marketplace. After discovery, select the skill from Codex or invoke `$pstack-codex`. The bundled main skill is [poteto-mode](skills/poteto-mode/SKILL.md); [poteto-help](skills/poteto-help/SKILL.md) maps the other workflows.
+Cloning alone does not register skills or alter Codex settings. The root [SKILL.md](SKILL.md) routes direct-use requests into the package. The bundled main skill is [poteto-mode](skills/poteto-mode/SKILL.md); [poteto-help](skills/poteto-help/SKILL.md) maps the other workflows.
 
 ## Codex behavior
 
