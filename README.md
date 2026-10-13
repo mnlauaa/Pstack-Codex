@@ -1,0 +1,71 @@
+# Pstack for Codex
+
+A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/cursor/plugins/tree/main/pstack): engineering skills, autonomous workflows, delegated reviews, and verification tools.
+
+This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
+
+**Port version:** 0.2.0 · **Upstream:** 0.15.21 · **Source commit:** [`fe53d9e`](https://github.com/cursor/plugins/tree/fe53d9e9093dbb9ae298563b1a9d702dd6e2ca08/pstack)
+
+## What’s included
+
+- **52 main skills** for implementation, investigation, architecture, reviews, testing, and technical writing.
+- **23 playbooks** for coordinated development and longer-running work.
+- Codex adaptations for native delegation, model inheritance, worktree isolation, scoped history, and supported scheduling.
+- Plan validation, worktree auditing, and GitHub PR-watching scripts.
+- `$ketchup` for catching up on a chat’s progress and pending decisions.
+- Source provenance, a change log, and a three-way merge guide for future upstream updates.
+
+## Quick start
+
+Clone the package:
+
+```bash
+git clone https://github.com/mnlauaa/Pstack-Codex.git
+cd Pstack-Codex
+```
+
+Open your target project in Codex and point it at this package’s `SKILL.md`. Replace `/absolute/path/to/Pstack-Codex` with your clone’s location:
+
+> Read /absolute/path/to/Pstack-Codex/SKILL.md. Use pstack to fix the reported bug in my repository. Reproduce it, make the smallest correct change, run the relevant checks, and get an independent review. Keep the result local.
+
+This folder is a source package. Creating it does not globally register it or alter Codex settings. For personal skill discovery, explicitly install or link this folder under your configured skill directory. For plugin installation, use its root plugin.json through a supported local marketplace. After discovery, select the skill from Codex or invoke `$pstack-codex`. The bundled main skill is [poteto-mode](skills/poteto-mode/SKILL.md); [poteto-help](skills/poteto-help/SKILL.md) maps the other workflows.
+
+## Codex behavior
+
+Read the [runtime contract](skills/poteto-mode/references/codex-runtime.md). It binds native subagents, explicit worktrees, model inheritance, scoped history, real scheduling, and authorization. Model preferences are optional; [setup-pstack](skills/setup-pstack/SKILL.md) writes project-local JSON when requested. Panels default to independent inherited-model runs. Workers run within the host's actual limit.
+
+The main collection retains its existing explicit-invocation policies. The new entry skill permits normal discovery. Internal skill names resolve within this package, avoiding collisions with other installed skills.
+
+## Runtime prerequisites
+
+Plain instruction workflows need no package installation. The existing orchestration and GitHub-watcher tools need Bun, their pinned dependencies, and authenticated GitHub CLI. In a writable source checkout, run `bun install --frozen-lockfile` in `skills/poteto-mode/scripts/`. For an immutable plugin cache, use a writable copy. Node runs the plan checker. The Graphite frontier path additionally needs `gt`; ordinary PR workflows do not.
+
+Persistent checks require a real scheduler exposed by the host. A skill and a polling process do not themselves keep a closed application running. Required live UI proof needs actual browser/app control and recording support where specified.
+
+## Optional integrations
+
+[Benny](automations/benny/FOR_AGENTS.md) remains dormant until explicitly configured. Its two workflows require verified connectors and triggers. [Bot UI](skills/make-bot-ui/SKILL.md) supports an existing verified webhook/wake backend; the archived Cursor setup is reference material only. Neither is activated by loading this package.
+
+The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the runtime contract for host-specific behavior. [PORT.md](PORT.md) records the changes and validation limits.
+
+## Updates
+
+This port is version 0.2.0. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
+
+## Validation
+
+The 0.2.0 update passed 63 Bun tests, four Node tests, strict TypeScript checks, and validation of all 56 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
+
+To run the script checks locally, with Bun and Node installed:
+
+```bash
+cd skills/poteto-mode/scripts
+bun install --frozen-lockfile
+bun run test
+bun run typecheck
+bash -n worktree-audit.sh
+```
+
+## Attribution and license
+
+Original pstack by **Lauren Tan**, distributed through [cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack). This repository maintains the Codex adaptation and preserves the original [MIT license](LICENSE).

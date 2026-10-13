@@ -1,0 +1,5 @@
+interface:
+  display_name: "Pstack for Codex"
+  short_description: "Verified engineering workflows from pstack"
+policy:
+  allow_implicit_invocation: true
