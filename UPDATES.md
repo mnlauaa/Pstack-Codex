@@ -1,5 +1,9 @@
 # Pstack Codex updates
 
+## Upstream maintenance structure — 2026-10-13
+
+Added a pristine `upstream` branch at the already-integrated original 0.15.21 snapshot and connected it to `main` without changing runtime files or rewriting published history. The branch pattern is inspired by `backnotprop/pstack`; original Cursor remains the only source. Added original-versus-imported commit/tree identities, a provenance checker with negative tests, [AGENTS.md](AGENTS.md), and an ordinary-merge update guide. See [the history record](docs/upstream-history.md) for exact hashes and rehearsal evidence. Runtime package version remains 0.2.0.
+
 ## Marketplace packaging — 2026-10-13
 
 Added `.agents/plugins/marketplace.json` so this GitHub repository can be registered as `pstack-marketplace`. README now documents registration, installation, refresh, and the distinction between bundled plugin skills and the root direct-use entry. Upstream and plugin versions remain unchanged; no runtime skill behavior changed.

@@ -8,5 +8,7 @@
   "checked_on": "2026-10-13",
   "archive_sha256": "a3138031983a9e806687db1b383816d50389d1494b1fcc47e41f452a62e9d6fe",
   "signature_verification": "not performed",
-  "local_version": "0.2.0"
+  "local_version": "0.2.0",
+  "snapshot_commit": "1d1e34b929dfdae135dfa5225fe4a93366e7b18b",
+  "snapshot_tree": "8824c764d99583f7cc8059c915296e444c53f060"
 }

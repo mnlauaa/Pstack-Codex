@@ -1,3 +1,19 @@
+# Maintenance structure validation — 2026-10-13
+
+The runtime remains pstack-codex 0.2.0 / original pstack 0.15.21. This change introduces Git ancestry, maintenance documentation, and a read-only provenance checker.
+
+- All **167** imported upstream file blobs and executable modes matched the previously pinned original archive. Archive SHA-256 and PAX commit matched `UPSTREAM.json`; signatures were not checked.
+- The one-time history bridge preserved the complete prior main tree. Exact commits/trees are in [the history record](docs/upstream-history.md).
+- A disposable clone accepted a synthetic future upstream change through a normal merge and preserved the Codex runtime contract. The documented isolated-worktree copy reproduced the original tree, removed a stale file, and preserved the worktree's `.git` link.
+- `python3 scripts/check-upstream.test.py`: **3 tests passed**, including five mismatched-provenance/version cases and rejection of an unmerged snapshot.
+- `python3 scripts/check-upstream.py`: integrated baseline verified.
+- All **56** skill entrypoints and YAML/JSON metadata validated; concrete relative Markdown links resolved. `git diff --check` passed.
+- Runtime paths (`skills`, `agents`, `automations`, `assets`, root skill/manifest, and LICENSE) remain unchanged from the published pre-bridge tree. Existing runtime suites were not rerun for this maintenance-only change; their prior results are retained below.
+
+No plugin installation, live scheduling, external workflow, or new upstream release was tested in this change. No global Codex settings were modified. The provenance checker needs the recorded snapshot in local Git history; use a full clone or fetch the missing history before running it.
+
+---
+
 # Validation of pstack-codex 0.2.0
 
 Checked on 2026-10-13 on macOS against original pstack **0.15.21**, commit `fe53d9e9093dbb9ae298563b1a9d702dd6e2ca08`. The source identity is recorded in [UPSTREAM.json](UPSTREAM.json). Validation used isolated source copies and temporary tooling; dependencies are not bundled in the delivered package.

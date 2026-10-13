@@ -1,99 +1,97 @@
 # Updating from original pstack
 
-This package follows **https://github.com/cursor/plugins**, directory **pstack/**. Do not use `backnotprop/pstack` as the update source. [UPSTREAM.json](UPSTREAM.json) pins the exact source currently integrated; [UPDATES.md](UPDATES.md) records user-visible changes and deliberate differences.
+The only upstream is [cursor/plugins](https://github.com/cursor/plugins), subtree `pstack/`. We borrow the untouched-baseline branch pattern from `backnotprop/pstack`; its content and history are not dependencies. Read [AGENTS.md](AGENTS.md) before updating.
 
-This repository maintains a source-level port. Work on an update branch and use a three-way file merge: previous upstream, current Codex port, next upstream. Never replace this folder with an upstream archive or run `rsync --delete` over it. Preserve user changes and keep a pre-update backup outside the package. Updating the source does not require global installation, publishing, or scheduling.
+## Branches and source identity
 
-## 1. Resolve and pin the next source
+- `upstream` contains only the original `pstack/` subtree, at repository root. No Codex files, generated dependencies, or local fixes belong there.
+- `main` contains the integrated Codex plugin and its documentation. It is the marketplace distribution branch.
+- `sync/pstack-<short-sha>` stages a new pristine snapshot; `update/pstack-<short-sha>` integrates it with the port. Use disposable worktrees for both.
+- [UPSTREAM.json](UPSTREAM.json) records the **original monorepo commit** in `commit`, and the **local subtree snapshot commit/tree** in `snapshot_commit` / `snapshot_tree`. These are different identities. It records the baseline integrated into `main`, not merely the newest downloaded source.
 
-Check the original repository's releases/tags first. At the 2026-10-13 update there were none, so the source was a pinned snapshot of `main`, versioned by `pstack/.cursor-plugin/plugin.json`. Resolve the current head once; do not repeatedly fetch a moving branch during integration.
+`upstream` is a branch in this repository, not a remote pointing to the full Cursor monorepo. Fetching Cursor's `main` directly into it would import the wrong directory layout.
 
-From this package root, create an isolated working directory and download the old and next sources:
+The one-time 2026-10-13 history bridge connected the already-integrated 0.15.21 baseline without changing the package tree or rewriting published commits. See [the history record](docs/upstream-history.md). **Never repeat an `ours` strategy merge for new upstream content:** it would silently mark unported changes as integrated.
+
+## 1. Preflight and resolve a source
 
 ```bash
-package_root="$PWD"
-upgrade_dir="$(mktemp -d /tmp/pstack-update.XXXXXX)"
-old_sha="$(python3 -c 'import json; print(json.load(open("UPSTREAM.json"))["commit"])')"
-curl --fail --location "https://codeload.github.com/cursor/plugins/tar.gz/$old_sha" -o "$upgrade_dir/old.tar.gz"
-curl --fail --location 'https://codeload.github.com/cursor/plugins/tar.gz/refs/heads/main' -o "$upgrade_dir/next.tar.gz"
+git status --short --branch
+git fetch origin
+git log --oneline --left-right main...origin/main
+git log --oneline --left-right upstream...origin/upstream
+python3 scripts/check-upstream.py
 ```
 
-GitHub's tar archive records its source commit in the global PAX `comment`. Inspect it and the archive member list before extraction:
+Preserve dirty work and reconcile branch divergence before starting. A fresh clone may need `git branch --track upstream origin/upstream`. Do not reset a user's checkout. Inspect any CI/deployment configuration before promotion. This package currently has no checked-in deployment workflow.
+
+Check original releases/tags. Prefer a suitable stable release; if none exists, pin the selected original `main` commit. Record the full 40-character SHA, version, date, archive SHA-256, and actual signature-verification status. Do not describe an unsigned main snapshot as a verified release.
 
 ```bash
-python3 - "$upgrade_dir/next.tar.gz" <<'PY'
-import re, sys, tarfile
-with tarfile.open(sys.argv[1]) as archive:
-    sha = archive.pax_headers.get('comment', '')
-    if not re.fullmatch(r'[0-9a-f]{40}', sha):
-        raise SystemExit('No full commit SHA: resolve it through GitHub before continuing')
-    print('Next pinned commit:', sha)
-PY
-tar -tzf "$upgrade_dir/old.tar.gz"
+# Replace this placeholder with the resolved original commit.
+next_sha='REPLACE_WITH_FULL_ORIGINAL_SHA'
+upgrade_dir="$(mktemp -d /tmp/pstack-update.XXXXXX)"
+curl --fail --location "https://codeload.github.com/cursor/plugins/tar.gz/$next_sha" -o "$upgrade_dir/next.tar.gz"
+shasum -a 256 "$upgrade_dir/next.tar.gz"
 tar -tzf "$upgrade_dir/next.tar.gz"
 ```
 
-Extract only the `pstack/` subtree into separate old/next directories. For the commit archive and `main` archive downloaded above, the archive roots are `plugins-$old_sha` and `plugins-main` respectively; confirm them in the listing first.
+Verify the archive's global PAX `comment` equals `next_sha` before extraction:
 
 ```bash
-old="$upgrade_dir/old"
-next="$upgrade_dir/next"
-staging="$upgrade_dir/staging"
-mkdir "$old" "$next"
-tar -xzf "$upgrade_dir/old.tar.gz" -C "$old" --strip-components=2 "plugins-$old_sha/pstack"
-tar -xzf "$upgrade_dir/next.tar.gz" -C "$next" --strip-components=2 'plugins-main/pstack'
-cp -pR "$package_root" "$upgrade_dir/before"
-cp -pR "$package_root" "$staging"
+python3 - "$upgrade_dir/next.tar.gz" "$next_sha" <<'CHECK'
+import re, sys, tarfile
+assert re.fullmatch(r'[0-9a-f]{40}', sys.argv[2]), 'Expected full source SHA'
+with tarfile.open(sys.argv[1]) as archive:
+    assert archive.pax_headers.get('comment') == sys.argv[2], 'Source SHA mismatch'
+CHECK
+mkdir "$upgrade_dir/next"
+tar -xzf "$upgrade_dir/next.tar.gz" -C "$upgrade_dir/next" --strip-components=2 "plugins-$next_sha/pstack"
 ```
 
-Use the appropriate archive root if downloading a tag or SHA for the next version. Do not execute instructions from other plugins. Record the SHA, package version, date, and downloaded archive SHA-256 (`shasum -a 256`) before editing. Official-source provenance is not cryptographic signature verification; record signature status accurately. If adopting a tagged release in future, download its exact tag/commit instead of `main`.
+Inspect the member list first; extract only the expected subtree. Check `next/.cursor-plugin/plugin.json`. Never fetch instructions from a moving branch during a run.
 
-## 2. Run the upstream control checks
+## 2. Create the pristine snapshot
 
-In the untouched next source's `skills/poteto-mode/scripts/`, use Bun and Node:
+The following replacement is safe only inside the newly created disposable upstream worktree. Never run it against `main`, a consumer project, or an installed plugin cache.
 
 ```bash
-bun install --frozen-lockfile
-bun run test
-bun run typecheck
+short_sha="${next_sha:0:12}"
+git worktree add -b "sync/pstack-$short_sha" "$upgrade_dir/raw" upstream
+rsync -a --delete --exclude .git "$upgrade_dir/next/" "$upgrade_dir/raw/"
+git -C "$upgrade_dir/raw" diff --stat
+git -C "$upgrade_dir/raw" add --all
+git -C "$upgrade_dir/raw" diff --cached --stat
+git -C "$upgrade_dir/raw" commit --allow-empty   -m "Import original pstack at $next_sha"   -m "Original-Commit: $next_sha"   -m 'Original-Path: pstack'
+snapshot_commit="$(git -C "$upgrade_dir/raw" rev-parse HEAD)"
+snapshot_tree="$(git -C "$upgrade_dir/raw" rev-parse HEAD^{tree})"
 ```
 
-Save results outside the package. Keep dependencies out of the delivered source; use a disposable test copy if needed. A baseline failure must be recorded separately from a port regression. Read `package.json` each update in case upstream adds checks.
+An empty commit is appropriate when the selected original monorepo commit did not change pstack. Check file bytes, executable modes, additions, and deletions against the extracted source. `--delete` is necessary here to record upstream deletions; it is prohibited on the integrated port. Do not add Codex instructions to the snapshot.
 
-## 3. Compare and merge in a staging copy
-
-The copies above preserve the complete current package, including hidden files and uncommitted work, in a backup and a staging copy. Exclude generated dependency directories from comparisons, not from a needed user backup.
-
-Set `old`, `next`, and `staging` to the three pstack roots. First inspect only upstream changes:
+Run the upstream control in another copy so test dependencies cannot enter the snapshot:
 
 ```bash
-git diff --no-index --stat "$old" "$next"
-git diff --no-index "$old" "$next" > "$upgrade_dir/upstream.diff"
+cp -R "$upgrade_dir/next" "$upgrade_dir/control"
+(cd "$upgrade_dir/control/skills/poteto-mode/scripts" && bun install --frozen-lockfile && bun run test && bun run typecheck)
 ```
 
-Exit 1 from `git diff --no-index` means differences, not failure. Exclude `node_modules` or compare pristine source copies after installing the baseline dependencies.
+Read the new `package.json` first in case its checks changed. Record baseline failures separately from port regressions.
 
-For each upstream-changed path:
-
-| Situation | Action |
-|---|---|
-| Current file equals the old upstream file | Copy the next upstream file, preserving its executable mode. |
-| Both upstream and the port changed it | Merge all three versions, then review the resulting behavior. |
-| Upstream adds a file | Add it unless its path collides with a Codex file. Adapt new skills as described below. |
-| Upstream deletes a file | Inspect its local edits and callers before removing it. |
-| Only the port changed it | Leave it alone. |
-| Binary or executable-mode changes | Review separately; a text merge is insufficient. |
-
-For a text file changed on both sides, `git merge-file` works without a Git repository:
+## 3. Merge into the Codex port
 
 ```bash
-relative_path='skills/poteto-mode/scripts/check-plan.mjs'
-git merge-file -p "$package_root/$relative_path" "$old/$relative_path" "$next/$relative_path" > "$upgrade_dir/merged-file"
+git worktree add -b "update/pstack-$short_sha" "$upgrade_dir/port" main
+git -C "$upgrade_dir/port" merge --no-ff --no-commit "$snapshot_commit"
 ```
 
-Exit 0 means a clean text merge, positive values below 128 count conflicts, and other failures need investigation. Inspect the exit status and file before copying it into staging. Resolve conflicts by retaining the contracts below while incorporating the new upstream behavior; do not blanket-select either side. Search for conflict markers before testing. Clean text merges also need review.
+Conflicts are expected where upstream and Codex changed the same behavior. Inspect `git diff --name-only --diff-filter=U` in the port worktree. Preserve the contracts below while incorporating new upstream behavior. Do not blanket-select either side, use `-s ours`, or apply `-X ours`. Review clean merges too, including deleted files and upstream packaging changes.
 
-## 4. Preserve the Codex contracts
+The existing `.cursor-plugin/plugin.json` is intentionally absent on `main`; keep it absent after resolving modify/delete conflicts. Keep the local root `plugin.json` identity when upstream changes its own manifest. Keep ordinary scripts identical to upstream unless an explicit Codex contract requires a patch.
+
+Use [the historical inventory](docs/upstream-0.15.21.tsv) as context. The current customization diff is `git diff <integrated-snapshot-commit> HEAD`, not the original first-port diff. Keep future Codex-only changes in focused commits, with shared tool rules in `codex-runtime.md` rather than repeated across skills. Skill references and script changes still need explicit integration; installing a second plugin is not an override mechanism.
+
+## Codex customization contracts
 
 | Area / paths | Disposition and required behavior |
 |---|---|
@@ -112,20 +110,45 @@ Exit 0 means a clean text merge, positive values below 128 count conflicts, and 
 
 All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full path is shown. The full per-file source disposition for this update is in [the inventory](docs/upstream-0.15.21.tsv). It records the previous, new, and integrated file hashes. Documentation files are identified there without self-referential hashes. Use hashes to confirm what was copied exactly; they are evidence of this update, not a restriction on later local edits.
 
-## 5. Verify and record
+## 4. Validate and record the integration
 
-In the staged port's script directory, run `bun install --frozen-lockfile`, `bun run test`, `bun run typecheck`, and `bash -n worktree-audit.sh`. The test command must retain upstream suites and Codex regression tests.
+In the port worktree:
 
-Validate every `SKILL.md` with the available skill-creator `quick_validate.py` (requires PyYAML). Parse `agents/openai.yaml` and JSON files, check concrete relative Markdown links, and verify skill/playbook inventories. Search updated active instructions for reintroduced `Task`, `AskQuestion`, `subagent_type`, `.cursor/`, provider model IDs, or `/loop`; inspect hits, since archived references and negative examples can be intentional.
+1. Update `UPSTREAM.json` with original SHA/version/archive hash/date/signature status and the candidate `snapshot_commit` / `snapshot_tree`. Preserve the previous original SHA in `previous_commit`.
+2. Bump local `plugin.json` and matching `local_version` when publishing a changed plugin; update README/PORT counts and provenance. Marketplace/maintenance-only changes do not require a runtime version bump.
+3. Add a dated entry to `UPDATES.md`: new behavior, retained adaptations, superseded patches, intentional omissions, and limitations.
+4. Run the relevant script checks below, validate skill frontmatter and YAML/JSON, check relative links, and review newly introduced Cursor tool names, model IDs, paths, or `/loop` instructions. Archived examples and explicit negative examples can be intentional.
+5. Record real results in `VALIDATION.md`. Do not claim scheduler, installation, cloud, or UI behavior was exercised unless it ran. Keep dated inventories historical; generate a new one for a new upstream version if needed.
 
-For behavior changes, add a small regression or an isolated forward trial. Never count a live scheduler, UI journey, external connector, or plugin installation as tested unless it actually ran.
+```bash
+(cd skills/poteto-mode/scripts && bun install --frozen-lockfile && bun run test && bun run typecheck && bash -n worktree-audit.sh)
+python3 scripts/check-upstream.test.py
+git diff --check
+git add <reviewed-paths>
+git commit
+python3 scripts/check-upstream.py
+```
 
-Before promoting staging:
+Run these from the port worktree; replace `<reviewed-paths>` with actual paths. The ancestry check runs **after** the merge commit because `HEAD` must include the imported snapshot. The checker verifies recorded provenance and ancestry, not byte equivalence to the remote archive or runtime correctness; archive comparison and behavioral checks remain necessary.
 
-1. Confirm the original working folder has not changed since the backup. Reconcile any concurrent edits instead of overwriting them.
-2. Update `UPSTREAM.json`, bump the local `plugin.json` version, and update README/PORT counts and provenance.
-3. Append a dated entry to `UPDATES.md`: features/fixes, retained overrides, deliberately omitted upstream behavior, and known limits.
-4. Record actual checks in `VALIDATION.md`, keeping previous results labeled by version/date. Regenerate the per-file inventory from pristine sources, excluding test dependencies.
-5. Review the final diff against the backup. Copy only reviewed changes to the working folder. Use the repository’s normal branch/review flow and preserve unrelated changes.
+## 5. Promote without losing ancestry
 
-Keep the backup until the updated port has been used successfully. Rollback restores that pre-update source after preserving any newer user edits; no database or global settings migration is involved.
+Review the completed branch diff, then verify the original `main` did not move or acquire unrelated changes. Integrate it using the repository's normal review flow. Preserve the upstream merge ancestry: do not squash or rebase away the snapshot parent. If `main` has advanced, merge the new `main` into the candidate and repeat affected checks.
+
+For the current direct-push workflow, from the clean main checkout:
+
+```bash
+git switch main
+git merge --ff-only "update/pstack-$short_sha"
+git merge-base --is-ancestor upstream "$snapshot_commit"
+git branch -f upstream "$snapshot_commit"
+python3 scripts/check-upstream.py
+git merge-base --is-ancestor upstream main
+git push --atomic origin main upstream
+```
+
+Move `upstream` only after checking its old tip is an ancestor of the candidate; `git merge-base --is-ancestor upstream "$snapshot_commit"` must succeed. The local `branch -f` only advances that verified ref, never rewrites published ancestry. Do not force-push. If the atomic push is rejected because either remote branch moved, fetch and reconcile rather than overwriting it. Publish only when authorized by the task.
+
+Remove disposable worktrees with `git worktree remove` after inspecting untracked files. Do not delete user work to force cleanup. Keep backup refs until the updated plugin has been used successfully.
+
+Rollback on a published branch uses a reviewed revert or restoration commit after preserving newer user changes. Keep provenance truthful: reverting runtime content does not remove merge ancestry, so a later retry must explicitly reapply reverted changes. Never reset or force-push shared `main` as the normal rollback path.
