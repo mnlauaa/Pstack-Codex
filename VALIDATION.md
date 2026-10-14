@@ -1,3 +1,18 @@
+# Validation of pstack-codex 0.2.1 — 2026-10-14
+
+Original pstack **0.15.23** at `5108b719a7aa484ef1a9781f587c7bbeac793f92` was compared against the prior pristine snapshot: 10 changed paths, including one new skill. The integrated port uses ordinary merge ancestry; eight conflict paths were resolved by preserving Codex contracts and incorporating the reviewed original changes.
+
+- Untouched upstream control: **63 Bun tests passed**, 232 assertions, zero failures; strict watcher TypeScript check passed.
+- Integrated port: **63 Bun tests + 4 Node tests passed**, zero failures; strict TypeScript and shell syntax checks passed.
+- Provenance checker regression suite: **3 tests passed**. The integrated snapshot ancestry is checked after committing the merge.
+- All **57 skill entrypoints**, 58 YAML files, and JSON metadata validated; concrete relative links resolved after correcting a ketchup link during validation.
+- Reviewed the new explicit-only skill, read-only ketchup behavior, package-relative delegate fallback, and preservation of the shared runtime contract. Metadata validation is not a live behavioral trial.
+- Original archive identity was checked using its PAX commit; source hash is in `UPSTREAM.json`. The imported snapshot is verified against the extracted source, including file modes. Signature verification was not performed.
+
+Tooling and dependencies stayed in temporary writable test copies; no global installation or settings changes occurred. Live agent delegation, plugin installation, scheduling, external integrations, and visual catch-up rendering were not exercised. Existing executable scripts and the lockfile did not change.
+
+---
+
 # Maintenance structure validation — 2026-10-13
 
 The runtime remains pstack-codex 0.2.0 / original pstack 0.15.21. This change introduces Git ancestry, maintenance documentation, and a read-only provenance checker.

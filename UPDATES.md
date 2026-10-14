@@ -1,5 +1,17 @@
 # Pstack Codex updates
 
+## 0.2.1 — 2026-10-14
+
+Updated original pstack **0.15.21 → 0.15.23**, from `fe53d9e9093dbb9ae298563b1a9d702dd6e2ca08` to `5108b719a7aa484ef1a9781f587c7bbeac793f92`. Imported subtree commit: `ec3eb0c0458835ffc85e62b8ec7f7bf709d61f3c`. The original `main` snapshot is pinned; signatures were not verified. This update contains **53 main skills**, 23 playbooks, two role prompts, three dormant Benny skills, and the root entry.
+
+- Added explicit-only `$in-your-own-words` to restate the user's goal and problem before work; linked it from help and recipes.
+- Updated `$ketchup` to concise, plain-language summaries with small visuals, checked numbers, and focused decision requests. Its read-only scope and Codex runtime link remain.
+- Root-cause guidance now asks for a cheap, always-on signal when the decisive fact required a deep investigation.
+- Adapted the delegate's missing-path fallback to resolve the main skill inside its own package. It reports unavailable paths instead of searching Cursor caches or selecting a newer package mid-run.
+- Upstream's removal of Cursor mode/reminder metadata needed no Codex change because those fields were already absent. Kept the Codex README, portable plugin identity, invocation policies, and authorization/runtime contracts; adapted upstream discovery guidance to the existing Codex install instructions.
+
+Eight conflict paths were reviewed: Cursor manifest deletion, README, role prompt, portable manifest, ketchup, help, recipes, and main-mode metadata. No scripts or dependency locks changed. The ordinary merge retains both upstream and port ancestry. See [validation](VALIDATION.md) and [the new per-file inventory](docs/upstream-0.15.23.tsv).
+
 ## Upstream maintenance structure — 2026-10-13
 
 Added a pristine `upstream` branch at the already-integrated original 0.15.21 snapshot and connected it to `main` without changing runtime files or rewriting published history. The branch pattern is inspired by `backnotprop/pstack`; original Cursor remains the only source. Added original-versus-imported commit/tree identities, a provenance checker with negative tests, [AGENTS.md](AGENTS.md), and an ordinary-merge update guide. See [the history record](docs/upstream-history.md) for exact hashes and rehearsal evidence. Runtime package version remains 0.2.0.

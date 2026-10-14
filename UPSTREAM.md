@@ -89,7 +89,7 @@ Conflicts are expected where upstream and Codex changed the same behavior. Inspe
 
 The existing `.cursor-plugin/plugin.json` is intentionally absent on `main`; keep it absent after resolving modify/delete conflicts. Keep the local root `plugin.json` identity when upstream changes its own manifest. Keep ordinary scripts identical to upstream unless an explicit Codex contract requires a patch.
 
-Use [the historical inventory](docs/upstream-0.15.21.tsv) as context. The current customization diff is `git diff <integrated-snapshot-commit> HEAD`, not the original first-port diff. Keep future Codex-only changes in focused commits, with shared tool rules in `codex-runtime.md` rather than repeated across skills. Skill references and script changes still need explicit integration; installing a second plugin is not an override mechanism.
+Use [the latest integration inventory](docs/upstream-0.15.23.tsv) as context. The current customization diff is `git diff <integrated-snapshot-commit> HEAD`, not the original first-port diff. Keep future Codex-only changes in focused commits, with shared tool rules in `codex-runtime.md` rather than repeated across skills. Skill references and script changes still need explicit integration; installing a second plugin is not an override mechanism.
 
 ## Codex customization contracts
 
@@ -108,7 +108,7 @@ Use [the historical inventory](docs/upstream-0.15.21.tsv) as context. The curren
 | Benny / bot entrypoints and archived references | Keep integrations conditional on actual connectors/backends. Archived Cursor instructions remain reference material, not active setup. |
 | `scripts/orch/`, `scripts/watch-pr/`, `bun.lock`, ordinary references | Prefer unchanged upstream code where no Codex behavior differs. Bring dependent interfaces, callers, fixtures, and tests over together. |
 
-All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full path is shown. The full per-file source disposition for this update is in [the inventory](docs/upstream-0.15.21.tsv). It records the previous, new, and integrated file hashes. Documentation files are identified there without self-referential hashes. Use hashes to confirm what was copied exactly; they are evidence of this update, not a restriction on later local edits.
+All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full path is shown. The full per-file source disposition for this update is in [the inventory](docs/upstream-0.15.23.tsv). It records the previous, new, and integrated file hashes. Documentation files are identified there without self-referential hashes. Use hashes to confirm what was copied exactly; they are evidence of this update, not a restriction on later local edits.
 
 ## 4. Validate and record the integration
 
