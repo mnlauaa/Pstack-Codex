@@ -10,7 +10,7 @@ Before using this skill, read the shared [Codex runtime contract](../poteto-mode
 
 Explore the codebase to answer "how does X work?" questions. Produce architectural explanations at the level of a senior engineer onboarding onto a subsystem, enough to build a working mental model, not so much that it reads like annotated source code.
 
-Use native read-only delegates per the runtime contract. Explorers use the `how explorer` role; explainers use `how explainer`. Resolve both through the Models contract, defaulting to `inherit-parent`. If delegation is unavailable, answer from permitted evidence and label the limitation.
+Use native read-only delegates per the runtime contract. Explorers use the `how explorer` role; explainers use `how explainer`. Resolve both through the Models contract, defaulting to `inherit-parent`. If delegation is unavailable, answer from permitted evidence and label the limitation. Choose reasoning effort and speed per the runtime Models contract.
 
 ## 1. Assess complexity
 

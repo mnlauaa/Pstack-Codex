@@ -1,5 +1,19 @@
 # Pstack Codex updates
 
+## 0.2.2 — 2026-10-15
+
+Updated original pstack **0.15.23 → 0.15.25**, from `5108b719a7aa484ef1a9781f587c7bbeac793f92` to `850d7f2e9f5e55dff7eb00a0a479337fe79eb22f`. Imported subtree: `ceea2de5498da4b7796ca6e0c64bce1b36ff8ae0`. This pinned original `main` snapshot is not signature-verified. The package now contains **54 main skills**, 23 playbooks, two role prompts, three dormant Benny skills, and the root entry.
+
+- Added explicit-only `$sharpen`: consider expert methods, the user's actual outcome, and specification quality, retain an outside check, then do the task. Explicit user constraints remain binding.
+- Stack frontier discovery now follows forge PR base chains with GitHub CLI by default and optional Origin support; removed the Graphite requirement. Imported the implementation, callers, and tests together.
+- PR watcher recognizes owner-approval `ACTION_REQUIRED` as the review gate on both GitHub read paths. This classification does not authorize bypassing approval.
+- Worktree audit supports Origin and GitHub schemas and holds draft/open PRs. Retained full paths, explicit scoped history, and conservative review buckets; expanded the existing regression fixture.
+- Autopilot runs the full swarm at code-ready and after major changes; smaller changes get an independent verifier and fresh checks. Landing tests the affected merge result, pins branch leases, and sequences repeated trunk collisions. Stack owners do not rebase; the root owns topology through explicit writer handoffs.
+- Catch-up summaries explain changes with inline evidence, reserve diagrams for meaningful relationships, and keep action items as plain bullets; visuals no longer count toward the prose limit.
+- Adapted job-based reasoning guidance to supported Codex controls. Inheritance and explicit user model/effort settings remain; no fabricated fast-model IDs or provider fallbacks.
+
+Retained real scheduler IDs and cancellation, pinned installed playbooks, durable state outside the plugin, one coordinator writing the shared store, isolated replacement writers, invocation policies, and user authorization. Cursor cloud/Task defaults, `/loop`, moving-trunk instruction reads, and immediate overlapping replacement writers are not imported as Codex operations. Portable packaging and marketplace identities remain unchanged. Ordinary merge ancestry preserves both histories. See [validation](VALIDATION.md) and [the per-file inventory](docs/upstream-0.15.25.tsv).
+
 ## 0.2.1 — 2026-10-14
 
 Updated original pstack **0.15.21 → 0.15.23**, from `fe53d9e9093dbb9ae298563b1a9d702dd6e2ca08` to `5108b719a7aa484ef1a9781f587c7bbeac793f92`. Imported subtree commit: `ec3eb0c0458835ffc85e62b8ec7f7bf709d61f3c`. The original `main` snapshot is pinned; signatures were not verified. This update contains **53 main skills**, 23 playbooks, two role prompts, three dormant Benny skills, and the root entry.

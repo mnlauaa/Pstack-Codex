@@ -15,7 +15,7 @@ Every candidate gets the same prompt, so the prompt is the contract.
 
 1. State the artifact each candidate is producing.
 2. Derive the rubric. State what success looks like for *this* task, then turn it into 3-6 concrete gradeable criteria. The rubric is the picker's tool in Phase D. Candidates only see the task.
-3. Resolve the `arena runners` panel through the runtime Models contract. Default to two independent inherited-model candidates. Preserve the configured number of seats and use a rolling window. For architecture use the `architect runners` panel. Report same-model diversity honestly.
+3. Resolve the `arena runners` panel through the runtime Models contract. Default to two independent inherited-model candidates. Preserve the configured number of seats and use a rolling window. For architecture use the `architect runners` panel. Report same-model diversity honestly. Choose reasoning effort and speed per the runtime Models contract.
 4. Assign output paths. Each candidate writes to its own location (a git worktree where possible, otherwise `/tmp/arena-<slug>/candidate-<n>/`), per the **separate-before-serializing-shared-state** principle skill.
 
 ## Phase B: Fan out

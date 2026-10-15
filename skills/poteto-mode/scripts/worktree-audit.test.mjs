@@ -13,6 +13,7 @@ test("audit preserves a dirty worktree with spaces and never treats absent histo
   const bin = join(dir, "bin");
   mkdirSync(bin);
   writeFileSync(join(bin, "gh"), '#!/bin/sh\nprintf "[]\\n"\n', {mode: 0o755});
+  writeFileSync(join(bin, "origin"), "#!/bin/sh\nexit 1\n", {mode: 0o755});
   const env = {...process.env, GIT_CONFIG_GLOBAL: "/dev/null", GIT_CONFIG_NOSYSTEM: "1", PATH: `${bin}:${process.env.PATH}`, PSTACK_TRANSCRIPT_DIR: ""};
   function git(...args) {
     const result = spawnSync("git", args, {env, encoding: "utf8"});
@@ -57,6 +58,16 @@ test("audit preserves a dirty worktree with spaces and never treats absent histo
     git("-C", repo, "update-ref", "-d", "refs/remotes/origin/main");
     git("-C", repo, "update-ref", "refs/remotes/origin/master", "worker");
     assert.equal(row(audit())[2], "YES", "origin/master is supported as a fallback");
+
+    // Both forge schemas must hold open work, including Origin drafts.
+    writeFileSync(join(bin, "gh"), `#!/bin/sh\nprintf '%s\\n' '[{"number":7,"state":"OPEN","headRefName":"worker"}]'\n`, {mode: 0o755});
+    assert.equal(row(audit())[7], "hold-open-pr", "GitHub fallback holds open PRs");
+    writeFileSync(join(bin, "origin"), `#!/bin/sh\nprintf '%s\\n' '[{"number":8,"status":"draft","headRef":"worker"}]'\n`, {mode: 0o755});
+    assert.equal(row(audit())[7], "hold-open-pr", "Origin drafts remain in use");
+    assert.equal(row(audit())[5], "#8/draft", "Origin takes precedence when available");
+    writeFileSync(join(bin, "origin"), "#!/bin/sh\nexit 1\n", {mode: 0o755});
+    writeFileSync(join(bin, "gh"), "#!/bin/sh\nexit 1\n", {mode: 0o755});
+    assert.equal(row(audit())[7], "review-history", "unavailable forges do not authorize removal");
 
     const missing = audit("-b", "does-not-exist");
     assert.equal(missing.status, 1);

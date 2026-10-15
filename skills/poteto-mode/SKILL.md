@@ -95,6 +95,8 @@ Use native asynchronous delegation, explicit checkout paths, scoped briefs, and 
 
 Give new work to a fresh delegate with consolidated scope, including later directives, prior findings, and the branch. Reuse an agent only when its live process or uncommitted work makes that necessary. Preserve user changes and explicitly isolate independent writers.
 
+**Match the model to the job.** Choose reasoning effort and speed per the runtime Models contract.
+
 ## Writing the reply
 
 Write the reply clean as you draft it. A cleanup pass after drafting does not remove these patterns.

@@ -1,6 +1,6 @@
 ### Bug fix
 
-**You own this task. Plan, review, verify.** Use scoped delegates where they add value. A trivial local fix or a task that forbids delegation can be performed inline; do not label self-review independent.
+**You own this task. Plan, review, verify.** Use scoped delegates where they add value. A trivial local fix or a task that forbids delegation can be performed inline; do not label self-review independent. Choose reasoning effort and speed per the runtime Models contract.
 
 Be scientific. Every shipped line traces to runtime evidence. Belt-and-suspenders that "might help" is a hypothesis, not a fix. It does not ship. When evidence refutes a hypothesis, revert what it motivated. The smallest change the evidence justifies ships, nothing more.
 

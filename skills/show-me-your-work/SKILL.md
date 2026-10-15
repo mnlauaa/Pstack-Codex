@@ -68,7 +68,7 @@ Correct the log, not the story. The audit never edits or removes a row, even an 
 
 ## Cross-model review of the trail
 
-Before handing back, spawn an independent subagent, preferring a different available model family. If only the same model is available, disclose that reduced diversity per the runtime contract. Self-review is not a substitute. The subagent reads the audit trail and the run's transcript, then flags what the user should pay attention to. Not a redo of the work, a scan for what's suboptimal or risky.
+Before handing back, spawn an independent subagent, preferring a different available model family. If only the same model is available, disclose that reduced diversity per the runtime contract. Self-review is not a substitute. The subagent reads the audit trail and the run's transcript, then flags what the user should pay attention to. Not a redo of the work, a scan for what's suboptimal or risky. Choose reasoning effort and speed per the runtime Models contract.
 
 - Decisions logged with weak or absent evidence.
 - Verification steps skipped or claimed without proof in the transcript.

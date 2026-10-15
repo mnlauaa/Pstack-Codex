@@ -4,16 +4,17 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.2.1 · **Upstream:** 0.15.23 · **Source commit:** [`5108b71`](https://github.com/cursor/plugins/tree/5108b719a7aa484ef1a9781f587c7bbeac793f92/pstack)
+**Port version:** 0.2.2 · **Upstream:** 0.15.25 · **Source commit:** [`850d7f2`](https://github.com/cursor/plugins/tree/850d7f2e9f5e55dff7eb00a0a479337fe79eb22f/pstack)
 
 ## What’s included
 
-- **53 main skills** for implementation, investigation, architecture, reviews, testing, and technical writing.
+- **54 main skills** for implementation, investigation, architecture, reviews, testing, and technical writing.
 - **23 playbooks** for coordinated development and longer-running work.
 - Codex adaptations for native delegation, model inheritance, worktree isolation, scoped history, and supported scheduling.
 - Plan validation, worktree auditing, and GitHub PR-watching scripts.
 - `$ketchup` for a short, visual catch-up on progress and pending decisions.
 - `$in-your-own-words` to confirm the agent understands your goal before work starts.
+- `$sharpen` to approach a task with expert methods, focus on the intended outcome, and keep an outside check.
 - Source provenance, a change log, and a three-way merge guide for future upstream updates.
 
 ## Install in Codex
@@ -27,7 +28,7 @@ codex plugin marketplace list
 
 Restart the desktop app, open Plugins, select **Pstack for Codex**, and install **pstack-codex**. Start a new chat and select **poteto-help** for a tour or **poteto-mode** to run a workflow. Adding the marketplace makes the plugin discoverable; it does not itself install the plugin.
 
-The [marketplace catalog](.agents/plugins/marketplace.json) points to this repository’s root plugin. Plugin installation discovers the 53 main skills under `skills/`; the root `SKILL.md` is a separate entry for direct use, and the dormant Benny skills are outside that discovery directory.
+The [marketplace catalog](.agents/plugins/marketplace.json) points to this repository’s root plugin. Plugin installation discovers the 54 main skills under `skills/`; the root `SKILL.md` is a separate entry for direct use, and the dormant Benny skills are outside that discovery directory.
 
 To refresh the marketplace after new commits:
 
@@ -60,7 +61,7 @@ The main collection retains its existing explicit-invocation policies. The new e
 
 ## Runtime prerequisites
 
-Plain instruction workflows need no package installation. The existing orchestration and GitHub-watcher tools need Bun, their pinned dependencies, and authenticated GitHub CLI. In a writable source checkout, run `bun install --frozen-lockfile` in `skills/poteto-mode/scripts/`. For an immutable plugin cache, use a writable copy. Node runs the plan checker. The Graphite frontier path additionally needs `gt`; ordinary PR workflows do not.
+Plain instruction workflows need no package installation. The existing orchestration and GitHub-watcher tools need Bun, their pinned dependencies, and authenticated GitHub CLI. In a writable source checkout, run `bun install --frozen-lockfile` in `skills/poteto-mode/scripts/`. For an immutable plugin cache, use a writable copy. Node runs the plan checker. The stack frontier now uses the PR base chain through `gh` or optional `--forge origin`; Graphite is not required.
 
 Persistent checks require a real scheduler exposed by the host. A skill and a polling process do not themselves keep a closed application running. Required live UI proof needs actual browser/app control and recording support where specified.
 
@@ -74,11 +75,11 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.2.1. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
+This port is version 0.2.2. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
 
 ## Validation
 
-The 0.2.1 update passed 63 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 57 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
+The 0.2.2 update passed 68 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 58 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
 
 To run the script checks locally, with Bun and Node installed:
 

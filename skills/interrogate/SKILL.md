@@ -39,7 +39,7 @@ For each reviewer:
 
 Resolve each role through the Models section of the Codex runtime reference. The default is `inherit-parent`: omit model and effort overrides. Use configured model/effort pairs only when supported by the current host; report a rejected explicit choice rather than inventing a provider fallback.
 
-Read `references/reviewer-prompt.md` and fill in the same template for every reviewer with the stated intent, the diff or file contents, the rubric from `references/rubric.md`, and the code-quality lens from `references/code-quality-review.md`.
+Read `references/reviewer-prompt.md` and fill in the same template for every reviewer with the stated intent, the diff or file contents, the rubric from `references/rubric.md`, and the code-quality lens from `references/code-quality-review.md`. Choose reasoning effort and speed per the runtime Models contract.
 
 ## Step 4, Synthesize
 

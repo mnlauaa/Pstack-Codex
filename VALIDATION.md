@@ -1,3 +1,19 @@
+# Validation of pstack-codex 0.2.2 — 2026-10-15
+
+Original pstack **0.15.25** at `850d7f2e9f5e55dff7eb00a0a479337fe79eb22f` changes 42 paths from 0.15.23, including the new sharpen skill and executable forge changes. The pristine snapshot `ceea2de5498da4b7796ca6e0c64bce1b36ff8ae0` matches all **169 source files** and executable modes from the archive. Archive PAX identity and SHA-256 were checked; signatures were not verified.
+
+- Untouched upstream control: **68 Bun tests passed**, 246 assertions, zero failures; strict watcher TypeScript and shell syntax checks passed.
+- Integrated port: **68 Bun tests + 4 Node tests passed**, zero failures; strict watcher TypeScript and shell syntax checks passed. Locked dependencies stayed in temporary writable copies.
+- The existing worktree fixture now also exercises GitHub fallback, Origin precedence and draft PR holds, and unavailable forges. Paths with spaces, dirty-file preservation, explicit/fallback bases, invalid refs, and missing-history protection remain covered. A new assertion initially used the remote column rather than the PR column; correcting the fixture index made the check pass without changing production behavior.
+- **3 provenance regression tests passed**. Source ancestry and local version are checked after the merge commit, before publication.
+- **58 skill entrypoints, 59 YAML files, 5 JSON files, and 318 concrete relative links** validated with the skill-creator validator and metadata/link checks.
+- Reviewed changed instruction paths for native delegation, explicit/inherited model settings, unavailable speed/scheduler/verifier behavior, user authorization, pinned package instructions, isolated writer replacement, and single-writer state. This is instruction review, not a live agent trial.
+- Original orchestration and watcher changes are retained unchanged. The worktree audit retains only its existing Codex path/history adaptations; its forge behavior is upstream's. The Bun lockfile and license are unchanged.
+
+No live plugin installation, scheduler, cloud worker, UI journey, GitHub/Origin PR mutation, or external integration was exercised. Forge tests use fixture CLIs; they do not establish compatibility with every live forge/version. No global settings or installed caches were changed. See [the inventory](docs/upstream-0.15.25.tsv) for per-file provenance.
+
+---
+
 # Validation of pstack-codex 0.2.1 — 2026-10-14
 
 Original pstack **0.15.23** at `5108b719a7aa484ef1a9781f587c7bbeac793f92` was compared against the prior pristine snapshot: 10 changed paths, including one new skill. The integrated port uses ordinary merge ancestry; eight conflict paths were resolved by preserving Codex contracts and incorporating the reviewed original changes.

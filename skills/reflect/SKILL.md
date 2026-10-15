@@ -21,7 +21,7 @@ Use scoped Codex history per the runtime contract. Export only this conversation
 
 One message, three native delegation calls, a general-purpose native delegate, with `model` set as below, read-only task scope with inherited host permissions. Reviewers need MCP access for context lookups (tickets, chat threads, observability traces referenced in the transcript). Tool access follows the host permissions, independently of the requested read-only task scope.
 
-Resolve each role through the Models section of the Codex runtime reference. The default is `inherit-parent`: omit model and effort overrides. Use configured model/effort pairs only when supported by the current host; report a rejected explicit choice rather than inventing a provider fallback.
+Resolve each role through the Models section of the Codex runtime reference. The default is `inherit-parent`: omit model and effort overrides. Use configured model/effort pairs only when supported by the current host; report a rejected explicit choice rather than inventing a provider fallback. Choose reasoning effort and speed per the runtime Models contract.
 
 | Lens | Role line | Default `model` | Prompt template |
 |---|---|---|---|

@@ -22,6 +22,8 @@ Count available worker slots, including nested work, before dispatch. Use a roll
 
 Read `<repo>/.codex/pstack/models.json` if present. This is pstack data, not a native Codex configuration file. See setup-pstack for its schema. A role defaults to `inherit-parent`; panels default to two independent inherited-model runs. `auto` also means omit overrides. Configured models and reasoning efforts must be advertised as supported by the actual host. Do not synthesize IDs from provider names or effort suffixes. A rejected explicit model is reported; continue with inheritance only if the user's constraints permit that fallback.
 
+Match effort to the job only within user and host constraints: keep inherited roles inherited and preserve explicit model/effort choices. Where the user permits adaptive effort, start at the configured role budget, raise it for difficult work and lower it for routine work using only supported values. Keep verification at its configured `swarm workers` settings. Prefer standard speed unless urgency warrants a supported fast control; never encode speed in a guessed model slug or change providers to obtain it. If speed selection is unavailable, keep the host default and report the limitation when relevant.
+
 Different roles or runs on the same model do not supply cross-provider diversity. Prefer a distinct configured family when available; otherwise label the result as independent same-model review. Do not install or contact another provider merely to satisfy an upstream panel preference.
 
 ## Worktrees and state
@@ -30,7 +32,7 @@ Subagents may share the parent's filesystem. Explicitly create or reuse separate
 
 Choose a writable durable run directory outside the installed package, record its absolute path, and pass it to children. Prefer a user-specified location; otherwise use an authorized project-local `.codex/pstack/runs/<run-id>/`. Keep private receipts uncommitted unless requested. For the existing orchestrator CLI pass `--store <absolute-run-dir>` (or `ORCH_STORE`) on every call. One coordinator owns the store; its PID lock assumes one machine. Remote children return reports instead of writing a shared network store.
 
-Use Bun for existing TypeScript tools, Node for `check-plan.mjs`, and authenticated `gh` for the GitHub watcher. Provision script dependencies once in a writable copy when the installation is immutable; bootstrap writes beside scripts. Missing Bun/gh is a stated prerequisite, not a successful check. The Graphite-backed orchestration frontier additionally needs `gt`; do not require it for the Git/forge playbooks that already work without it.
+Use Bun for existing TypeScript tools, Node for `check-plan.mjs`, and authenticated `gh` for the GitHub watcher. Provision script dependencies once in a writable copy when the installation is immutable; bootstrap writes beside scripts. Missing Bun/gh is a stated prerequisite, not a successful check. The orchestration frontier resolves the PR base chain with `gh` by default, or `--forge origin` for a verified Origin CLI. It needs local branch refs in the stacker's clone; no Graphite dependency remains.
 
 ## Continuation, scheduling, and cancellation
 

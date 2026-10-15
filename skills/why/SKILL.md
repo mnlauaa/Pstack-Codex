@@ -10,7 +10,7 @@ Before using this skill, read the shared [Codex runtime contract](../poteto-mode
 
 Investigate the motivation and intent behind code. The companion `how` skill answers what the code does and how it works. `why` answers what forces led to its shape.
 
-Resolve roles through the runtime Models contract, defaulting to `inherit-parent`. Investigators and the synthesizer have read-only task scope with available tools and inherited host permissions; read-only scope does not itself strip MCP access.
+Resolve roles through the runtime Models contract, defaulting to `inherit-parent`. Investigators and the synthesizer have read-only task scope with available tools and inherited host permissions; read-only scope does not itself strip MCP access. Choose reasoning effort and speed per the runtime Models contract.
 
 ## Operating Posture
 
