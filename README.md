@@ -4,7 +4,7 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.2.2 · **Upstream:** 0.15.25 · **Source commit:** [`850d7f2`](https://github.com/cursor/plugins/tree/850d7f2e9f5e55dff7eb00a0a479337fe79eb22f/pstack)
+**Port version:** 0.2.3 · **Upstream:** 0.15.25 · **Source commit:** [`99743e9`](https://github.com/cursor/plugins/tree/99743e9c151c8537cbbf1f98bb38f34ef3368453/pstack)
 
 ## What’s included
 
@@ -75,11 +75,11 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.2.2. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
+This port is version 0.2.3. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
 
 ## Validation
 
-The 0.2.2 update passed 68 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 58 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
+The 0.2.3 update passed 68 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 58 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
 
 To run the script checks locally, with Bun and Node installed:
 

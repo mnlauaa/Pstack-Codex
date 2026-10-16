@@ -3,12 +3,12 @@
   "path": "pstack",
   "ref": "main",
   "version": "0.15.25",
-  "commit": "850d7f2e9f5e55dff7eb00a0a479337fe79eb22f",
-  "previous_commit": "5108b719a7aa484ef1a9781f587c7bbeac793f92",
-  "checked_on": "2026-10-15",
-  "archive_sha256": "17b0f757c9e7c7fbe3555bcb4eb83a93ddb8f93be20a8d42a4ea67a127a2a2e8",
+  "commit": "99743e9c151c8537cbbf1f98bb38f34ef3368453",
+  "previous_commit": "850d7f2e9f5e55dff7eb00a0a479337fe79eb22f",
+  "checked_on": "2026-10-16",
+  "archive_sha256": "68be9b4b5c7dddc1171011165746013cc043ae025e8f4b78d53d139bb1d49f92",
   "signature_verification": "not performed",
-  "local_version": "0.2.2",
-  "snapshot_commit": "ceea2de5498da4b7796ca6e0c64bce1b36ff8ae0",
-  "snapshot_tree": "8ff8d978aee18904b8be529b477ade363a53f7dd"
+  "local_version": "0.2.3",
+  "snapshot_commit": "c7b8538ff500228568f660051c869624866329cc",
+  "snapshot_tree": "0d5fd349cbc77d054eed60f0e8cdfbea86321ff9"
 }

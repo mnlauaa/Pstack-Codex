@@ -1,3 +1,18 @@
+# Validation of pstack-codex 0.2.3 — 2026-10-16
+
+Original commit `99743e9c151c8537cbbf1f98bb38f34ef3368453` changes 12 pstack paths while retaining upstream version 0.15.25. All **169 pristine source files and executable modes** match the downloaded archive. PAX commit identity and archive SHA-256 were checked; signatures were not verified.
+
+- Untouched upstream control: **68 Bun tests**, 246 assertions, zero failures; strict watcher TypeScript and shell syntax checks passed.
+- Integrated port: **68 Bun tests + 4 Node tests**, zero failures; strict watcher TypeScript and shell syntax checks passed.
+- **3 provenance regression tests passed**; integrated ancestry is checked after committing the ordinary merge.
+- Skill-creator validation passed for **58 skill entrypoints**; **59 YAML files, 5 JSON files, and 321 concrete relative links** validated. No conflict markers remain.
+- Reviewed every upstream change, including clean merges. Seven conflicts preserve Codex packaging, invocation metadata, skill syntax, and worker-slot/model bindings while incorporating the changed engineering guidance. The shared runtime, model setup, scheduling, integrations, executable scripts, dependency lock, and marketplace catalog are unchanged.
+- Behavioral checks include the existing unavailable-forge and missing-scheduler-marker cases. New text was reviewed for legitimate-state guards, observable test effects, stale-state evidence, and preserved permission boundaries; no new host capability is introduced.
+
+This is instruction/metadata review plus executable regression coverage, not a live agent workflow trial. Plugin installation, scheduling, external services, and UI behavior were not exercised. Dependencies remained in temporary writable copies. See [the per-file inventory](docs/upstream-0.15.25-99743e9c151c.tsv).
+
+---
+
 # Validation of pstack-codex 0.2.2 — 2026-10-15
 
 Original pstack **0.15.25** at `850d7f2e9f5e55dff7eb00a0a479337fe79eb22f` changes 42 paths from 0.15.23, including the new sharpen skill and executable forge changes. The pristine snapshot `ceea2de5498da4b7796ca6e0c64bce1b36ff8ae0` matches all **169 source files** and executable modes from the archive. Archive PAX identity and SHA-256 were checked; signatures were not verified.

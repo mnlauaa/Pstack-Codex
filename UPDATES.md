@@ -1,5 +1,17 @@
 # Pstack Codex updates
 
+## 0.2.3 — 2026-10-16
+
+Integrated original commit `99743e9c151c8537cbbf1f98bb38f34ef3368453` after `850d7f2e9f5e55dff7eb00a0a479337fe79eb22f`. Upstream still labels this **0.15.25**; the 12-path subtree change, not the version string or unrelated monorepo commits, triggered this update. Pristine subtree commit: `c7b8538ff500228568f660051c869624866329cc`. The package remains 54 main skills and 23 playbooks.
+
+- Root-cause guidance distinguishes legitimate states needing handling from invalid states whose producer must be fixed.
+- Behavioral testing now checks observable contracts and external effects, rejects tests coupled to internals, and permits absence assertions when absence is the actual contract. Updated `$correct`, the principle index, and guide together.
+- Premise testing now asks for a direct experiment after repeated failed fixes. Idempotency guidance derives actions from current state and requires evidence for stale artifacts.
+- Imported upstream consolidation of type-system, migration, reviewer judgment, and swarm reporting instructions. Retained Codex swarm worker-count/slot guidance and model bindings where upstream removed overlapping text; preserved invocation metadata and runtime links.
+- Kept the Codex README and added the new source pin. No executable scripts, locks, models, scheduling, permissions, marketplace identity, or installed plugins changed.
+
+Ordinary merge ancestry retains the pristine source. Signatures were not verified. See [validation](VALIDATION.md) and [this integration's inventory](docs/upstream-0.15.25-99743e9c151c.tsv); the previous 0.15.25 inventory remains historical.
+
 ## 0.2.2 — 2026-10-15
 
 Updated original pstack **0.15.23 → 0.15.25**, from `5108b719a7aa484ef1a9781f587c7bbeac793f92` to `850d7f2e9f5e55dff7eb00a0a479337fe79eb22f`. Imported subtree: `ceea2de5498da4b7796ca6e0c64bce1b36ff8ae0`. This pinned original `main` snapshot is not signature-verified. The package now contains **54 main skills**, 23 playbooks, two role prompts, three dormant Benny skills, and the root entry.
