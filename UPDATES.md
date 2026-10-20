@@ -1,5 +1,18 @@
 # Pstack Codex updates
 
+## 0.2.4 — 2026-10-20
+
+Updated original pstack **0.15.25 → 0.15.28**, from `99743e9c151c8537cbbf1f98bb38f34ef3368453` to `ddf824aff1e55ba14bd666b30bce3fc69962abe6`. Pristine snapshot: `fb4cb8d03e5bbceb07d5352d127c2bfacb5e46fb`. There are 26 changed upstream paths and **56 main skills**, 23 playbooks, two role prompts, three dormant Benny skills, and the root entry. This is a pinned main snapshot; signatures were not verified.
+
+- Added `$create-formal-verification-skill` and `$maintain-formal-verification-skill`: choose a meaningful property, state bounds, prove the check can fail, record covered code and sync commits, and distinguish model drift from product bugs. Verifiers are not bundled.
+- Added optional formal-verification setup offers, help routing, recipes, and guide coverage. New generators remain explicit-only and use project `.agents/skills/`, the shared runtime, isolated scratch mutations, and blocked/draft reporting when a required verifier is unavailable. Empirical generated-input tests are not labeled exhaustive proofs.
+- `$ketchup` now lists every pending decision with evidence and risk; its response can grow with the number of items. Read-only behavior and factual visuals remain.
+- TypeScript branded-value examples now use validating type predicates rather than casts. Imported the small sharpen simplification while retaining binding user constraints.
+- Imported guide revisions with Codex commands and paths. Kept the new Claude adapter as explicitly archived upstream reference; its tool mappings, global settings, and skip rules do not govern this port. The external generated Claude distribution is not imported.
+- Upstream lowercase-name fixes were already present here. Kept the portable manifest, marketplace identity, role models, scheduler behavior, authorization boundaries, runtime scripts, and lockfile.
+
+See [validation](VALIDATION.md), [the inventory](docs/upstream-0.15.28.tsv), and [the updated customization map](UPSTREAM.md).
+
 ## 0.2.3 — 2026-10-16
 
 Integrated original commit `99743e9c151c8537cbbf1f98bb38f34ef3368453` after `850d7f2e9f5e55dff7eb00a0a479337fe79eb22f`. Upstream still labels this **0.15.25**; the 12-path subtree change, not the version string or unrelated monorepo commits, triggered this update. Pristine subtree commit: `c7b8538ff500228568f660051c869624866329cc`. The package remains 54 main skills and 23 playbooks.

@@ -28,6 +28,8 @@ Check the state that changes the answer, and mention it only when it does:
 - No `<repo>/.codex/pstack/models.json` means `$setup-pstack` hasn't run for this user, so every role uses its default model.
 - No `verify-*` skill or other app harness in the project means agents have no scripted way to drive the app. Mention `$create-verification-skill` when the question is about proving a change works.
 
+- No formal verification skill in the project means no property is checked past what tests reach. Mention `$create-formal-verification-skill` when the question is about a race, an invariant, or another case tests rarely hit. When one exists and the code it covers changed after the commit it records as last in sync, mention `$maintain-formal-verification-skill` if the question touches that code.
+
 When the model rule is missing and it matters, ask whether the user wants to pick a model for each role and a reasoning budget now. It matters when the user is new, the question is about setup or cost, or the answer depends on which models run. Ask at most once per chat. If the need is also unclear, ask both questions together. Offer two choices:
 
 - Now: give them `$setup-pstack` to type, and answer their question too.
@@ -38,6 +40,8 @@ When the model rule is missing and it matters, ask whether the user wants to pic
 Use this package's root SKILL.md directly, or install it through the supported skill/plugin mechanism described in the bundled README. Do not claim that creating the folder registered it globally.
 
 Models inherit by default. Use the bundled setup-pstack skill to change roles when requested. More panel seats consume more work; a cheaper model does not inherently use fewer tokens. Read the runtime contract before describing concurrency or overnight support.
+
+Setup also offers an optional formal-verification skill when the project lacks one. An offer does not start verification or install a verifier.
 
 ## Start a task with `$poteto-mode`
 
@@ -58,7 +62,7 @@ The default answer is `$poteto-mode`, which runs most of the others when its ste
 | Know why code is shaped this way, or where a number came from | [`$why`](../why/SKILL.md) |
 | Understand a change or subsystem, explained plainly | [`$teach`](../teach/SKILL.md) |
 | Catch up on their own recent work on a topic | [`$recall`](../recall/SKILL.md) |
-| Catch up on changes since their last message in a few plain sentences and small visuals, including decisions awaiting them | [`$ketchup`](../ketchup/SKILL.md) |
+| Catch up on changes and every pending decision, with enough evidence and risk context to decide from the reply | [`$ketchup`](../ketchup/SKILL.md) |
 | Know what a small diff could break outside itself | [`$blast-radius`](../blast-radius/SKILL.md) |
 | Settle types and module shape before code that crosses a function boundary | [`$architect`](../architect/SKILL.md) |
 | Get several attempts at one brief, merged into the best one | [`$arena`](../arena/SKILL.md) |
@@ -72,6 +76,8 @@ The default answer is `$poteto-mode`, which runs most of the others when its ste
 | Hear the last reply again in plain words | [`$bro`](../bro/SKILL.md) |
 | Give agents a scripted way to drive the app and prove behavior | [`$create-verification-skill`](../create-verification-skill/SKILL.md) |
 | Bring a verification skill and its feature map back in line with the app | [`$maintain-verification-skill`](../maintain-verification-skill/SKILL.md) |
+| Formally verify a race, invariant, or other property that tests rarely reach | [`$create-formal-verification-skill`](../create-formal-verification-skill/SKILL.md) |
+| Bring a formal verification back in line after the code it covers changed, and learn whether a failure is drift or a bug | [`$maintain-formal-verification-skill`](../maintain-formal-verification-skill/SKILL.md) |
 | Vet a performance number before reporting or acting on it | [`$benchmark-checklist`](../benchmark-checklist/SKILL.md) |
 | Run a large or cross-cutting change, or one to review after stepping away | [`$figure-it-out`](../figure-it-out/SKILL.md) |
 | Keep a decision log during a run, and review it afterward | [`$show-me-your-work`](../show-me-your-work/SKILL.md) |

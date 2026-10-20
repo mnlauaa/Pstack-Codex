@@ -39,3 +39,7 @@ Read [the runtime contract](../poteto-mode/references/codex-runtime.md). Configu
 ```
 
 For an explicitly selected supported model, the role object may also contain `reasoning_effort`. Translate that to the actual host's spawn field; do not pass this JSON object directly as a tool argument.
+
+## Optional formal verification
+
+If the project has no formal-verification skill or equivalent check, offer once to generate one with `$create-formal-verification-skill`. Explain that it checks a key property within explicit bounds and assumptions. Proceed only if the user accepts or already requested it; declining does not block model setup.

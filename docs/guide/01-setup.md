@@ -2,6 +2,7 @@
 
 Use this package's root SKILL.md directly, or register the folder using a supported local skill/plugin installation. Creating this folder alone does not globally install it. See the [package README](../../README.md).
 
+
 ## Pick your models
 
 The default is the parent model with no effort override. Run [setup-pstack](../../skills/setup-pstack/SKILL.md) when you want role-specific choices. It writes project-local `.codex/pstack/models.json`, loaded at run start. A role is a model/effort object; a panel is a list. Only actual host-supported model/effort combinations are accepted. An inherited-model panel supplies independent runs, not cross-provider diversity.
@@ -11,6 +12,10 @@ Re-read changed configuration before the next dispatch. Existing agents keep the
 ## Verify the real app
 
 Use the existing project harness where possible. If it lacks the needed user path, [create-verification-skill](../../skills/create-verification-skill/SKILL.md) can create a project-local verification workflow. Confirm the actual control and recording tools are available before promising those checks.
+
+## Verify a difficult property
+
+Setup also offers [create-formal-verification-skill](../../skills/create-formal-verification-skill/SKILL.md) when no equivalent check exists. It targets properties such as retry or lease safety, states its bounds, and must demonstrate a failing broken variant. Accept the offer only when useful; declining does not block setup. Use [maintain-formal-verification-skill](../../skills/maintain-formal-verification-skill/SKILL.md) after covered code changes.
 
 ## Run your first task
 

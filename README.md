@@ -4,17 +4,18 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.2.3 · **Upstream:** 0.15.25 · **Source commit:** [`99743e9`](https://github.com/cursor/plugins/tree/99743e9c151c8537cbbf1f98bb38f34ef3368453/pstack)
+**Port version:** 0.2.4 · **Upstream:** 0.15.28 · **Source commit:** [`ddf824a`](https://github.com/cursor/plugins/tree/ddf824aff1e55ba14bd666b30bce3fc69962abe6/pstack)
 
 ## What’s included
 
-- **54 main skills** for implementation, investigation, architecture, reviews, testing, and technical writing.
+- **56 main skills** for implementation, investigation, architecture, reviews, testing, and technical writing.
 - **23 playbooks** for coordinated development and longer-running work.
 - Codex adaptations for native delegation, model inheritance, worktree isolation, scoped history, and supported scheduling.
 - Plan validation, worktree auditing, and GitHub PR-watching scripts.
-- `$ketchup` for a short, visual catch-up on progress and pending decisions.
+- `$ketchup` for a visual catch-up with every pending decision, its evidence, and risk.
 - `$in-your-own-words` to confirm the agent understands your goal before work starts.
 - `$sharpen` to approach a task with expert methods, focus on the intended outcome, and keep an outside check.
+- `$create-formal-verification-skill` and `$maintain-formal-verification-skill` for bounded property checks and keeping them aligned with the code. Verifiers are not bundled.
 - Source provenance, a change log, and a three-way merge guide for future upstream updates.
 
 ## Install in Codex
@@ -28,7 +29,7 @@ codex plugin marketplace list
 
 Restart the desktop app, open Plugins, select **Pstack for Codex**, and install **pstack-codex**. Start a new chat and select **poteto-help** for a tour or **poteto-mode** to run a workflow. Adding the marketplace makes the plugin discoverable; it does not itself install the plugin.
 
-The [marketplace catalog](.agents/plugins/marketplace.json) points to this repository’s root plugin. Plugin installation discovers the 54 main skills under `skills/`; the root `SKILL.md` is a separate entry for direct use, and the dormant Benny skills are outside that discovery directory.
+The [marketplace catalog](.agents/plugins/marketplace.json) points to this repository’s root plugin. Plugin installation discovers the 56 main skills under `skills/`; the root `SKILL.md` is a separate entry for direct use, and the dormant Benny skills are outside that discovery directory.
 
 To refresh the marketplace after new commits:
 
@@ -75,11 +76,11 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.2.3. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
+This port is version 0.2.4. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
 
 ## Validation
 
-The 0.2.3 update passed 68 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 58 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
+The 0.2.4 update passed 68 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 60 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
 
 To run the script checks locally, with Bun and Node installed:
 

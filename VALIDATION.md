@@ -1,3 +1,18 @@
+# Validation of pstack-codex 0.2.4 — 2026-10-20
+
+Original pstack 0.15.28 at `ddf824aff1e55ba14bd666b30bce3fc69962abe6` changes 26 subtree paths. PAX identity and archive SHA-256 were checked. The pristine imported snapshot matches the archive's 172 files and executable modes; signatures were not verified.
+
+- Untouched upstream control: **68 Bun tests**, 246 assertions, zero failures; watcher strict TypeScript and shell syntax checks passed.
+- Integrated port: **68 Bun tests + 4 Node tests**, zero failures; watcher strict TypeScript and shell syntax checks passed.
+- **3 provenance regression tests passed**. Integrated source ancestry is checked after the ordinary merge commit.
+- Skill-creator validation passed for **60 skill entrypoints**; **61 YAML files, 5 JSON files, and 340 concrete relative links** validated. No conflict markers remain.
+- Reviewed new skills for unavailable verifiers, isolated negative controls, blocked sync commits, bounded proof claims, empirical fallback labels, existing user work, and product-fix scope. Setup only offers the workflow; it does not install tools or run verification on its own. These are instruction reviews, not end-to-end generated verifier trials.
+- Reviewed clean merges and host conflicts. Codex runtime, model schema, executable scripts, lockfile, and marketplace catalog remain unchanged. Claude mapping instructions are labeled archived reference and are not used as Codex runtime behavior.
+
+No live formal verifier, generated project skill, plugin installation, scheduler, external service, or UI journey was exercised. Temporary test dependencies are not bundled. See [the inventory](docs/upstream-0.15.28.tsv) for per-file source dispositions.
+
+---
+
 # Validation of pstack-codex 0.2.3 — 2026-10-16
 
 Original commit `99743e9c151c8537cbbf1f98bb38f34ef3368453` changes 12 pstack paths while retaining upstream version 0.15.25. All **169 pristine source files and executable modes** match the downloaded archive. PAX commit identity and archive SHA-256 were checked; signatures were not verified.
