@@ -89,7 +89,7 @@ Conflicts are expected where upstream and Codex changed the same behavior. Inspe
 
 The existing `.cursor-plugin/plugin.json` is intentionally absent on `main`; keep it absent after resolving modify/delete conflicts. Keep the local root `plugin.json` identity when upstream changes its own manifest. Keep ordinary scripts identical to upstream unless an explicit Codex contract requires a patch.
 
-Use [the latest integration inventory](docs/upstream-0.15.28.tsv) as context. The current customization diff is `git diff <integrated-snapshot-commit> HEAD`, not the original first-port diff. Keep future Codex-only changes in focused commits, with shared tool rules in `codex-runtime.md` rather than repeated across skills. Skill references and script changes still need explicit integration; installing a second plugin is not an override mechanism.
+Use [the latest integration inventory](docs/upstream-0.15.29.tsv) as context. The current customization diff is `git diff <integrated-snapshot-commit> HEAD`, not the original first-port diff. Keep future Codex-only changes in focused commits, with shared tool rules in `codex-runtime.md` rather than repeated across skills. Skill references and script changes still need explicit integration; installing a second plugin is not an override mechanism.
 
 ## Codex customization contracts
 
@@ -105,12 +105,13 @@ Use [the latest integration inventory](docs/upstream-0.15.28.tsv) as context. Th
 | Recall, reflection, evaluation, and investigation | Keep scoped Codex evidence and non-Git fallbacks. A digest cannot prove tool calls. Do not restore Cursor transcript paths or assume read-only task scope removes MCP tools. |
 | `scripts/check-plan.mjs` and its fixtures | Keep `installed-playbook:` and `hourly-audit` markers. Port parser fixes independently of Cursor's `git show origin/main:` and `/loop 1h` markers. |
 | `scripts/worktree-audit.sh` | Keep full paths containing spaces, explicit `PSTACK_TRANSCRIPT_DIR`, and `review-history` rather than `safe` when history needs review. Preserve base selection and fail on invalid refs. Both Origin draft/open and GitHub open PRs must remain held; unavailable forge/history evidence cannot authorize removal. |
+| `skills/sharpen/` | Preserve explicit-only invocation and prompt-rewrite-only behavior; user choices and constraints remain binding. |
 | Formal-verification skills | Keep explicit invocation, project-local skill authoring, isolated negative-control mutations, honest bounds and empirical-vs-formal labels, and blocked/draft results for unavailable verifiers. |
 | `docs/harness/claude-code.md` | Archived upstream reference only; Codex uses its own runtime binding, never the Claude skip rules or global config paths. |
 | Benny / bot entrypoints and archived references | Keep integrations conditional on actual connectors/backends. Archived Cursor instructions remain reference material, not active setup. |
 | `scripts/orch/`, `scripts/watch-pr/`, `bun.lock`, ordinary references | Prefer unchanged upstream code where no Codex behavior differs. Bring dependent interfaces, callers, fixtures, and tests over together. |
 
-All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full path is shown. The full per-file source disposition for this update is in [the inventory](docs/upstream-0.15.28.tsv). It records the previous, new, and integrated file hashes. Documentation files are identified there without self-referential hashes. Use hashes to confirm what was copied exactly; they are evidence of this update, not a restriction on later local edits.
+All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full path is shown. The full per-file source disposition for this update is in [the inventory](docs/upstream-0.15.29.tsv). It records the previous, new, and integrated file hashes. Documentation files are identified there without self-referential hashes. Use hashes to confirm what was copied exactly; they are evidence of this update, not a restriction on later local edits.
 
 ## 4. Validate and record the integration
 

@@ -1,5 +1,13 @@
 # Pstack Codex updates
 
+## 0.2.5 — 2026-10-20
+
+Updated original pstack **0.15.28 → 0.15.29**, from `ddf824aff1e55ba14bd666b30bce3fc69962abe6` to `88d47514b82e7c44f00f2b2a72ff6dd12158038c`. Pristine snapshot: `e52c7ab9a97cdbad28c27abb3041ec8d561dc19e`. Eight upstream paths changed; counts remain 56 main skills and 23 playbooks.
+
+- `$sharpen` now explains four ways to improve a prompt (expert approach, raw sources, specific methods/tools, and an outside check), then returns the rewritten prompt. It no longer executes the task. User choices and explicit constraints remain binding.
+- Updated help, recipes, guide, and README to match. Retained explicit-only Codex invocation, runtime reference, packaging, models, scheduling, and authorization boundaries. No scripts or dependencies changed.
+- Ordinary merge preserves pristine upstream ancestry. This is a pinned main snapshot; signatures were not verified. See [validation](VALIDATION.md) and [the inventory](docs/upstream-0.15.29.tsv).
+
 ## 0.2.4 — 2026-10-20
 
 Updated original pstack **0.15.25 → 0.15.28**, from `99743e9c151c8537cbbf1f98bb38f34ef3368453` to `ddf824aff1e55ba14bd666b30bce3fc69962abe6`. Pristine snapshot: `fb4cb8d03e5bbceb07d5352d127c2bfacb5e46fb`. There are 26 changed upstream paths and **56 main skills**, 23 playbooks, two role prompts, three dormant Benny skills, and the root entry. This is a pinned main snapshot; signatures were not verified.

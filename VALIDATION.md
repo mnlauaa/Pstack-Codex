@@ -1,3 +1,17 @@
+# Validation of pstack-codex 0.2.5 — 2026-10-20
+
+Original pstack 0.15.29 at `88d47514b82e7c44f00f2b2a72ff6dd12158038c` changes eight upstream paths. Archive PAX identity, SHA-256, file bytes, and executable modes were checked; signatures were not verified.
+
+- Untouched upstream control: 68 Bun tests / 246 assertions, strict TypeScript and shell syntax passed.
+- Integrated port: 68 Bun tests and four Node tests passed, with strict TypeScript and shell syntax checks.
+- Three provenance regression tests passed; integrated ancestry checked after committing the ordinary merge.
+- All 60 skill entrypoints, 61 YAML files, five JSON files, and concrete relative links validated with the skill-creator validator and metadata/link checks.
+- Reviewed all eight upstream changes and seven conflict paths. Sharpen retains explicit invocation and user constraints; it returns a prompt without executing the requested task. No new tool capability is required, including when external tools are unavailable. Runtime contracts, executable scripts, dependency lock, models, and scheduler are unchanged.
+
+Instruction review and regression checks do not establish live model compliance. No live skill invocation, plugin installation, scheduler, or external integration was exercised. See [inventory](docs/upstream-0.15.29.tsv).
+
+---
+
 # Validation of pstack-codex 0.2.4 — 2026-10-20
 
 Original pstack 0.15.28 at `ddf824aff1e55ba14bd666b30bce3fc69962abe6` changes 26 subtree paths. PAX identity and archive SHA-256 were checked. The pristine imported snapshot matches the archive's 172 files and executable modes; signatures were not verified.
