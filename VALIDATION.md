@@ -9,7 +9,7 @@
 - Candidate skill/metadata/link validation passed. New scripts remain byte-identical to upstream; full statechart suite was not rerun on the candidate after baseline failure.
 - Reviewed missing-tool behavior and explicit invocation, isolated outputs, executable mappings, bounded proof claims, and real-code reproduction requirements. No live model-authored workflow or actual PNG rendering was verified.
 
-Evidence is retained locally under `/tmp/pstack-20261023/`: `state.json`, `statechart-control.log`, `statechart-tlc-control.log`, and `statechart-tlc-control-unrestricted.log`. Candidate branches and worktrees are preserved. Resume by reconciling these branches, diagnosing platform-compatible fault injection and canonical paths, rerunning upstream and port checks, and publishing only if the required gates pass. No global plugin installation or branch push occurred.
+The [captured control log](docs/upstream-0.15.30-control.log) is retained in this candidate (trailing whitespace normalized). Additional evidence is retained locally under `/tmp/pstack-20261023/`: `state.json`, `statechart-control.log`, `statechart-tlc-control.log`, and `statechart-tlc-control-unrestricted.log`. Candidate branches and worktrees are preserved. Resume by reconciling these branches, diagnosing platform-compatible fault injection and canonical paths, rerunning upstream and port checks, and publishing only if the required gates pass. No global plugin installation or branch push occurred.
 
 ---
 

@@ -57,6 +57,7 @@ docs/upstream-0.15.25-99743e9c151c.tsv	port-only	port-only	-	-	-
 docs/upstream-0.15.25.tsv	port-only	port-only	-	-	-
 docs/upstream-0.15.28.tsv	port-only	port-only	-	-	-
 docs/upstream-0.15.29.tsv	port-only	port-only	-	-	-
+docs/upstream-0.15.30-control.log	port-only	port-only	-	-	a8c47507e50466b3792d978855dd9c245f2f6d66a9c2e40a7f54db4a5c70a268
 docs/upstream-0.15.30.tsv	port-only	port-only	-	-	-
 docs/upstream-history.md	port-only	port-only	-	-	-
 plugin.json	modified	codex-adapted	8a5811042556a0a981e9fdd08a2c726be76458833d64b484acaa611291308c2a	b17556047a5df5fd2c42550af8d965ece3c2e55aa68082def5951e09f4788ae1	8defab78c5f54876b3b7ce646ea65bc470b6f3fa5263f3a0aca2dac2d237c644

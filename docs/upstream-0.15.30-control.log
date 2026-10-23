@@ -87,9 +87,9 @@ test at skills/statechart/scripts/test/statechart.test.mjs:2880:1
 test at skills/statechart/scripts/test/statechart.test.mjs:2917:1
 ✖ a file that is put in the output folder during a run stays, and the run exits 2 (3116.569ms)
   AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^Pay-statechart has a file that this command did not write: notes\.md\. A run puts its files in place of the whole output folder, so pass --out with a new folder\. The files that this run wrote are in tmp\/statechart-\w+\.\n$/. Input:
-  
+
   'Pay-statechart has a file that this command did not write: notes.md. A run puts its files in place of the whole output folder, so pass --out with a new folder. The files that this run wrote are in /var/folders/xb/gpm8q41s4w91ysry1fyn7f1m0000gn/T/statechart-OX6rmC/tmp/statechart-xE0YWA.\n'
-  
+
       at TestContext.<anonymous> (file:///private/tmp/pstack-20261023/control/skills/statechart/scripts/test/statechart.test.mjs:2930:12)
       at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
       at async Test.run (node:internal/test_runner/test:1409:7)
@@ -105,9 +105,9 @@ test at skills/statechart/scripts/test/statechart.test.mjs:2917:1
 test at skills/statechart/scripts/test/statechart.test.mjs:2970:1
 ✖ a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is (1508.163542ms)
   AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
-  
+
   0 !== 2
-  
+
       at TestContext.<anonymous> (file:///private/tmp/pstack-20261023/control/skills/statechart/scripts/test/statechart.test.mjs:2985:12)
       at Test.runInAsyncScope (node:async_hooks:226:14)
       at Test.run (node:internal/test_runner/test:1402:25)
