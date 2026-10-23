@@ -118,7 +118,7 @@ All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full
 In the port worktree:
 
 1. Update `UPSTREAM.json` with original SHA/version/archive hash/date/signature status and the candidate `snapshot_commit` / `snapshot_tree`. Preserve the previous original SHA in `previous_commit`.
-2. Bump local `plugin.json` and matching `local_version` when publishing a changed plugin; update README/PORT counts and provenance. Marketplace/maintenance-only changes do not require a runtime version bump.
+2. Set `plugin.json.version` and `UPSTREAM.json.local_version` to the integrated original `UPSTREAM.json.version`; update README/PORT counts and provenance. Do not continue the former independent 0.2.x numbering. Same-version upstream changes and Codex-only maintenance retain that version and are distinguished by commit pins and dated update records. A blocked candidate must not cause main to advertise an upstream version it has not integrated.
 3. Add a dated entry to `UPDATES.md`: new behavior, retained adaptations, superseded patches, intentional omissions, and limitations.
 4. Run the relevant script checks below, validate skill frontmatter and YAML/JSON, check relative links, and review newly introduced Cursor tool names, model IDs, paths, or `/loop` instructions. Archived examples and explicit negative examples can be intentional.
 5. Record real results in `VALIDATION.md`. Do not claim scheduler, installation, cloud, or UI behavior was exercised unless it ran. Keep dated inventories historical; generate a new one for each integration. When upstream changes without a version bump, suffix the new inventory with the original short commit SHA.

@@ -1,6 +1,6 @@
 # Codex port record
 
-Upstream is Lauren Tan's pstack 0.15.29 from cursor/plugins commit `88d47514b82e7c44f00f2b2a72ff6dd12158038c`. This local adaptation is version 0.2.5. Retain LICENSE and this provenance when redistributing.
+Upstream is Lauren Tan's pstack 0.15.29 from cursor/plugins commit `88d47514b82e7c44f00f2b2a72ff6dd12158038c`. This local adaptation is version 0.15.29, matching the integrated upstream version. Retain LICENSE and this provenance when redistributing.
 
 The 56-skill main collection and all 23 playbooks are retained. Changes add a root entry skill and portable plugin manifest, normalize skill metadata, preserve existing invocation policies, and bind execution through skills/poteto-mode/references/codex-runtime.md. Model setup now uses project-local JSON with inheritance defaults. Delegation uses native tool schemas and explicit writer isolation. The plan checker and templates use installed-playbook and hourly-audit markers. History is scoped through available Codex tools. Worktree history is optional explicit input, and uncertain history cannot classify a checkout as safe to delete.
 

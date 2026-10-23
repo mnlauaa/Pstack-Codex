@@ -1,5 +1,11 @@
 # Pstack Codex updates
 
+## 0.15.29 — 2026-10-23 — version alignment
+
+Aligned package version **0.2.5 → 0.15.29** with the integrated original pstack version. Future package versions follow the integrated upstream version; commit pins distinguish changes within the same version. Updated the maintenance rule and current documentation. Historical version entries and inventories remain unchanged.
+
+This changes metadata only. The blocked 0.15.30 candidate is not included; runtime content and source pins are unchanged.
+
 ## 0.2.5 — 2026-10-20
 
 Updated original pstack **0.15.28 → 0.15.29**, from `ddf824aff1e55ba14bd666b30bce3fc69962abe6` to `88d47514b82e7c44f00f2b2a72ff6dd12158038c`. Pristine snapshot: `e52c7ab9a97cdbad28c27abb3041ec8d561dc19e`. Eight upstream paths changed; counts remain 56 main skills and 23 playbooks.

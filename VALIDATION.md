@@ -1,3 +1,9 @@
+# Version alignment to 0.15.29 — 2026-10-23
+
+Metadata-only change from port 0.2.5 to the integrated upstream version 0.15.29. Manifest and provenance versions match. Three provenance regression tests, integrated ancestry validation, JSON parsing, and `git diff --check` passed. Runtime suites were not rerun because executable and skill content did not change. Historical validation below remains evidence for the same runtime content.
+
+---
+
 # Validation of pstack-codex 0.2.5 — 2026-10-20
 
 Original pstack 0.15.29 at `88d47514b82e7c44f00f2b2a72ff6dd12158038c` changes eight upstream paths. Archive PAX identity, SHA-256, file bytes, and executable modes were checked; signatures were not verified.
