@@ -1,0 +1,152 @@
+✔ a transition on a composite leaves from every state inside it (2.3045ms)
+✔ the deepest source wins when a composite and a state inside it share a label (0.169209ms)
+✔ a top-level composite split by -- makes one region per part (0.392792ms)
+✔ a rule's sentence is the comment lines right above it, and a state key ignores field order (0.543916ms)
+✔ an action's condition on a variable that the action does not change needs a file and line (0.953167ms)
+✔ the legend is not part of the machine (0.076458ms)
+✔ the parser refuses charts it cannot read (0.271458ms)
+✔ the parser reads class shorthand, repeated descriptions, and states first named inside a composite (0.083875ms)
+✔ TLC values, states, graphs, and traces parse (0.570875ms)
+✔ a rule broken by a start state is a counterexample of one state (0.321708ms)
+✔ TLC output from a run that failed or stopped early is refused (0.20425ms)
+✔ a rule that TLC finds broken before TLC throws a Java exception keeps its paths, with a warning (0.214458ms)
+✔ a step that changes nothing keeps a state unsettled, and a quote in a reader label survives the chart (52.841209ms)
+✔ chart-to-tla writes one action per label and one invariant per never line (55.013167ms)
+✔ chart-to-tla refuses a never line that names no state (52.52675ms)
+✔ a never line names a state exactly, or every state inside a composite (60.142541ms)
+✔ compare reads parallel regions as one machine, so a guard across regions shows (100.938792ms)
+✔ a %% when line guards a step on the other region's states, and [words] are only its text (100.057125ms)
+✔ a label with a guarded and an unguarded move in one region writes both moves (50.893209ms)
+✔ compare reads a one-region chart as the machine its steps reach, without steps that change nothing (98.406542ms)
+✔ a -- outside a composite is refused, not read as one region (194.385333ms)
+✔ compare refuses a chart it cannot read, or an ACTUAL chart that is not drawn for comparison (270.876958ms)
+✔ an edge lists every step, writes shared leading words once, and the chart renders at its natural width (215.7055ms)
+✔ statechart.mjs writes the spec next to the chart, keeps it on the next run, and stops without TLC (274.536875ms)
+✔ statechart.mjs writes no output folder when it refuses the input (238.053667ms)
+✔ statechart.mjs does not use an output folder that has files that it did not write (100.394209ms)
+✔ statechart.mjs exits 2 and names a helper script that cannot start (65.229291ms)
+✔ statechart.mjs names the chart it refuses and the argument it does not know (465.660583ms)
+✔ every script prints its help with -h or --help, and points at it for an argument it does not know (886.919ms)
+✔ from-chart checks the agreed chart and draws it back unchanged (2620.917417ms)
+✔ TLC reads a label with a guarded and an unguarded move in one region (1407.605792ms)
+✔ from-chart finds the design bug, and from-spec with the fix marks it fixed (13380.36675ms)
+✔ --png exits 2 unless every chart renders, even with --expect-broken, and keeps the files it wrote (8741.251625ms)
+✔ from-spec checks each PROPERTY in its own TLC run, and names the counterexample of a broken one (5187.818209ms)
+✔ from-spec checks a rule that the config lists as both PROPERTY and INVARIANT once, as the INVARIANT, and charts its bug (2035.998667ms)
+✔ from-spec reports a broken PROPERTY in each form that TLC reports it in (2539.301ms)
+✔ a state reached only after a bug takes the bug's color, and the fix edge leaves the state before the changed step (1326.322833ms)
+✔ a rule that the second model does not check reads not checked, and a rule it checks reads unchanged (754.33825ms)
+✔ from-spec writes a mapping to fill in, then draws each bug in every view the mapping has (2106.028792ms)
+✔ a rule broken by a start state marks that state wrong (663.39125ms)
+✔ a bug that only the fixed model has is numbered after the current bugs and drawn wrong (1305.738041ms)
+✔ states of one context sit in one box, and an arrow from the box's border stands for the same step from each (688.111583ms)
+✔ from-spec --against compares the code with the spec on the parts both have, and --expect-broken sets the exit code (52121.367042ms)
+✔ from-chart checks a chart whose regions guard each other, and draws it back unchanged (2811.087792ms)
+✔ from-spec draws parallel regions only when they combine back into TLC's graph, and boxes otherwise (4050.636584ms)
+✔ the mapping's guard words show on an arrow only when every model step behind it has them (4151.427ms)
+✔ the mapping's timer() writes after N s on timer steps, and refuses a value that is not seconds (4051.7665ms)
+✔ group() fills each state with its group's color, and the legend lists only the groups the chart draws (2021.5055ms)
+✔ the mapping cannot hide a broken rule, and refuses a status name, a dark or bad color, or a group that is not a name (2456.64675ms)
+✔ the fix changes a bug only at the first step that the reader sees differently (13637.66175ms)
+✔ a step the reader does not see breaks the rule, and the fix shows it on another screen (6204.582041ms)
+✔ each looping step on a bug path keeps its own label, a null cause groups bugs by end state, and the mapping names the key's colors (2047.860291ms)
+✔ a rule that stays broken reports only the step that broke it (1958.776792ms)
+✔ from-spec warns when steps carry the name of the whole next-state action (1493.609334ms)
+✔ a rerun without --png removes the chart.png of an earlier run (710.49575ms)
+✔ a run whose Node is killed mid-TLC leaves the output folder as it was, and a rerun charts its own spec (1773.626458ms)
+✖ a run whose spec changes while it reads it leaves the output folder, and the run that read the new spec charts it (3956.736125ms)
+﹣ runs in PID namespaces that hide which namespace they are in chart only their own spec (0.386291ms) # cannot make a PID namespace, or cannot compile a readlink preload
+✖ a file that is put in the output folder during a run stays, and the run exits 2 (3116.569ms)
+✖ a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is (1508.163542ms)
+✔ a run on a filesystem that cannot rename copies its files into place (2157.785375ms)
+✖ a run whose input changes before --png renders stops before it renders, and keeps its files (3349.713333ms)
+✔ a rule that TLC finds broken before TLC throws a Java exception is broken, and the run draws the paths TLC printed (2777.417167ms)
+✖ each TLC run writes the standard modules in its own temp folder, so overlapping runs cannot rewrite them under each other (1792.484458ms)
+✔ a run that TLC stops on an error keeps TLC's output and writes no output folder (742.377958ms)
+✔ runs of two specs that overlap on one output folder all finish, and the folder always holds one run's files (4235.036416ms)
+✔ the output folder model keeps every rule, and breaks one with a shared TLC folder, without each guard, or when a failed rename deletes the folder moved aside (35086.588459ms)
+ℹ tests 67
+ℹ suites 0
+ℹ pass 61
+ℹ fail 5
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 204394.502833
+
+✖ failing tests:
+
+test at skills/statechart/scripts/test/statechart.test.mjs:2880:1
+✖ a run whose spec changes while it reads it leaves the output folder, and the run that read the new spec charts it (3956.736125ms)
+  TypeError [Error]: object null is not iterable (cannot read property Symbol(Symbol.iterator))
+      at changedMidRun (file:///private/tmp/pstack-20261023/control/skills/statechart/scripts/test/statechart.test.mjs:2870:20)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at skills/statechart/scripts/test/statechart.test.mjs:2917:1
+✖ a file that is put in the output folder during a run stays, and the run exits 2 (3116.569ms)
+  AssertionError [ERR_ASSERTION]: The input did not match the regular expression /^Pay-statechart has a file that this command did not write: notes\.md\. A run puts its files in place of the whole output folder, so pass --out with a new folder\. The files that this run wrote are in tmp\/statechart-\w+\.\n$/. Input:
+  
+  'Pay-statechart has a file that this command did not write: notes.md. A run puts its files in place of the whole output folder, so pass --out with a new folder. The files that this run wrote are in /var/folders/xb/gpm8q41s4w91ysry1fyn7f1m0000gn/T/statechart-OX6rmC/tmp/statechart-xE0YWA.\n'
+  
+      at TestContext.<anonymous> (file:///private/tmp/pstack-20261023/control/skills/statechart/scripts/test/statechart.test.mjs:2930:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'Pay-statechart has a file that this command did not write: notes.md. A run puts its files in place of the whole output folder, so pass --out with a new folder. The files that this run wrote are in /var/folders/xb/gpm8q41s4w91ysry1fyn7f1m0000gn/T/statechart-OX6rmC/tmp/statechart-xE0YWA.\n',
+    expected: /^Pay-statechart has a file that this command did not write: notes\.md\. A run puts its files in place of the whole output folder, so pass --out with a new folder\. The files that this run wrote are in tmp\/statechart-\w+\.\n$/,
+    operator: 'match',
+    diff: 'simple'
+  }
+
+test at skills/statechart/scripts/test/statechart.test.mjs:2970:1
+✖ a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is (1508.163542ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///private/tmp/pstack-20261023/control/skills/statechart/scripts/test/statechart.test.mjs:2985:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at skills/statechart/scripts/test/statechart.test.mjs:3033:1
+✖ a run whose input changes before --png renders stops before it renders, and keeps its files (3349.713333ms)
+  TypeError [Error]: object null is not iterable (cannot read property Symbol(Symbol.iterator))
+      at TestContext.<anonymous> (file:///private/tmp/pstack-20261023/control/skills/statechart/scripts/test/statechart.test.mjs:3052:22)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.run (node:internal/test_runner/test:1409:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7)
+
+test at skills/statechart/scripts/test/statechart.test.mjs:3112:1
+✖ each TLC run writes the standard modules in its own temp folder, so overlapping runs cannot rewrite them under each other (1792.484458ms)
+  AssertionError [ERR_ASSERTION]: /var/folders/xb/gpm8q41s4w91ysry1fyn7f1m0000gn/T/statechart-CEtvi5/tmp/tlc-BGY5o1/tmp: Parsing file /private/var/folders/xb/gpm8q41s4w91ysry1fyn7f1m0000gn/T/statechart-CEtvi5/tmp/tlc-BGY5o1/tmp/Naturals.tla
+      at TestContext.<anonymous> (file:///private/tmp/pstack-20261023/control/skills/statechart/scripts/test/statechart.test.mjs:3147:14)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1402:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:974:18)
+      at Test.postRun (node:internal/test_runner/test:1542:19)
+      at Test.run (node:internal/test_runner/test:1467:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:974:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

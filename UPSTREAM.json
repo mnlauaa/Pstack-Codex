@@ -2,13 +2,13 @@
   "repository": "https://github.com/cursor/plugins",
   "path": "pstack",
   "ref": "main",
-  "version": "0.15.29",
-  "commit": "88d47514b82e7c44f00f2b2a72ff6dd12158038c",
-  "previous_commit": "ddf824aff1e55ba14bd666b30bce3fc69962abe6",
-  "checked_on": "2026-10-20",
-  "archive_sha256": "df98989c5e6b3128ce3633eb68b4e31a79aabfe415c79d5e37f9b4906f94d2d9",
+  "version": "0.15.30",
+  "commit": "9b93e81fb2921b9263d9463c15bafeabfe3903aa",
+  "previous_commit": "88d47514b82e7c44f00f2b2a72ff6dd12158038c",
+  "checked_on": "2026-10-23",
+  "archive_sha256": "dd3933cffdf3afbb1b0b80fff18b5061fb1b5d76968febe8c6446c9b1c491624",
   "signature_verification": "not performed",
-  "local_version": "0.2.5",
-  "snapshot_commit": "e52c7ab9a97cdbad28c27abb3041ec8d561dc19e",
-  "snapshot_tree": "34a0b817e5ea92375bb10f20b15cf750d4e8095a"
+  "local_version": "0.2.6",
+  "snapshot_commit": "6f7e30e7ca69027ff02d229108105458ac345136",
+  "snapshot_tree": "ed6351a9f6ec6e18cc2dbf2ba673effa33f3c9fe"
 }

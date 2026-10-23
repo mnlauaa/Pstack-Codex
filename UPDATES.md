@@ -1,5 +1,14 @@
 # Pstack Codex updates
 
+## 0.2.6 candidate — 2026-10-23 — NOT PUBLISHED
+
+Candidate update from original **0.15.29 → 0.15.30**, source `9b93e81fb2921b9263d9463c15bafeabfe3903aa`, snapshot `6f7e30e7ca69027ff02d229108105458ac345136`. Seventeen upstream paths changed; 57 main skills and 23 playbooks.
+
+- Added explicit-only `$statechart`: TLA+ model to Mermaid, diagram to model skeleton, and code-model versus spec comparison with numbered bug paths.
+- Retained upstream scripts and tests byte-for-byte. Added Codex runtime binding, scratch-copy and executable-mapping guidance, and blocked/unverified reporting for unavailable Java, TLC, or PNG rendering.
+- Updated help, guide, and package counts. Models, scheduling, authorization, existing scripts, lockfile, and marketplace identity are unchanged.
+- Publication blocked: untouched upstream statechart suite has 61 passing, five failing, one skipped test on macOS. Failures concern path assertions and rename fault injection; no product defect conclusion is established. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.30.tsv). Main and upstream published branches remain at 0.2.5 / 0.15.29.
+
 ## 0.2.5 — 2026-10-20
 
 Updated original pstack **0.15.28 → 0.15.29**, from `ddf824aff1e55ba14bd666b30bce3fc69962abe6` to `88d47514b82e7c44f00f2b2a72ff6dd12158038c`. Pristine snapshot: `e52c7ab9a97cdbad28c27abb3041ec8d561dc19e`. Eight upstream paths changed; counts remain 56 main skills and 23 playbooks.
