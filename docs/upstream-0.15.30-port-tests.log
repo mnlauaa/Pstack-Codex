@@ -1,0 +1,412 @@
+TAP version 13
+# Subtest: a transition on a composite leaves from every state inside it
+ok 1 - a transition on a composite leaves from every state inside it
+  ---
+  duration_ms: 2.141709
+  type: 'test'
+  ...
+# Subtest: the deepest source wins when a composite and a state inside it share a label
+ok 2 - the deepest source wins when a composite and a state inside it share a label
+  ---
+  duration_ms: 0.437542
+  type: 'test'
+  ...
+# Subtest: a top-level composite split by -- makes one region per part
+ok 3 - a top-level composite split by -- makes one region per part
+  ---
+  duration_ms: 0.517417
+  type: 'test'
+  ...
+# Subtest: a rule's sentence is the comment lines right above it, and a state key ignores field order
+ok 4 - a rule's sentence is the comment lines right above it, and a state key ignores field order
+  ---
+  duration_ms: 0.330959
+  type: 'test'
+  ...
+# Subtest: an action's condition on a variable that the action does not change needs a file and line
+ok 5 - an action's condition on a variable that the action does not change needs a file and line
+  ---
+  duration_ms: 1.18525
+  type: 'test'
+  ...
+# Subtest: the legend is not part of the machine
+ok 6 - the legend is not part of the machine
+  ---
+  duration_ms: 0.0625
+  type: 'test'
+  ...
+# Subtest: the parser refuses charts it cannot read
+ok 7 - the parser refuses charts it cannot read
+  ---
+  duration_ms: 0.676208
+  type: 'test'
+  ...
+# Subtest: the parser reads class shorthand, repeated descriptions, and states first named inside a composite
+ok 8 - the parser reads class shorthand, repeated descriptions, and states first named inside a composite
+  ---
+  duration_ms: 0.304625
+  type: 'test'
+  ...
+# Subtest: TLC values, states, graphs, and traces parse
+ok 9 - TLC values, states, graphs, and traces parse
+  ---
+  duration_ms: 0.779583
+  type: 'test'
+  ...
+# Subtest: a rule broken by a start state is a counterexample of one state
+ok 10 - a rule broken by a start state is a counterexample of one state
+  ---
+  duration_ms: 0.482583
+  type: 'test'
+  ...
+# Subtest: TLC output from a run that failed or stopped early is refused
+ok 11 - TLC output from a run that failed or stopped early is refused
+  ---
+  duration_ms: 0.289209
+  type: 'test'
+  ...
+# Subtest: a rule that TLC finds broken before TLC throws a Java exception keeps its paths, with a warning
+ok 12 - a rule that TLC finds broken before TLC throws a Java exception keeps its paths, with a warning
+  ---
+  duration_ms: 0.249042
+  type: 'test'
+  ...
+# Subtest: a step that changes nothing keeps a state unsettled, and a quote in a reader label survives the chart
+ok 13 - a step that changes nothing keeps a state unsettled, and a quote in a reader label survives the chart
+  ---
+  duration_ms: 31.579834
+  type: 'test'
+  ...
+# Subtest: chart-to-tla writes one action per label and one invariant per never line
+ok 14 - chart-to-tla writes one action per label and one invariant per never line
+  ---
+  duration_ms: 30.762542
+  type: 'test'
+  ...
+# Subtest: chart-to-tla refuses a never line that names no state
+ok 15 - chart-to-tla refuses a never line that names no state
+  ---
+  duration_ms: 27.271041
+  type: 'test'
+  ...
+# Subtest: a never line names a state exactly, or every state inside a composite
+ok 16 - a never line names a state exactly, or every state inside a composite
+  ---
+  duration_ms: 28.106375
+  type: 'test'
+  ...
+# Subtest: compare reads parallel regions as one machine, so a guard across regions shows
+ok 17 - compare reads parallel regions as one machine, so a guard across regions shows
+  ---
+  duration_ms: 56.914834
+  type: 'test'
+  ...
+# Subtest: a %% when line guards a step on the other region's states, and [words] are only its text
+ok 18 - a %% when line guards a step on the other region's states, and [words] are only its text
+  ---
+  duration_ms: 59.146917
+  type: 'test'
+  ...
+# Subtest: a label with a guarded and an unguarded move in one region writes both moves
+ok 19 - a label with a guarded and an unguarded move in one region writes both moves
+  ---
+  duration_ms: 29.965
+  type: 'test'
+  ...
+# Subtest: compare reads a one-region chart as the machine its steps reach, without steps that change nothing
+ok 20 - compare reads a one-region chart as the machine its steps reach, without steps that change nothing
+  ---
+  duration_ms: 54.3795
+  type: 'test'
+  ...
+# Subtest: a -- outside a composite is refused, not read as one region
+ok 21 - a -- outside a composite is refused, not read as one region
+  ---
+  duration_ms: 102.330291
+  type: 'test'
+  ...
+# Subtest: compare refuses a chart it cannot read, or an ACTUAL chart that is not drawn for comparison
+ok 22 - compare refuses a chart it cannot read, or an ACTUAL chart that is not drawn for comparison
+  ---
+  duration_ms: 121.886209
+  type: 'test'
+  ...
+# Subtest: an edge lists every step, writes shared leading words once, and the chart renders at its natural width
+ok 23 - an edge lists every step, writes shared leading words once, and the chart renders at its natural width
+  ---
+  duration_ms: 107.592166
+  type: 'test'
+  ...
+# Subtest: statechart.mjs writes the spec next to the chart, keeps it on the next run, and stops without TLC
+ok 24 - statechart.mjs writes the spec next to the chart, keeps it on the next run, and stops without TLC
+  ---
+  duration_ms: 158.492416
+  type: 'test'
+  ...
+# Subtest: statechart.mjs writes no output folder when it refuses the input
+ok 25 - statechart.mjs writes no output folder when it refuses the input
+  ---
+  duration_ms: 136.693625
+  type: 'test'
+  ...
+# Subtest: statechart.mjs does not use an output folder that has files that it did not write
+ok 26 - statechart.mjs does not use an output folder that has files that it did not write
+  ---
+  duration_ms: 51.580375
+  type: 'test'
+  ...
+# Subtest: statechart.mjs exits 2 and names a helper script that cannot start
+ok 27 - statechart.mjs exits 2 and names a helper script that cannot start
+  ---
+  duration_ms: 27.732542
+  type: 'test'
+  ...
+# Subtest: statechart.mjs names the chart it refuses and the argument it does not know
+ok 28 - statechart.mjs names the chart it refuses and the argument it does not know
+  ---
+  duration_ms: 217.917458
+  type: 'test'
+  ...
+# Subtest: every script prints its help with -h or --help, and points at it for an argument it does not know
+ok 29 - every script prints its help with -h or --help, and points at it for an argument it does not know
+  ---
+  duration_ms: 476.61575
+  type: 'test'
+  ...
+# Subtest: from-chart checks the agreed chart and draws it back unchanged
+ok 30 - from-chart checks the agreed chart and draws it back unchanged
+  ---
+  duration_ms: 1480.187833
+  type: 'test'
+  ...
+# Subtest: TLC reads a label with a guarded and an unguarded move in one region
+ok 31 - TLC reads a label with a guarded and an unguarded move in one region
+  ---
+  duration_ms: 1469.128
+  type: 'test'
+  ...
+# Subtest: from-chart finds the design bug, and from-spec with the fix marks it fixed
+ok 32 - from-chart finds the design bug, and from-spec with the fix marks it fixed
+  ---
+  duration_ms: 13661.2845
+  type: 'test'
+  ...
+# Subtest: --png exits 2 unless every chart renders, even with --expect-broken, and keeps the files it wrote
+ok 33 - --png exits 2 unless every chart renders, even with --expect-broken, and keeps the files it wrote
+  ---
+  duration_ms: 8271.021208
+  type: 'test'
+  ...
+# Subtest: from-spec checks each PROPERTY in its own TLC run, and names the counterexample of a broken one
+ok 34 - from-spec checks each PROPERTY in its own TLC run, and names the counterexample of a broken one
+  ---
+  duration_ms: 5019.777208
+  type: 'test'
+  ...
+# Subtest: from-spec checks a rule that the config lists as both PROPERTY and INVARIANT once, as the INVARIANT, and charts its bug
+ok 35 - from-spec checks a rule that the config lists as both PROPERTY and INVARIANT once, as the INVARIANT, and charts its bug
+  ---
+  duration_ms: 2203.343458
+  type: 'test'
+  ...
+# Subtest: from-spec reports a broken PROPERTY in each form that TLC reports it in
+ok 36 - from-spec reports a broken PROPERTY in each form that TLC reports it in
+  ---
+  duration_ms: 2645.237167
+  type: 'test'
+  ...
+# Subtest: a state reached only after a bug takes the bug's color, and the fix edge leaves the state before the changed step
+ok 37 - a state reached only after a bug takes the bug's color, and the fix edge leaves the state before the changed step
+  ---
+  duration_ms: 1430.90225
+  type: 'test'
+  ...
+# Subtest: a rule that the second model does not check reads not checked, and a rule it checks reads unchanged
+ok 38 - a rule that the second model does not check reads not checked, and a rule it checks reads unchanged
+  ---
+  duration_ms: 740.825083
+  type: 'test'
+  ...
+# Subtest: from-spec writes a mapping to fill in, then draws each bug in every view the mapping has
+ok 39 - from-spec writes a mapping to fill in, then draws each bug in every view the mapping has
+  ---
+  duration_ms: 2213.532875
+  type: 'test'
+  ...
+# Subtest: a rule broken by a start state marks that state wrong
+ok 40 - a rule broken by a start state marks that state wrong
+  ---
+  duration_ms: 679.104709
+  type: 'test'
+  ...
+# Subtest: a bug that only the fixed model has is numbered after the current bugs and drawn wrong
+ok 41 - a bug that only the fixed model has is numbered after the current bugs and drawn wrong
+  ---
+  duration_ms: 1315.847208
+  type: 'test'
+  ...
+# Subtest: states of one context sit in one box, and an arrow from the box's border stands for the same step from each
+ok 42 - states of one context sit in one box, and an arrow from the box's border stands for the same step from each
+  ---
+  duration_ms: 679.906292
+  type: 'test'
+  ...
+# Subtest: from-spec --against compares the code with the spec on the parts both have, and --expect-broken sets the exit code
+ok 43 - from-spec --against compares the code with the spec on the parts both have, and --expect-broken sets the exit code
+  ---
+  duration_ms: 49494.626708
+  type: 'test'
+  ...
+# Subtest: from-chart checks a chart whose regions guard each other, and draws it back unchanged
+ok 44 - from-chart checks a chart whose regions guard each other, and draws it back unchanged
+  ---
+  duration_ms: 2587.898125
+  type: 'test'
+  ...
+# Subtest: from-spec draws parallel regions only when they combine back into TLC's graph, and boxes otherwise
+ok 45 - from-spec draws parallel regions only when they combine back into TLC's graph, and boxes otherwise
+  ---
+  duration_ms: 3878.208875
+  type: 'test'
+  ...
+# Subtest: the mapping's guard words show on an arrow only when every model step behind it has them
+ok 46 - the mapping's guard words show on an arrow only when every model step behind it has them
+  ---
+  duration_ms: 3742.04125
+  type: 'test'
+  ...
+# Subtest: the mapping's timer() writes after N s on timer steps, and refuses a value that is not seconds
+ok 47 - the mapping's timer() writes after N s on timer steps, and refuses a value that is not seconds
+  ---
+  duration_ms: 3954.769875
+  type: 'test'
+  ...
+# Subtest: group() fills each state with its group's color, and the legend lists only the groups the chart draws
+ok 48 - group() fills each state with its group's color, and the legend lists only the groups the chart draws
+  ---
+  duration_ms: 1859.768584
+  type: 'test'
+  ...
+# Subtest: the mapping cannot hide a broken rule, and refuses a status name, a dark or bad color, or a group that is not a name
+ok 49 - the mapping cannot hide a broken rule, and refuses a status name, a dark or bad color, or a group that is not a name
+  ---
+  duration_ms: 2193.670667
+  type: 'test'
+  ...
+# Subtest: the fix changes a bug only at the first step that the reader sees differently
+ok 50 - the fix changes a bug only at the first step that the reader sees differently
+  ---
+  duration_ms: 13494.13525
+  type: 'test'
+  ...
+# Subtest: a step the reader does not see breaks the rule, and the fix shows it on another screen
+ok 51 - a step the reader does not see breaks the rule, and the fix shows it on another screen
+  ---
+  duration_ms: 6026.138792
+  type: 'test'
+  ...
+# Subtest: each looping step on a bug path keeps its own label, a null cause groups bugs by end state, and the mapping names the key's colors
+ok 52 - each looping step on a bug path keeps its own label, a null cause groups bugs by end state, and the mapping names the key's colors
+  ---
+  duration_ms: 1999.449208
+  type: 'test'
+  ...
+# Subtest: a rule that stays broken reports only the step that broke it
+ok 53 - a rule that stays broken reports only the step that broke it
+  ---
+  duration_ms: 1976.346917
+  type: 'test'
+  ...
+# Subtest: from-spec warns when steps carry the name of the whole next-state action
+ok 54 - from-spec warns when steps carry the name of the whole next-state action
+  ---
+  duration_ms: 1370.146167
+  type: 'test'
+  ...
+# Subtest: a rerun without --png removes the chart.png of an earlier run
+ok 55 - a rerun without --png removes the chart.png of an earlier run
+  ---
+  duration_ms: 649.014458
+  type: 'test'
+  ...
+# Subtest: a run whose Node is killed mid-TLC leaves the output folder as it was, and a rerun charts its own spec
+ok 56 - a run whose Node is killed mid-TLC leaves the output folder as it was, and a rerun charts its own spec
+  ---
+  duration_ms: 1969.816959
+  type: 'test'
+  ...
+# Subtest: a run whose spec changes while it reads it leaves the output folder, and the run that read the new spec charts it
+ok 57 - a run whose spec changes while it reads it leaves the output folder, and the run that read the new spec charts it
+  ---
+  duration_ms: 4470.81425
+  type: 'test'
+  ...
+# Subtest: runs in PID namespaces that hide which namespace they are in chart only their own spec
+ok 58 - runs in PID namespaces that hide which namespace they are in chart only their own spec # SKIP cannot make a PID namespace, or cannot compile a readlink preload
+  ---
+  duration_ms: 0.068208
+  type: 'test'
+  ...
+# Subtest: a file that is put in the output folder during a run stays, and the run exits 2
+ok 59 - a file that is put in the output folder during a run stays, and the run exits 2
+  ---
+  duration_ms: 3249.36225
+  type: 'test'
+  ...
+# Subtest: a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is
+ok 60 - a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is
+  ---
+  duration_ms: 2055.318541
+  type: 'test'
+  ...
+# Subtest: a run on a filesystem that cannot rename copies its files into place
+ok 61 - a run on a filesystem that cannot rename copies its files into place
+  ---
+  duration_ms: 2095.473
+  type: 'test'
+  ...
+# Subtest: a run whose input changes before --png renders stops before it renders, and keeps its files
+ok 62 - a run whose input changes before --png renders stops before it renders, and keeps its files
+  ---
+  duration_ms: 3234.123625
+  type: 'test'
+  ...
+# Subtest: a rule that TLC finds broken before TLC throws a Java exception is broken, and the run draws the paths TLC printed
+ok 63 - a rule that TLC finds broken before TLC throws a Java exception is broken, and the run draws the paths TLC printed
+  ---
+  duration_ms: 3053.246458
+  type: 'test'
+  ...
+# Subtest: each TLC run writes the standard modules in its own temp folder, so overlapping runs cannot rewrite them under each other
+ok 64 - each TLC run writes the standard modules in its own temp folder, so overlapping runs cannot rewrite them under each other
+  ---
+  duration_ms: 1807.885916
+  type: 'test'
+  ...
+# Subtest: a run that TLC stops on an error keeps TLC's output and writes no output folder
+ok 65 - a run that TLC stops on an error keeps TLC's output and writes no output folder
+  ---
+  duration_ms: 617.408125
+  type: 'test'
+  ...
+# Subtest: runs of two specs that overlap on one output folder all finish, and the folder always holds one run's files
+ok 66 - runs of two specs that overlap on one output folder all finish, and the folder always holds one run's files
+  ---
+  duration_ms: 4211.718333
+  type: 'test'
+  ...
+# Subtest: the output folder model keeps every rule, and breaks one with a shared TLC folder, without each guard, or when a failed rename deletes the folder moved aside
+ok 67 - the output folder model keeps every rule, and breaks one with a shared TLC folder, without each guard, or when a failed rename deletes the folder moved aside
+  ---
+  duration_ms: 35170.782417
+  type: 'test'
+  ...
+1..67
+# tests 67
+# suites 0
+# pass 66
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 198746.280375

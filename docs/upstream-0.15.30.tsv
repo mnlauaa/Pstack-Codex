@@ -58,9 +58,10 @@ docs/upstream-0.15.25.tsv	port-only	port-only	-	-	-
 docs/upstream-0.15.28.tsv	port-only	port-only	-	-	-
 docs/upstream-0.15.29.tsv	port-only	port-only	-	-	-
 docs/upstream-0.15.30-control.log	port-only	port-only	-	-	a8c47507e50466b3792d978855dd9c245f2f6d66a9c2e40a7f54db4a5c70a268
+docs/upstream-0.15.30-port-tests.log	port-only	port-only	-	-	8daa191d2eaad105de8b7097e9b8921bbaebf10b4c7d2658681289c60ba1711d
 docs/upstream-0.15.30.tsv	port-only	port-only	-	-	-
 docs/upstream-history.md	port-only	port-only	-	-	-
-plugin.json	modified	codex-adapted	8a5811042556a0a981e9fdd08a2c726be76458833d64b484acaa611291308c2a	b17556047a5df5fd2c42550af8d965ece3c2e55aa68082def5951e09f4788ae1	8defab78c5f54876b3b7ce646ea65bc470b6f3fa5263f3a0aca2dac2d237c644
+plugin.json	modified	codex-adapted	8a5811042556a0a981e9fdd08a2c726be76458833d64b484acaa611291308c2a	b17556047a5df5fd2c42550af8d965ece3c2e55aa68082def5951e09f4788ae1	e29a7bbfdf3d6f6089ab979f6ec710f5456360161478d7740d544e1075c98eb4
 scripts/check-upstream.py	port-only	port-only	-	-	f94e144acbfa499e8b40c00957b6bb175b9cb4c4bd2977487d233af0ea3a61c0
 scripts/check-upstream.test.py	port-only	port-only	-	-	023576d1f08ce0ae32e148844304065b8c69205f3329cda6b60095cf74ba70c3
 skills/architect/SKILL.md	unchanged	codex-adapted	31f8e97a52bfa5432edd61f68ade2a8632ef0bacbc2d2a6802d7a0e6821944ac	31f8e97a52bfa5432edd61f68ade2a8632ef0bacbc2d2a6802d7a0e6821944ac	70d70be7d4cfcff08dd51fcc5f64f48650ada6bd1f55974acfdaefd67cf0b695
@@ -239,7 +240,7 @@ skills/statechart/scripts/model/OutputFolder.cfg	added	upstream-exact	-	8b9662ab
 skills/statechart/scripts/model/OutputFolder.map.mjs	added	upstream-exact	-	33f2ef1c2ba397573206640843fffbc228d066e53fe5ced779d82f99600f3fd8	33f2ef1c2ba397573206640843fffbc228d066e53fe5ced779d82f99600f3fd8
 skills/statechart/scripts/model/OutputFolder.tla	added	upstream-exact	-	75bef6811d9a8e56bd702fd8d782e52101918c8dc05c6cc9dc43d02b9fe1b56f	75bef6811d9a8e56bd702fd8d782e52101918c8dc05c6cc9dc43d02b9fe1b56f
 skills/statechart/scripts/statechart.mjs	added	upstream-exact	-	3c3ed2a29b9f0b2d037b434ef205f505939ac713c6a16f9a806844d513f957a0	3c3ed2a29b9f0b2d037b434ef205f505939ac713c6a16f9a806844d513f957a0
-skills/statechart/scripts/test/statechart.test.mjs	added	upstream-exact	-	02302548c175f6bfc707aee30bd7ee81a2b1754eca6818c550bf20a68361e7cd	02302548c175f6bfc707aee30bd7ee81a2b1754eca6818c550bf20a68361e7cd
+skills/statechart/scripts/test/statechart.test.mjs	added	codex-adapted	-	02302548c175f6bfc707aee30bd7ee81a2b1754eca6818c550bf20a68361e7cd	528a3265a5bb184ebb007bc34025832a33a2bd71ac7934e5c09d7891121762ff
 skills/statechart/scripts/test/sync.mmd	added	upstream-exact	-	cb1f5387058a0f79d6187eb217690588a2e2d384637b4d53cbc4bb050c570757	cb1f5387058a0f79d6187eb217690588a2e2d384637b4d53cbc4bb050c570757
 skills/statechart/scripts/test/upload.mmd	added	upstream-exact	-	bbc1fa70e26cbcbcc7cde5d8fb7eda26df34b6d973053bf13c40b18527ff0e76	bbc1fa70e26cbcbcc7cde5d8fb7eda26df34b6d973053bf13c40b18527ff0e76
 skills/statechart/scripts/tlc-to-chart.mjs	added	upstream-exact	-	77aa854918f9c5d04fd3ad8838da39f24d8e05a2217a5c3be039d678509c6ef2	77aa854918f9c5d04fd3ad8838da39f24d8e05a2217a5c3be039d678509c6ef2

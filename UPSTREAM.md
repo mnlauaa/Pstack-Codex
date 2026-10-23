@@ -106,7 +106,7 @@ Use [the latest integration inventory](docs/upstream-0.15.30.tsv) as context. Th
 | `scripts/check-plan.mjs` and its fixtures | Keep `installed-playbook:` and `hourly-audit` markers. Port parser fixes independently of Cursor's `git show origin/main:` and `/loop 1h` markers. |
 | `scripts/worktree-audit.sh` | Keep full paths containing spaces, explicit `PSTACK_TRANSCRIPT_DIR`, and `review-history` rather than `safe` when history needs review. Preserve base selection and fail on invalid refs. Both Origin draft/open and GitHub open PRs must remain held; unavailable forge/history evidence cannot authorize removal. |
 | `skills/sharpen/` | Preserve explicit-only invocation and prompt-rewrite-only behavior; user choices and constraints remain binding. |
-| `skills/statechart/` | Keep explicit-only invocation, shared runtime binding, scratch input copies, inspected executable mappings, and honest blocked results for missing TLC or rendering tools. Preserve upstream scripts unless a tested host adaptation is needed. |
+| `skills/statechart/` | Keep explicit-only invocation, shared runtime binding, scratch input copies, inspected executable mappings, and honest blocked results for missing TLC or rendering tools. Production scripts stay upstream-exact. Retain test-only canonical temporary paths and Node rename fault injection; these replace Linux-only rename preloading without dropping recovery assertions. Linux PID-namespace coverage remains platform-specific. |
 | Formal-verification skills | Keep explicit invocation, project-local skill authoring, isolated negative-control mutations, honest bounds and empirical-vs-formal labels, and blocked/draft results for unavailable verifiers. |
 | `docs/harness/claude-code.md` | Archived upstream reference only; Codex uses its own runtime binding, never the Claude skip rules or global config paths. |
 | Benny / bot entrypoints and archived references | Keep integrations conditional on actual connectors/backends. Archived Cursor instructions remain reference material, not active setup. |
@@ -119,13 +119,15 @@ All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full
 In the port worktree:
 
 1. Update `UPSTREAM.json` with original SHA/version/archive hash/date/signature status and the candidate `snapshot_commit` / `snapshot_tree`. Preserve the previous original SHA in `previous_commit`.
-2. Bump local `plugin.json` and matching `local_version` when publishing a changed plugin; update README/PORT counts and provenance. Marketplace/maintenance-only changes do not require a runtime version bump.
+2. Set `plugin.json.version` and `UPSTREAM.json.local_version` to the integrated original `UPSTREAM.json.version`; update README/PORT counts and provenance. Do not continue the former independent 0.2.x numbering. Same-version upstream changes and Codex-only maintenance retain that version and are distinguished by commit pins and dated update records. A blocked candidate must not cause main to advertise an upstream version it has not integrated.
 3. Add a dated entry to `UPDATES.md`: new behavior, retained adaptations, superseded patches, intentional omissions, and limitations.
 4. Run the relevant script checks below, validate skill frontmatter and YAML/JSON, check relative links, and review newly introduced Cursor tool names, model IDs, paths, or `/loop` instructions. Archived examples and explicit negative examples can be intentional.
 5. Record real results in `VALIDATION.md`. Do not claim scheduler, installation, cloud, or UI behavior was exercised unless it ran. Keep dated inventories historical; generate a new one for each integration. When upstream changes without a version bump, suffix the new inventory with the original short commit SHA.
 
 ```bash
 (cd skills/poteto-mode/scripts && bun install --frozen-lockfile && bun run test && bun run typecheck && bash -n worktree-audit.sh)
+# With JAVA and TLA2TOOLS set to the test runtime and TLC jar:
+node --test skills/statechart/scripts/test/statechart.test.mjs
 python3 scripts/check-upstream.test.py
 git diff --check
 git add <reviewed-paths>

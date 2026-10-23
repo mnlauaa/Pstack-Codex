@@ -4,9 +4,7 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Unpublished candidate — upstream validation blocked.** See [VALIDATION.md](VALIDATION.md).
-
-**Port version:** 0.2.6 · **Upstream:** 0.15.30 · **Source commit:** [`9b93e81`](https://github.com/cursor/plugins/tree/9b93e81fb2921b9263d9463c15bafeabfe3903aa/pstack)
+**Port version:** 0.15.30 · **Upstream:** 0.15.30 · **Source commit:** [`9b93e81`](https://github.com/cursor/plugins/tree/9b93e81fb2921b9263d9463c15bafeabfe3903aa/pstack)
 
 ## What’s included
 
@@ -67,6 +65,8 @@ The main collection retains its existing explicit-invocation policies. The new e
 
 Plain instruction workflows need no package installation. The existing orchestration and GitHub-watcher tools need Bun, their pinned dependencies, and authenticated GitHub CLI. In a writable source checkout, run `bun install --frozen-lockfile` in `skills/poteto-mode/scripts/`. For an immutable plugin cache, use a writable copy. Node runs the plan checker. The stack frontier now uses the PR base chain through `gh` or optional `--forge origin`; Graphite is not required.
 
+`$statechart` requires Java 11+ and TLC (`TLA2TOOLS` pointing to `tla2tools.jar`). Optional PNG output also requires Mermaid CLI and its browser. These tools are not bundled; missing capabilities are reported as blocked.
+
 Persistent checks require a real scheduler exposed by the host. A skill and a polling process do not themselves keep a closed application running. Required live UI proof needs actual browser/app control and recording support where specified.
 
 ## Optional integrations
@@ -79,7 +79,7 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.2.6. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
+This port is version 0.15.30, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
 
 ## Validation
 

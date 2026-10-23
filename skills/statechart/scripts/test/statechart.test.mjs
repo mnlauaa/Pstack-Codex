@@ -5,11 +5,12 @@ import {
   mkdirSync,
   mkdtempSync,
   readdirSync,
+  realpathSync,
   readFileSync,
   rmSync,
   writeFileSync,
 } from "node:fs";
-import { tmpdir } from "node:os";
+import { tmpdir as systemTmpdir } from "node:os";
 import { delimiter, dirname, join } from "node:path";
 import { test } from "node:test";
 import { setTimeout as sleep } from "node:timers/promises";
@@ -26,6 +27,7 @@ import {
   uncitedConditions,
 } from "../lib.mjs";
 
+const tmpdir = () => realpathSync(systemTmpdir());
 const here = dirname(fileURLToPath(import.meta.url));
 const scripts = dirname(here);
 const fixture = (name) => readFileSync(join(here, name), "utf8");
@@ -2936,40 +2938,38 @@ test(
   },
 );
 
-const failRenames = `#define _GNU_SOURCE
-#include <dlfcn.h>
-#include <errno.h>
-#include <stdlib.h>
-#include <string.h>
-#include <unistd.h>
-static size_t hits;
-int rename(const char *from, const char *to) {
-  static int (*real)(const char *, const char *);
-  if (!real) real = dlsym(RTLD_NEXT, "rename");
-  const char *base = strrchr(to, '/'), *fails = getenv("RENAME_FAILS");
-  const char *cannot = getenv("RENAME_CANNOT");
-  base = base ? base + 1 : to;
-  if (cannot && strstr(base, "shared")) {
-    errno = strcmp(cannot, "EXDEV") == 0 ? EXDEV : access(to, F_OK) == 0 ? EISDIR : ENOSYS;
-    return -1;
-  }
-  if (fails && strcmp(base, "shared") == 0 && hits < strlen(fails)) {
-    errno = fails[hits++] == 'N' ? ENOTEMPTY : EIO;
-    return -1;
-  }
-  return real(from, to);
-}
-`;
 const failingRenames = (() => {
   const dir = mkdtempSync(join(tmpdir(), "statechart-preload-"));
-  writeFileSync(join(dir, "rename.c"), failRenames);
-  const so = join(dir, "rename.so");
-  const cc = spawnSync("cc", ["-shared", "-fPIC", "-o", so, join(dir, "rename.c"), "-ldl"]);
-  return cc.status === 0 ? so : null;
+  const preload = join(dir, "rename.cjs");
+  writeFileSync(preload, `
+const fs = require("node:fs");
+const path = require("node:path");
+const rename = fs.renameSync;
+let hits = 0;
+fs.renameSync = (from, to) => {
+  const base = path.basename(to);
+  const fails = process.env.RENAME_FAILS;
+  const cannot = process.env.RENAME_CANNOT;
+  let code;
+  if (cannot && base.includes("shared")) {
+    code = cannot === "EXDEV" ? "EXDEV" : fs.existsSync(to) ? "EISDIR" : "ENOSYS";
+  } else if (fails && base === "shared" && hits < fails.length) {
+    code = fails[hits++] === "N" ? "ENOTEMPTY" : "EIO";
+  }
+  if (code) throw Object.assign(new Error(code + ": injected rename failure"), { code });
+  return rename(from, to);
+};
+`);
+  return preload;
 })();
+const renameFaults = {
+  NODE_OPTIONS: [process.env.NODE_OPTIONS, "--require", JSON.stringify(failingRenames)]
+    .filter(Boolean).join(" "),
+};
+
 test(
   "a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is",
-  { skip: needsTlc.skip || (!failingRenames && "cannot compile a rename preload") },
+  needsTlc,
   () => {
     const dir = mkdtempSync(join(tmpdir(), "statechart-"));
     writeLamp(dir);
@@ -2979,7 +2979,7 @@ test(
     assert.equal(first.status, 0, first.stderr);
     const chart = readFileSync(join(shared, "chart.mmd"), "utf8");
     const run = (fails) =>
-      node("statechart.mjs", args, dir, { LD_PRELOAD: failingRenames, RENAME_FAILS: fails });
+      node("statechart.mjs", args, dir, { ...renameFaults, RENAME_FAILS: fails });
 
     const back = run("NI");
     assert.equal(back.status, 2, back.stderr);
@@ -3005,7 +3005,7 @@ test(
 
 test(
   "a run on a filesystem that cannot rename copies its files into place",
-  { skip: needsTlc.skip || (!failingRenames && "cannot compile a rename preload") },
+  needsTlc,
   () => {
     const dir = mkdtempSync(join(tmpdir(), "statechart-"));
     writeLamp(dir);
@@ -3020,7 +3020,7 @@ test(
         `export const state = (v) => (v.on ? "On" : "Off");\nexport const step = () => "${label}";\n`,
       );
       const r = node("statechart.mjs", args, dir, {
-        LD_PRELOAD: failingRenames,
+        ...renameFaults,
         RENAME_CANNOT: cannot,
       });
       assert.equal(r.status, 0, r.stderr);

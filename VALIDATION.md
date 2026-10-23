@@ -1,15 +1,22 @@
-# Validation of unpublished pstack-codex 0.2.6 candidate — 2026-10-23
+# Validation of pstack-codex 0.15.30 — 2026-10-23
 
-**BLOCKED: do not publish.** Original source `9b93e81fb2921b9263d9463c15bafeabfe3903aa` (0.15.30), subtree `ed6351a9f6ec6e18cc2dbf2ba673effa33f3c9fe`. The pristine staged tree equals GitHub's original subtree hash; archive PAX identity and SHA-256 were checked. Signatures were not verified.
+Original source `9b93e81fb2921b9263d9463c15bafeabfe3903aa`, pristine subtree `ed6351a9f6ec6e18cc2dbf2ba673effa33f3c9fe`. Archive PAX identity, SHA-256, and GitHub subtree identity checked; signatures not verified.
 
-- Untouched existing upstream suite: 68 Bun tests / 246 assertions passed. Typecheck was initially killed (137), passed on retry; shell syntax passed.
-- Untouched new statechart suite without TLC: 29 passed, 38 explicitly skipped. With temporary Temurin 21.0.13 and TLC 2.19, sandbox local-socket restrictions initially blocked TLC. Unrestricted rerun completed: **61 passed, five failed, one skipped**.
-- Failures: changed-input and pre-render tests cannot parse expected relative paths; foreign-file test receives an absolute path; standard-module isolation compares `/var` with `/private/var`; rename fault-injection test expects exit 2 but receives 0. The last uses Linux `LD_PRELOAD` on macOS. These are baseline compatibility findings, not proven runtime data loss. PID-namespace coverage is skipped on this host. Do not suppress the tests or claim full validation.
-- Existing integrated port suite: 68 Bun tests, four Node tests, strict TypeScript, shell syntax, and three provenance regression tests passed.
-- Candidate skill/metadata/link validation passed. New scripts remain byte-identical to upstream; full statechart suite was not rerun on the candidate after baseline failure.
-- Reviewed missing-tool behavior and explicit invocation, isolated outputs, executable mappings, bounded proof claims, and real-code reproduction requirements. No live model-authored workflow or actual PNG rendering was verified.
+- Untouched upstream control: existing 68 Bun tests / 246 assertions passed; strict TypeScript and shell syntax passed (initial typecheck exit 137 cleared on retry).
+- Original statechart tests: 61 passed, five failed, one Linux PID-namespace test skipped on macOS. [Original failure log](docs/upstream-0.15.30-control.log) preserves the baseline.
+- Fixed only the test harness: canonical temporary paths align Node and Java paths; portable Node `fs.renameSync` fault injection replaces Linux `LD_PRELOAD`. Existing recovery, concurrent changes, and foreign-file assertions remain. All production statechart scripts and fixtures match upstream bytes.
+- Six targeted path/rename tests passed. Full statechart suite with Node 22.23.1, Temurin 21.0.13 and TLC 2.19: **66 passed, zero failed, one platform skip**. [Full result](docs/upstream-0.15.30-port-tests.log). Linux PID namespaces remain untested on macOS; this is the same explicit platform exclusion as upstream.
+- Without TLC: 29 passed, zero failed, 38 explicitly skipped; missing-capability behavior remains covered.
+- Integrated existing suite: **68 Bun tests, four Node tests**, strict TypeScript and shell syntax passed. Three provenance regression tests passed; integrated snapshot ancestry verified after commit.
+- All 61 skill entrypoints, 62 YAML files, five JSON files and concrete relative links validated. New skill keeps explicit-only invocation, shared runtime, scratch copies, scope boundaries, and blocked/unverified reporting when required tools are absent.
 
-The [captured control log](docs/upstream-0.15.30-control.log) is retained in this candidate (trailing whitespace normalized). Additional evidence is retained locally under `/tmp/pstack-20261023/`: `state.json`, `statechart-control.log`, `statechart-tlc-control.log`, and `statechart-tlc-control-unrestricted.log`. Candidate branches and worktrees are preserved. Resume by reconciling these branches, diagnosing platform-compatible fault injection and canonical paths, rerunning upstream and port checks, and publishing only if the required gates pass. No global plugin installation or branch push occurred.
+No actual PNG rendering or end-to-end model-authored skill workflow was exercised. Java/TLC remain temporary test tools and are not bundled. Package version follows upstream 0.15.30. See [inventory](docs/upstream-0.15.30.tsv).
+
+---
+
+# Version alignment to 0.15.29 — 2026-10-23
+
+Metadata-only change from port 0.2.5 to the integrated upstream version 0.15.29. Manifest and provenance versions match. Three provenance regression tests, integrated ancestry validation, JSON parsing, and `git diff --check` passed. Runtime suites were not rerun because executable and skill content did not change. Historical validation below remains evidence for the same runtime content.
 
 ---
 
