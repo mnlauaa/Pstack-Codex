@@ -1,0 +1,121 @@
+TAP version 13
+# Subtest: a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is
+ok 1 - a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is
+  ---
+  duration_ms: 2318.75575
+  type: 'test'
+  ...
+# Subtest: a run on a filesystem that cannot rename copies its files into place
+not ok 2 - a run on a filesystem that cannot rename copies its files into place
+  ---
+  duration_ms: 706.975708
+  type: 'test'
+  location: '/private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6229:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    cannot replace shared: ENOSYS: injected rename failure. The run left shared as it was. The files that this run wrote are in /var/folders/xb/gpm8q41s4w91ysry1fyn7f1m0000gn/T/statechart-X7oGVL.
+    
+    
+    2 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6249:14)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: a run that cannot rename replaces a folder that another run makes before its copy, and keeps one that another run makes during its copy
+not ok 3 - a run that cannot rename replaces a folder that another run makes before its copy, and keeps one that another run makes during its copy
+  ---
+  duration_ms: 1437.585125
+  type: 'test'
+  location: '/private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6256:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6276:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: a run that cannot rename stops when another run removes its folder during its copy and makes an empty one in its place, and keeps that folder
+not ok 4 - a run that cannot rename stops when another run removes its folder during its copy and makes an empty one in its place, and keeps that folder
+  ---
+  duration_ms: 686.514083
+  type: 'test'
+  location: '/private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6288:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6299:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: a run that cannot rename keeps the folder that another run puts in place of its folder as soon as the run makes it
+not ok 5 - a run that cannot rename keeps the folder that another run puts in place of its folder as soon as the run makes it
+  ---
+  duration_ms: 690.398833
+  type: 'test'
+  location: '/private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6309:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    0 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 0
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/pstack-20261026/port/skills/statechart/scripts/test/statechart.test.mjs:6320:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+1..5
+# tests 5
+# suites 0
+# pass 1
+# fail 4
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 5956.150459

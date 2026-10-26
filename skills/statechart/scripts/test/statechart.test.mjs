@@ -6065,102 +6065,6 @@ test(
   },
 );
 
-const failRenames = `#define _GNU_SOURCE
-#include <dirent.h>
-#include <dlfcn.h>
-#include <errno.h>
-#include <ftw.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-#include <unistd.h>
-static size_t hits;
-static int raced;
-static int removeOne(const char *path, const struct stat *s, int type, struct FTW *at) {
-  return remove(path);
-}
-static int hasFiles(const char *dir) {
-  DIR *d = opendir(dir);
-  if (!d) return 0;
-  struct dirent *e;
-  int found = 0;
-  while (!found && (e = readdir(d))) found = strcmp(e->d_name, ".") && strcmp(e->d_name, "..");
-  closedir(d);
-  return found;
-}
-static int named(const char *path, const char *tail) {
-  size_t n = strlen(path), t = strlen(tail);
-  return n >= t && strcmp(path + n - t, tail) == 0 && (n == t || path[n - t - 1] == '/');
-}
-static void makeAnotherRunsFolder(const char *shared) {
-  static int (*make)(const char *, mode_t);
-  if (!make) make = dlsym(RTLD_NEXT, "mkdir");
-  char chart[4096];
-  make(shared, 0777);
-  snprintf(chart, sizeof chart, "%s/chart.mmd", shared);
-  FILE *f = fopen(chart, "w");
-  fputs("another run\\n", f);
-  fclose(f);
-}
-static int chosen(const char *race) {
-  const char *run = getenv("ANOTHER_RUN");
-  return run && !raced && strcmp(run, race) == 0;
-}
-static int racing(const char *race) {
-  return chosen(race) && (raced = 1);
-}
-static void takeOver(const char *shared) {
-  rmdir(shared);
-  makeAnotherRunsFolder(shared);
-}
-int mkdir(const char *path, mode_t mode) {
-  static int (*real)(const char *, mode_t);
-  static int (*move)(const char *, const char *);
-  if (!real) real = dlsym(RTLD_NEXT, "mkdir");
-  if (!move) move = dlsym(RTLD_NEXT, "rename");
-  if (named(path, "shared") && racing("before-copy")) makeAnotherRunsFolder(path);
-  if (named(path, "shared") && chosen("when-made")) {
-    int made = real(path, mode);
-    if (made == 0 && racing("when-made")) takeOver(path);
-    return made;
-  }
-  if (named(path, "shared/tlc") && racing("during-copy")) {
-    char shared[4096], aside[4200];
-    snprintf(shared, sizeof shared, "%.*s", (int)(strlen(path) - strlen("/tlc")), path);
-    snprintf(aside, sizeof aside, "%s-aside", shared);
-    move(shared, aside);
-    makeAnotherRunsFolder(shared);
-    real(path, mode);
-  }
-  if (named(path, "shared/tlc") && racing("removed-during-copy")) {
-    char shared[4096];
-    snprintf(shared, sizeof shared, "%.*s", (int)(strlen(path) - strlen("/tlc")), path);
-    nftw(shared, removeOne, 16, FTW_DEPTH | FTW_PHYS);
-    real(shared, 0777);
-  }
-  return real(path, mode);
-}
-int rename(const char *from, const char *to) {
-  static int (*real)(const char *, const char *);
-  if (!real) real = dlsym(RTLD_NEXT, "rename");
-  const char *base = strrchr(to, '/'), *fails = getenv("RENAME_FAILS");
-  const char *cannot = getenv("RENAME_CANNOT");
-  base = base ? base + 1 : to;
-  if (named(to, "shared") && !hasFiles(from) && racing("before-copy")) makeAnotherRunsFolder(to);
-  if (cannot && strstr(base, "shared") && hasFiles(from)) {
-    errno = strcmp(cannot, "EXDEV") == 0 ? EXDEV : access(to, F_OK) == 0 ? EISDIR : ENOSYS;
-    return -1;
-  }
-  if (fails && strcmp(base, "shared") == 0 && hits < strlen(fails)) {
-    errno = fails[hits++] == 'N' ? ENOTEMPTY : EIO;
-    return -1;
-  }
-  int renamed = real(from, to);
-  if (renamed == 0 && named(to, "shared") && racing("when-made")) takeOver(to);
-  return renamed;
-}
-`;
 const failingRenames = (() => {
   const dir = mkdtempSync(join(tmpdir(), "statechart-preload-"));
   const preload = join(dir, "rename.cjs");
@@ -6168,19 +6072,60 @@ const failingRenames = (() => {
 const fs = require("node:fs");
 const path = require("node:path");
 const rename = fs.renameSync;
+const mkdir = fs.mkdirSync;
 let hits = 0;
+let raced = false;
+const chosen = (race) => !raced && process.env.ANOTHER_RUN === race;
+const racing = (race) => chosen(race) && (raced = true);
+const named = (file, tail) => file === tail || file.endsWith(path.sep + tail);
+const hasFiles = (dir) => {
+  try { return fs.readdirSync(dir).length > 0; } catch { return false; }
+};
+const makeAnotherRunsFolder = (shared) => {
+  mkdir(shared);
+  fs.writeFileSync(path.join(shared, "chart.mmd"), "another run\\n");
+};
+const takeOver = (shared) => {
+  fs.rmdirSync(shared);
+  makeAnotherRunsFolder(shared);
+};
+fs.mkdirSync = (file, options) => {
+  if (named(file, "shared") && racing("before-copy")) makeAnotherRunsFolder(file);
+  if (named(file, "shared") && chosen("when-made")) {
+    const made = mkdir(file, options);
+    if (racing("when-made")) takeOver(file);
+    return made;
+  }
+  if (named(file, path.join("shared", "tlc")) && racing("during-copy")) {
+    const shared = path.dirname(file);
+    rename(shared, shared + "-aside");
+    makeAnotherRunsFolder(shared);
+    mkdir(file, options);
+  }
+  if (named(file, path.join("shared", "tlc")) && racing("removed-during-copy")) {
+    const shared = path.dirname(file);
+    fs.rmSync(shared, { recursive: true, force: true });
+    mkdir(shared);
+  }
+  return mkdir(file, options);
+};
 fs.renameSync = (from, to) => {
   const base = path.basename(to);
   const fails = process.env.RENAME_FAILS;
   const cannot = process.env.RENAME_CANNOT;
+  if (named(to, "shared") && !hasFiles(from) && racing("before-copy")) {
+    makeAnotherRunsFolder(to);
+  }
   let code;
-  if (cannot && base.includes("shared")) {
+  if (cannot && base.includes("shared") && hasFiles(from)) {
     code = cannot === "EXDEV" ? "EXDEV" : fs.existsSync(to) ? "EISDIR" : "ENOSYS";
   } else if (fails && base === "shared" && hits < fails.length) {
     code = fails[hits++] === "N" ? "ENOTEMPTY" : "EIO";
   }
   if (code) throw Object.assign(new Error(code + ": injected rename failure"), { code });
-  return rename(from, to);
+  const renamed = rename(from, to);
+  if (named(to, "shared") && racing("when-made")) takeOver(to);
+  return renamed;
 };
 `);
   return preload;
@@ -6189,6 +6134,31 @@ const renameFaults = {
   NODE_OPTIONS: [process.env.NODE_OPTIONS, "--require", JSON.stringify(failingRenames)]
     .filter(Boolean).join(" "),
 };
+
+test("rename faults allow empty claims and create the competitor before a copy", () => {
+  const dir = mkdtempSync(join(tmpdir(), "statechart-"));
+  const r = spawnSync(process.execPath, ["-e", `
+    const assert = require("node:assert/strict");
+    const fs = require("node:fs");
+    fs.mkdirSync("empty");
+    fs.renameSync("empty", ".shared-empty");
+    fs.writeFileSync(".shared-empty/file", "mine");
+    assert.throws(() => fs.renameSync(".shared-empty", "shared"), { code: "ENOSYS" });
+    fs.mkdirSync("claim");
+    assert.throws(() => fs.renameSync("claim", "shared"),
+      (e) => ["ENOTEMPTY", "EEXIST"].includes(e.code));
+    assert.equal(fs.readFileSync("shared/chart.mmd", "utf8"), "another run\\n");
+    fs.rmSync("shared", { recursive: true });
+    fs.renameSync("claim", "shared");
+    assert.deepEqual(fs.readdirSync("shared"), []);
+  `], {
+    cwd: dir,
+    encoding: "utf8",
+    env: { ...process.env, ...renameFaults, RENAME_CANNOT: "ENOSYS", ANOTHER_RUN: "before-copy" },
+    timeout: 10_000,
+  });
+  assert.equal(r.status, 0, r.stderr);
+});
 
 test(
   "a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is",
@@ -6255,14 +6225,14 @@ test(
 
 test(
   "a run that cannot rename replaces a folder that another run makes before its copy, and keeps one that another run makes during its copy",
-  { skip: needsTlc.skip || (!failingRenames && "cannot compile a rename preload") },
+  needsTlc,
   () => {
     const dir = mkdtempSync(join(tmpdir(), "statechart-"));
     writeLamp(dir);
     const shared = join(dir, "shared", "chart.mmd");
     const run = (anotherRun) =>
       node("statechart.mjs", ["from-spec", "Lamp.tla", "--out", "shared"], dir, {
-        LD_PRELOAD: failingRenames,
+        ...renameFaults,
         RENAME_CANNOT: "ENOSYS",
         ANOTHER_RUN: anotherRun,
       });
@@ -6287,12 +6257,12 @@ test(
 
 test(
   "a run that cannot rename stops when another run removes its folder during its copy and makes an empty one in its place, and keeps that folder",
-  { skip: needsTlc.skip || (!failingRenames && "cannot compile a rename preload") },
+  needsTlc,
   () => {
     const dir = mkdtempSync(join(tmpdir(), "statechart-"));
     writeLamp(dir);
     const r = node("statechart.mjs", ["from-spec", "Lamp.tla", "--out", "shared"], dir, {
-      LD_PRELOAD: failingRenames,
+      ...renameFaults,
       RENAME_CANNOT: "ENOSYS",
       ANOTHER_RUN: "removed-during-copy",
     });
@@ -6308,12 +6278,12 @@ test(
 
 test(
   "a run that cannot rename keeps the folder that another run puts in place of its folder as soon as the run makes it",
-  { skip: needsTlc.skip || (!failingRenames && "cannot compile a rename preload") },
+  needsTlc,
   () => {
     const dir = mkdtempSync(join(tmpdir(), "statechart-"));
     writeLamp(dir);
     const r = node("statechart.mjs", ["from-spec", "Lamp.tla", "--out", "shared"], dir, {
-      LD_PRELOAD: failingRenames,
+      ...renameFaults,
       RENAME_CANNOT: "ENOSYS",
       ANOTHER_RUN: "when-made",
     });

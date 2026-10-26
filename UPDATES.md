@@ -1,14 +1,14 @@
 # Pstack Codex updates
 
-## 0.15.32 candidate — 2026-10-26 — NOT PUBLISHED
+## 0.15.32 — 2026-10-26
 
-Candidate source `99b609a72323b70204eab407c622f436e858e112`, pristine snapshot `68bfbf7b7b1d3c62b0e9375770efc1a99f4cec3e`. Forty-seven upstream paths changed; 58 main skills and 23 playbooks.
+Updated original **0.15.30 → 0.15.32**, source `99b609a72323b70204eab407c622f436e858e112`, pristine snapshot `68bfbf7b7b1d3c62b0e9375770efc1a99f4cec3e`. Forty-seven upstream paths changed; 58 main skills and 23 playbooks.
 
 - Added explicit-only `$ketchup-video` with scoped evidence, scratch video output, and honest rendering failures.
 - Imported PR-stack fork identity, active-PR selection, watcher deadline, multi-backtick plan parsing, and GNU/BSD worktree date fixes.
-- Imported expanded statechart models, rendering and modules, preserving upstream production scripts. Adapted installation guidance to require authorization for dependency setup and retained the existing macOS test harness. New fault-injection cases still require reconciliation and are not validated.
+- Imported expanded statechart models, rendering and modules, preserving upstream production scripts. Adapted installation guidance to require authorization for dependency setup. Extended the portable Node test preload to allow empty-directory claims and simulate all four competing-run races. Replaced the new Linux-only callers and removed unused C injection. Existing filesystem assertions remain, with an extra injection probe.
 - Formal-verification generation references `$statechart`; reflection edits target approved project/user skill copies rather than installed caches. Native swarm models, slots, worktrees, scheduling and authorization remain.
-- Publication blocked by failed statechart checks. Core upstream and port suites pass. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.32.tsv). Published branches remain at 0.15.30.
+- Resolved the four candidate failures in the test adapter. The full statechart suite passes 146 tests with five explicit skips; core and provenance checks pass. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.32.tsv). Earlier failing logs remain as regression evidence.
 
 ## 0.15.30 — 2026-10-23
 

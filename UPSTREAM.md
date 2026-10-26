@@ -106,7 +106,7 @@ Use [the latest integration inventory](docs/upstream-0.15.32.tsv) as context. Th
 | `scripts/check-plan.mjs` and its fixtures | Keep `installed-playbook:` and `hourly-audit` markers. Port parser fixes independently of Cursor's `git show origin/main:` and `/loop 1h` markers. |
 | `scripts/worktree-audit.sh` | Keep full paths containing spaces, explicit `PSTACK_TRANSCRIPT_DIR`, and `review-history` rather than `safe` when history needs review. Preserve base selection and fail on invalid refs. Both Origin draft/open and GitHub open PRs must remain held; unavailable forge/history evidence cannot authorize removal. |
 | `skills/sharpen/` | Preserve explicit-only invocation and prompt-rewrite-only behavior; user choices and constraints remain binding. |
-| `skills/statechart/` | Keep explicit-only invocation, shared runtime binding, scratch input copies, inspected executable mappings, and honest blocked results for missing TLC or rendering tools. Production scripts stay upstream-exact. Retain test-only canonical temporary paths and Node rename fault injection; these replace Linux-only rename preloading without dropping recovery assertions. Linux PID-namespace coverage remains platform-specific. |
+| `skills/statechart/` | Keep explicit-only invocation, shared runtime binding, scratch input copies, inspected executable mappings, and honest blocked results for missing TLC or rendering tools. Production scripts stay upstream-exact. Retain test-only canonical temporary paths and Node rename/mkdir fault injection. Compare the full upstream injection scenario whenever publication logic changes, including allowed empty-directory claims and all competing-run races. Keep the direct injection probe and recovery assertions. Route every fault caller through the portable preload and remove superseded native code. Explicit JAVA/TLA2TOOLS paths and a prepared renderer cache avoid unapproved mise/npm installation. Linux PID-namespace coverage remains platform-specific. |
 | Formal-verification skills | Keep explicit invocation, project-local skill authoring, isolated negative-control mutations, honest bounds and empirical-vs-formal labels, and blocked/draft results for unavailable verifiers. |
 | `docs/harness/claude-code.md` | Archived upstream reference only; Codex uses its own runtime binding, never the Claude skip rules or global config paths. |
 | Benny / bot entrypoints and archived references | Keep integrations conditional on actual connectors/backends. Archived Cursor instructions remain reference material, not active setup. |
@@ -126,7 +126,7 @@ In the port worktree:
 
 ```bash
 (cd skills/poteto-mode/scripts && bun install --frozen-lockfile && bun run test && bun run typecheck && bash -n worktree-audit.sh)
-# With JAVA and TLA2TOOLS set to the test runtime and TLC jar:
+# With JAVA and TLA2TOOLS set, and XDG_CACHE_HOME pointing to a prepared temporary renderer cache:
 node --test skills/statechart/scripts/test/statechart.test.mjs
 python3 scripts/check-upstream.test.py
 git diff --check

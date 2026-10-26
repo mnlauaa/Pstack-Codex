@@ -1,7 +1,5 @@
 # Pstack for Codex
 
-**Unpublished 0.15.32 candidate: blocked by four statechart test failures.**
-
 A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/cursor/plugins/tree/main/pstack): engineering skills, autonomous workflows, delegated reviews, and verification tools.
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
@@ -68,7 +66,7 @@ The main collection retains its existing explicit-invocation policies. The new e
 
 Plain instruction workflows need no package installation. The existing orchestration and GitHub-watcher tools need Bun, their pinned dependencies, and authenticated GitHub CLI. In a writable source checkout, run `bun install --frozen-lockfile` in `skills/poteto-mode/scripts/`. For an immutable plugin cache, use a writable copy. Node runs the plan checker. The stack frontier now uses the PR base chain through `gh` or optional `--forge origin`; Graphite is not required.
 
-`$statechart` requires Java 11+ and TLC (`TLA2TOOLS` pointing to `tla2tools.jar`). Optional PNG output also requires Mermaid CLI and its browser. These tools are not bundled; missing capabilities are reported as blocked.
+`$statechart` requires Java 11+ and TLC. Set `JAVA` to the Java binary and `TLA2TOOLS` to `tla2tools.jar`. PNG output uses Pele 1.8.0, resvg-js 2.6.2, and available fonts. These tools are not bundled. Use a prepared renderer cache or authorize installation into a temporary `XDG_CACHE_HOME`. Without explicit paths or a prepared cache, upstream helpers can attempt mise or npm installation. The Codex skill checks installation scope first and reports missing capabilities as blocked.
 
 Persistent checks require a real scheduler exposed by the host. A skill and a polling process do not themselves keep a closed application running. Required live UI proof needs actual browser/app control and recording support where specified.
 
@@ -86,7 +84,7 @@ This port is version 0.15.32, matching the integrated upstream version. [UPDATES
 
 ## Validation
 
-The existing port checks passed 82 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 62 skill entrypoints. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
+The port checks passed 82 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 62 skill entrypoints. The statechart suite passed 146 tests with five explicit capability or platform skips and no failures. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
 
 To run the script checks locally, with Bun and Node installed:
 

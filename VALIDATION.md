@@ -1,16 +1,16 @@
-# Unpublished 0.15.32 candidate — 2026-10-26
+# Validation of pstack-codex 0.15.32 — 2026-10-26
 
-**BLOCKED: do not publish.** Pinned original `99b609a72323b70204eab407c622f436e858e112`; archive PAX identity and SHA-256 checked. Pristine tree `880564357e051d7c7802da1cb5d8df1d0b008299` matches GitHub. Signatures not verified.
+Pinned original `99b609a72323b70204eab407c622f436e858e112`; archive PAX identity and SHA-256 checked. Pristine tree `880564357e051d7c7802da1cb5d8df1d0b008299` matches the original subtree. Signatures were not verified.
 
-- Core untouched upstream: 82 Bun tests / 282 assertions and strict TypeScript passed.
-- Core Codex candidate: 82 Bun tests, four Node tests, strict TypeScript, shell syntax, and three provenance regressions passed.
-- Untouched statechart: {'tests': 150, 'pass': 128, 'fail': 17, 'skipped': 5}. [Control log](docs/upstream-0.15.32-control.log).
-- Candidate statechart with retained canonical temporary paths and Node rename injection: {'tests': 150, 'pass': 141, 'fail': 4, 'skipped': 5}. [Candidate log](docs/upstream-0.15.32-port.log). Do not treat skipped capability cases as validated.
-- New filesystem race injection extends upstream's native preload beyond the existing portable rename hook. The candidate has not reconciled all new injection paths; resolve those and any other failures before publishing.
-- All 62 skill entrypoints, 63 YAML files, five JSON files and concrete relative links validated. Source provenance checks apply after the candidate commit.
-- Production statechart scripts remain upstream-exact. New mise/npm auto-install paths require explicit installation scope per the port skill; review this before release. Tests used explicit temporary Java/TLC and renderer packages. No installed plugin update or GitHub push occurred.
+- Untouched core control passed 82 Bun tests and 282 assertions, plus strict TypeScript. Integrated core passed 82 Bun tests, four Node tests, strict TypeScript, and shell syntax.
+- Untouched statechart control had 128 passes, 17 failures, and five skips. [Original control log](docs/upstream-0.15.32-control.log).
+- The first integrated candidate had 141 passes, four failures, and five skips. [Historical candidate log](docs/upstream-0.15.32-port.log). The old Node test preload incorrectly rejected empty-directory claims, and three new race callers still used Linux LD_PRELOAD with a JavaScript file.
+- Fresh focused reproduction passed one test and failed four. After the test-only fix, those five tests and a new injection probe all passed. [Before](docs/upstream-0.15.32-repro-before.log) and [after](docs/upstream-0.15.32-repro-after.log) preserve actual output. The probe verifies that the competitor arrives and that injection occurs only once.
+- Full final statechart run with Node 22.23.1, Temurin 21.0.13, TLC 2.19, Pele 1.8.0, and resvg-js 2.6.2 passed **146 of 151 tests, zero failures, five explicit skips**. [Final log](docs/upstream-0.15.32-final.log). PNG rendering and missing-capability behavior ran. The skips cover real mise discovery, three unavailable font combinations, and Linux PID namespaces on macOS.
+- Three provenance regression tests, integrated snapshot ancestry, `git diff --check`, and validation of 62 skill entrypoints, 63 YAML files, five JSON files, and concrete relative links passed.
+- Independent same-model review found no actionable issues in the portable injection or its callers. Existing ownership and recovery assertions remain. All production statechart scripts and fixtures match upstream bytes.
 
-Candidate branches: `sync/pstack-99b609a72323` and `update/pstack-99b609a72323`; worktrees and logs under `/tmp/pstack-20261026`. Reconcile this recorded candidate before starting another update. No live ketchup-video or end-to-end model-authored skill workflow was tested.
+Tests used temporary Java/TLC and renderer packages. Installation helpers remain upstream-exact; the Codex skill requires explicit installation scope and preflights tools and cache paths. No actual FUSE mount, Linux runtime, real mise installation, or live ketchup-video/model-authored workflow was tested. Fault injection demonstrates simulated filesystem behavior, not coverage of every filesystem. See [inventory](docs/upstream-0.15.32.tsv).
 
 ---
 

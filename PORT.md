@@ -13,6 +13,4 @@ Source updates and every retained customization are tracked in [UPDATES.md](UPDA
 Original source snapshots now live on `upstream`; `main` retains Codex adaptations. The two histories share a recorded baseline without rewriting published commits. See [AGENTS.md](AGENTS.md) for agent maintenance rules and [the history record](docs/upstream-history.md) for the initial bridge.
 
 
-The statechart test harness canonicalizes temporary paths and injects rename failures through Node, preserving recovery assertions on macOS. Production statechart scripts remain identical to upstream.
-
-This is an unpublished candidate; statechart validation is blocked. See VALIDATION.md.
+The statechart test harness canonicalizes temporary paths and injects rename failures and competing-directory races through Node. Empty-directory claims remain allowed, matching upstream filesystem semantics. Recovery and ownership assertions remain, with an added probe that proves injection is active. Production statechart scripts remain identical to upstream.

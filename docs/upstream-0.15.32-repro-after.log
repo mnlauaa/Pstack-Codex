@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: rename faults allow empty claims and create the competitor before a copy
+ok 1 - rename faults allow empty claims and create the competitor before a copy
+  ---
+  duration_ms: 25.405042
+  type: 'test'
+  ...
+# Subtest: a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is
+ok 2 - a run whose rename fails after it moves the output folder aside puts the folder back, or says where it is
+  ---
+  duration_ms: 2355.752583
+  type: 'test'
+  ...
+# Subtest: a run on a filesystem that cannot rename copies its files into place
+ok 3 - a run on a filesystem that cannot rename copies its files into place
+  ---
+  duration_ms: 2204.617792
+  type: 'test'
+  ...
+# Subtest: a run that cannot rename replaces a folder that another run makes before its copy, and keeps one that another run makes during its copy
+ok 4 - a run that cannot rename replaces a folder that another run makes before its copy, and keeps one that another run makes during its copy
+  ---
+  duration_ms: 1481.0635
+  type: 'test'
+  ...
+# Subtest: a run that cannot rename stops when another run removes its folder during its copy and makes an empty one in its place, and keeps that folder
+ok 5 - a run that cannot rename stops when another run removes its folder during its copy and makes an empty one in its place, and keeps that folder
+  ---
+  duration_ms: 731.455667
+  type: 'test'
+  ...
+# Subtest: a run that cannot rename keeps the folder that another run puts in place of its folder as soon as the run makes it
+ok 6 - a run that cannot rename keeps the folder that another run puts in place of its folder as soon as the run makes it
+  ---
+  duration_ms: 717.530208
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 7616.417083
