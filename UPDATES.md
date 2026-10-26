@@ -1,5 +1,15 @@
 # Pstack Codex updates
 
+## 0.15.32 candidate — 2026-10-26 — NOT PUBLISHED
+
+Candidate source `99b609a72323b70204eab407c622f436e858e112`, pristine snapshot `68bfbf7b7b1d3c62b0e9375770efc1a99f4cec3e`. Forty-seven upstream paths changed; 58 main skills and 23 playbooks.
+
+- Added explicit-only `$ketchup-video` with scoped evidence, scratch video output, and honest rendering failures.
+- Imported PR-stack fork identity, active-PR selection, watcher deadline, multi-backtick plan parsing, and GNU/BSD worktree date fixes.
+- Imported expanded statechart models, rendering and modules, preserving upstream production scripts. Adapted installation guidance to require authorization for dependency setup and retained the existing macOS test harness. New fault-injection cases still require reconciliation and are not validated.
+- Formal-verification generation references `$statechart`; reflection edits target approved project/user skill copies rather than installed caches. Native swarm models, slots, worktrees, scheduling and authorization remain.
+- Publication blocked by failed statechart checks. Core upstream and port suites pass. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.32.tsv). Published branches remain at 0.15.30.
+
 ## 0.15.30 — 2026-10-23
 
 Updated original **0.15.29 → 0.15.30**, source `9b93e81fb2921b9263d9463c15bafeabfe3903aa`, snapshot `6f7e30e7ca69027ff02d229108105458ac345136`. Seventeen upstream paths changed; 57 main skills and 23 playbooks.

@@ -1,3 +1,19 @@
+# Unpublished 0.15.32 candidate — 2026-10-26
+
+**BLOCKED: do not publish.** Pinned original `99b609a72323b70204eab407c622f436e858e112`; archive PAX identity and SHA-256 checked. Pristine tree `880564357e051d7c7802da1cb5d8df1d0b008299` matches GitHub. Signatures not verified.
+
+- Core untouched upstream: 82 Bun tests / 282 assertions and strict TypeScript passed.
+- Core Codex candidate: 82 Bun tests, four Node tests, strict TypeScript, shell syntax, and three provenance regressions passed.
+- Untouched statechart: {'tests': 150, 'pass': 128, 'fail': 17, 'skipped': 5}. [Control log](docs/upstream-0.15.32-control.log).
+- Candidate statechart with retained canonical temporary paths and Node rename injection: {'tests': 150, 'pass': 141, 'fail': 4, 'skipped': 5}. [Candidate log](docs/upstream-0.15.32-port.log). Do not treat skipped capability cases as validated.
+- New filesystem race injection extends upstream's native preload beyond the existing portable rename hook. The candidate has not reconciled all new injection paths; resolve those and any other failures before publishing.
+- All 62 skill entrypoints, 63 YAML files, five JSON files and concrete relative links validated. Source provenance checks apply after the candidate commit.
+- Production statechart scripts remain upstream-exact. New mise/npm auto-install paths require explicit installation scope per the port skill; review this before release. Tests used explicit temporary Java/TLC and renderer packages. No installed plugin update or GitHub push occurred.
+
+Candidate branches: `sync/pstack-99b609a72323` and `update/pstack-99b609a72323`; worktrees and logs under `/tmp/pstack-20261026`. Reconcile this recorded candidate before starting another update. No live ketchup-video or end-to-end model-authored skill workflow was tested.
+
+---
+
 # Validation of pstack-codex 0.15.30 — 2026-10-23
 
 Original source `9b93e81fb2921b9263d9463c15bafeabfe3903aa`, pristine subtree `ed6351a9f6ec6e18cc2dbf2ba673effa33f3c9fe`. Archive PAX identity, SHA-256, and GitHub subtree identity checked; signatures not verified.
