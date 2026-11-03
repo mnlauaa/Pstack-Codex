@@ -1,3 +1,18 @@
+# Validation of pstack-codex 0.15.36 — 2026-11-03
+
+Pinned original `4dd1d05818d19792e7cd6e818f1667f95f7e1dbe`; archive PAX identity and SHA-256 checked. Pristine snapshot `f1e82333be428871db30dc906a7501d23b3a592c`, tree `4719e1c4b4c43bac85d4206a8b41dd2899769c1c`, matches original file bytes and executable modes. Signatures were not verified.
+
+- Untouched core control passed 61 Bun tests / 179 assertions, strict TypeScript and shell syntax. Integrated core passed the same 61 tests plus four Node port regression tests, strict TypeScript and shell syntax. [Integrated core log](docs/upstream-0.15.36-core-port.log).
+- Untouched statechart control passed 366 tests and failed the macOS relative-symlink fixture, with zero skips. It also reported four TypeScript diagnostics. [Control and reproduction evidence](docs/upstream-0.15.36-blocked.md) remains historical.
+- Three small fixes in two files canonicalize the test temporary directory, preserve the exit-code union, and give two signal-test callbacks a void result. The separate fixed control passed all 367 tests and TypeScript 5.9.3 and 7.0.2. [Fix evidence](docs/upstream-0.15.36-fixes.md).
+- Full integrated statechart passed **367 tests, zero failures, zero skips** using Node 22.23.1, temporary Temurin 21.0.13, the checksum-pinned TLC jar, and temporary rendering packages. Actual TLC differential/corpus checks, launcher and signal handling, missing-capability paths, and Pele SVG rendering ran. [Integrated log](docs/upstream-0.15.36-port.log). Integrated statechart typecheck passed TypeScript 7.0.2 with Node 22 declarations.
+- Three provenance regression tests, integrated snapshot ancestry, and `git diff --check` passed. All 62 skill entrypoints passed the available skill-creator validator; 63 YAML files, seven JSON files, and concrete relative links parsed/resolved.
+- Independent same-model review found no defects in the two-file patch and reran six launcher/signal tests successfully. Comment review found no changed comments or required deletions. A separate read-only instruction evaluation covered absent scheduling, old-store recovery and late workers, missing distinct-family judges, missing TLC, and isolated adversarial repros. No active callers of removed interfaces remain.
+
+Dependencies were installed only in temporary test copies. No Linux, Bun/Deno statechart runtime, live PR lifecycle, persistent scheduling, cloud integration, or model-authored end-to-end workflow was exercised. Instruction evaluation is not live integration coverage. The old Linux preload harness is superseded rather than carried forward. User model configuration and installed invocation policies are unchanged. See [inventory](docs/upstream-0.15.36.tsv).
+
+---
+
 # Validation of pstack-codex 0.15.32 — 2026-10-26
 
 Pinned original `99b609a72323b70204eab407c622f436e858e112`; archive PAX identity and SHA-256 checked. Pristine tree `880564357e051d7c7802da1cb5d8df1d0b008299` matches the original subtree. Signatures were not verified.

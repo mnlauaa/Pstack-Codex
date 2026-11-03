@@ -1,8 +1,8 @@
-# 0.15.36 update blocked, 2026-11-03
+# Historical 0.15.36 update blockers, 2026-11-03
 
-**Resolved on 2026-11-03:** the statechart blockers below are fixed and all 367 tests pass. See [fix commit and validation](upstream-0.15.36-fixes.md). The remaining Codex integration is still pending.
+**Resolved on 2026-11-03:** the statechart blockers below are fixed and all 367 tests pass. See [fix commit and validation](upstream-0.15.36-fixes.md). The full Codex integration is now recorded in [VALIDATION.md](../VALIDATION.md).
 
-This is an evidence-only candidate branch. No 0.15.36 source has been merged into the Codex package, and nothing has been published or installed. Published main and the installed plugin remain at 0.15.32.
+At the time of this control run, the candidate was evidence-only and published main and the installed plugin were still 0.15.32. The following records describe that earlier failure, not the current release status.
 
 ## Source and recovery
 

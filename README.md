@@ -4,7 +4,7 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.15.32 · **Upstream:** 0.15.32 · **Source commit:** [`99b609a`](https://github.com/cursor/plugins/tree/99b609a72323b70204eab407c622f436e858e112/pstack)
+**Port version:** 0.15.36 · **Upstream:** 0.15.36 · **Source commit:** [`4dd1d05`](https://github.com/cursor/plugins/tree/4dd1d05818d19792e7cd6e818f1667f95f7e1dbe/pstack)
 
 ## What’s included
 
@@ -15,7 +15,7 @@ This port tracks the original upstream while adapting its instructions to Codex�
 - `$ketchup-video` for a silent visual catch-up with pending decisions kept as text.
 - `$ketchup` for a visual catch-up with every pending decision, its evidence, and risk.
 - `$in-your-own-words` to confirm the agent understands your goal before work starts.
-- [`$statechart`](skills/statechart/SKILL.md) to show modeled behavior and bug paths as Mermaid charts, generate a TLA+ skeleton, or compare code with an existing spec.
+- [`$statechart`](skills/statechart/SKILL.md) to check a TLA+ model and show modeled behavior and bug paths as Mermaid charts; rendering is a separate step.
 - `$sharpen` to rewrite a prompt with expert methods, raw sources, and an outside check, without executing the task.
 - `$create-formal-verification-skill` and `$maintain-formal-verification-skill` for bounded property checks and keeping them aligned with the code. Verifiers are not bundled.
 - Source provenance, a change log, and a three-way merge guide for future upstream updates.
@@ -64,9 +64,9 @@ The main collection retains its existing explicit-invocation policies. The new e
 
 ## Runtime prerequisites
 
-Plain instruction workflows need no package installation. The existing orchestration and GitHub-watcher tools need Bun, their pinned dependencies, and authenticated GitHub CLI. In a writable source checkout, run `bun install --frozen-lockfile` in `skills/poteto-mode/scripts/`. For an immutable plugin cache, use a writable copy. Node runs the plan checker. The stack frontier now uses the PR base chain through `gh` or optional `--forge origin`; Graphite is not required.
+Plain instruction workflows need no package installation. The GitHub-watcher tools need Bun, their pinned dependencies, and authenticated GitHub CLI. Orchestration uses native Codex tools and durable run files; the removed upstream orchestration CLI is no longer bundled. In a writable source checkout, run `bun install --frozen-lockfile` in `skills/poteto-mode/scripts/`. For an immutable plugin cache, use a writable copy. Node runs the plan checker. PR stacks follow actual dependencies and retain one writer per branch; independent work can target trunk directly.
 
-`$statechart` requires Java 11+ and TLC. Set `JAVA` to the Java binary and `TLA2TOOLS` to `tla2tools.jar`. PNG output uses Pele 1.8.0, resvg-js 2.6.2, and available fonts. These tools are not bundled. Use a prepared renderer cache or authorize installation into a temporary `XDG_CACHE_HOME`. Without explicit paths or a prepared cache, upstream helpers can attempt mise or npm installation. The Codex skill checks installation scope first and reports missing capabilities as blocked.
+`$statechart` requires a TypeScript-capable runtime (Node 22.18+ on the Node 22 line, Node 23.6+, Bun 1.1.5+, or Deno 2), Java 11+, and TLC. Set `JAVA` to the Java binary and `TLA2TOOLS` to `tla2tools.jar`. SVG rendering uses Pele 1.9.0. These tools are not bundled. Use a prepared renderer cache or authorize installation into a temporary `XDG_CACHE_HOME`. Without explicit paths or a prepared cache, upstream helpers can attempt mise or npm installation. The Codex skill checks installation scope first and reports missing capabilities as blocked.
 
 Persistent checks require a real scheduler exposed by the host. A skill and a polling process do not themselves keep a closed application running. Required live UI proof needs actual browser/app control and recording support where specified.
 
@@ -80,11 +80,11 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.15.32, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
+This port is version 0.15.36, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
 
 ## Validation
 
-The port checks passed 82 Bun tests, four Node tests, three provenance tests, strict TypeScript checks, and validation of all 62 skill entrypoints. The statechart suite passed 146 tests with five explicit capability or platform skips and no failures. See [VALIDATION.md](VALIDATION.md) for the tested scope and limitations.
+The integrated checks passed 367 statechart tests with no skips, 61 Bun tests, four Node tests, three provenance tests, TypeScript checks, and all 62 skill validators. See [VALIDATION.md](VALIDATION.md) for the control failures, fixes, and tested scope.
 
 To run the script checks locally, with Bun and Node installed:
 

@@ -89,7 +89,7 @@ Conflicts are expected where upstream and Codex changed the same behavior. Inspe
 
 The existing `.cursor-plugin/plugin.json` is intentionally absent on `main`; keep it absent after resolving modify/delete conflicts. Keep the local root `plugin.json` identity when upstream changes its own manifest. Keep ordinary scripts identical to upstream unless an explicit Codex contract requires a patch.
 
-Use [the latest integration inventory](docs/upstream-0.15.32.tsv) as context. The current customization diff is `git diff <integrated-snapshot-commit> HEAD`, not the original first-port diff. Keep future Codex-only changes in focused commits, with shared tool rules in `codex-runtime.md` rather than repeated across skills. Skill references and script changes still need explicit integration; installing a second plugin is not an override mechanism.
+Use [the latest integration inventory](docs/upstream-0.15.36.tsv) as context. The current customization diff is `git diff <integrated-snapshot-commit> HEAD`, not the original first-port diff. Keep future Codex-only changes in focused commits, with shared tool rules in `codex-runtime.md` rather than repeated across skills. Skill references and script changes still need explicit integration; installing a second plugin is not an override mechanism.
 
 ## Codex customization contracts
 
@@ -101,18 +101,18 @@ Use [the latest integration inventory](docs/upstream-0.15.32.tsv) as context. Th
 | `skills/poteto-mode/references/codex-runtime.md` | Retain native delegation, supported models/efforts and optional speed controls, slot limits, explicit writer isolation, scoped history, durable run paths, scheduling IDs, recovery, cancellation, and task authorization. |
 | `skills/setup-pstack/SKILL.md` and role instructions | Retain project-local `.codex/pstack/models.json`, separate model/effort values, inheritance defaults, and validation against actual supported models. Do not import provider-specific defaults. |
 | Main mode and role prompts | The receiving chat owns the playbook. Delegates receive role text and scope; Markdown filenames are not registered agent types. Independent same-model review is labeled honestly. |
-| Autonomous/PR/orchestration playbooks | Retain real Codex heartbeat scheduling, completion conditions, cancellation and resume state. Opening or watching a PR does not itself authorize merging or external messaging. Preserve pinned leases, single-writer replacement/handoffs, and verification on the code that lands; never reload a moving trunk playbook mid-run. |
+| Autonomous/PR/orchestration playbooks | Retain real Codex heartbeat scheduling, completion conditions, cancellation and resume state. Opening or watching a PR does not itself authorize merging or external messaging. Preserve pinned leases, single-writer replacement/handoffs, and verification on the code that lands; never reload a moving trunk playbook mid-run. Orchestration uses native tools and coordinator-owned durable run files; the deleted upstream orch CLI is not retained. Stacks follow dependencies rather than forcing unrelated PRs into a chain. |
 | Recall, reflection, evaluation, and investigation | Keep scoped Codex evidence and non-Git fallbacks. A digest cannot prove tool calls. Do not restore Cursor transcript paths or assume read-only task scope removes MCP tools. |
 | `scripts/check-plan.mjs` and its fixtures | Keep `installed-playbook:` and `hourly-audit` markers. Port parser fixes independently of Cursor's `git show origin/main:` and `/loop 1h` markers. |
 | `scripts/worktree-audit.sh` | Keep full paths containing spaces, explicit `PSTACK_TRANSCRIPT_DIR`, and `review-history` rather than `safe` when history needs review. Preserve base selection and fail on invalid refs. Both Origin draft/open and GitHub open PRs must remain held; unavailable forge/history evidence cannot authorize removal. |
 | `skills/sharpen/` | Preserve explicit-only invocation and prompt-rewrite-only behavior; user choices and constraints remain binding. |
-| `skills/statechart/` | Keep explicit-only invocation, shared runtime binding, scratch input copies, inspected executable mappings, and honest blocked results for missing TLC or rendering tools. Production scripts stay upstream-exact. Retain test-only canonical temporary paths and Node rename/mkdir fault injection. Compare the full upstream injection scenario whenever publication logic changes, including allowed empty-directory claims and all competing-run races. Keep the direct injection probe and recovery assertions. Route every fault caller through the portable preload and remove superseded native code. Explicit JAVA/TLA2TOOLS paths and a prepared renderer cache avoid unapproved mise/npm installation. Linux PID-namespace coverage remains platform-specific. |
+| `skills/statechart/` | Keep explicit-only invocation, scratch input copies, inspected executable views, checked bounds, and blocked results for missing tools. The 0.15.36 TypeScript pipeline supersedes the old `.mjs` commands and preload harness. Local patches annotate the exit union and adapt the launcher test temporary path and async signal callbacks. Other executable code stays upstream-exact. Explicit JAVA/TLA2TOOLS paths avoid unapproved mise installation; renderer setup is separately scoped. |
 | Formal-verification skills | Keep explicit invocation, project-local skill authoring, isolated negative-control mutations, honest bounds and empirical-vs-formal labels, and blocked/draft results for unavailable verifiers. |
 | `docs/harness/claude-code.md` | Archived upstream reference only; Codex uses its own runtime binding, never the Claude skip rules or global config paths. |
 | Benny / bot entrypoints and archived references | Keep integrations conditional on actual connectors/backends. Archived Cursor instructions remain reference material, not active setup. |
-| `scripts/orch/`, `scripts/watch-pr/`, `bun.lock`, ordinary references | Prefer unchanged upstream code where no Codex behavior differs. Bring dependent interfaces, callers, fixtures, and tests over together. |
+| `scripts/watch-pr/`, `bun.lock`, ordinary references | Prefer unchanged upstream code where no Codex behavior differs. Bring dependent interfaces, callers, fixtures, and tests over together. |
 
-All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full path is shown. The full per-file source disposition for this update is in [the inventory](docs/upstream-0.15.32.tsv). It records the previous, new, and integrated file hashes. Documentation files are identified there without self-referential hashes. Use hashes to confirm what was copied exactly; they are evidence of this update, not a restriction on later local edits.
+All `scripts/` entries above are relative to `skills/poteto-mode/` unless a full path is shown. The full per-file source disposition for this update is in [the inventory](docs/upstream-0.15.36.tsv). It records the previous, new, and integrated file hashes. Documentation files are identified there without self-referential hashes. Use hashes to confirm what was copied exactly; they are evidence of this update, not a restriction on later local edits.
 
 ## 4. Validate and record the integration
 
@@ -126,8 +126,9 @@ In the port worktree:
 
 ```bash
 (cd skills/poteto-mode/scripts && bun install --frozen-lockfile && bun run test && bun run typecheck && bash -n worktree-audit.sh)
-# With JAVA and TLA2TOOLS set, and XDG_CACHE_HOME pointing to a prepared temporary renderer cache:
-node --test skills/statechart/scripts/test/statechart.test.mjs
+# In a writable test copy, with JAVA/TLA2TOOLS set and authorized temporary npm cache:
+(cd skills/statechart/scripts && npm install --ignore-scripts --package-lock=false && npm test)
+# Run the statechart tsconfig with a compatible TypeScript compiler and Node type definitions too.
 python3 scripts/check-upstream.test.py
 git diff --check
 git add <reviewed-paths>

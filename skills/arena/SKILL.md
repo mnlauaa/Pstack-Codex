@@ -16,7 +16,7 @@ Every candidate gets the same prompt, so the prompt is the contract.
 1. State the artifact each candidate is producing.
 2. Derive the rubric. State what success looks like for *this* task, then turn it into 3-6 concrete gradeable criteria. The rubric is the picker's tool in Phase D. Candidates only see the task.
 3. Resolve the `arena runners` panel through the runtime Models contract. Default to two independent inherited-model candidates. Preserve the configured number of seats and use a rolling window. For architecture use the `architect runners` panel. Report same-model diversity honestly. Choose reasoning effort and speed per the runtime Models contract.
-4. Assign output paths. Each candidate writes to its own location (a git worktree where possible, otherwise `/tmp/arena-<slug>/candidate-<n>/`), per the **separate-before-serializing-shared-state** principle skill.
+4. Assign absolute output paths. Explicitly create a separate worktree and branch for each candidate that writes code, with one writer per checkout. For standalone artifacts, assign separate scratch directories such as `/tmp/arena-<slug>/candidate-<n>/`, per the **separate-before-serializing-shared-state** principle skill. A native delegate does not automatically receive an isolated worktree.
 
 ## Phase B: Fan out
 
@@ -26,11 +26,13 @@ If a candidate produces no output, proceed with N-1 and note the dropout.
 
 ## Phase C: Cross-judge
 
-After all Phase B candidates complete, choose one model from the `arena cross-judge pool` line in `<repo>/.codex/pstack/models.json`. If the rule or that line is missing, choose from `inherit-parent` and `inherit-parent`. Prefer a different model family from the parent's. Spawn one readonly judge subagent on that model. It sees the rubric and the candidates by path label, scores each criterion, and recommends a base with rationale. It runs in parallel with the parent's reading in Phase D, not with the candidates themselves. Don't spawn the judge while candidates are still writing.
+After all Phase B candidates complete, resolve the `arena cross-judge pool` in `<repo>/.codex/pstack/models.json` through the runtime Models contract. Try supported entries from a known different family than the parent's, in pool order. `auto` and `inherit-parent` resolve to the parent, so they cannot supply that judge. Do not guess families from provider-specific slug rules or substitute an unconfigured provider. If no eligible entry can run, or the parent's family is unknown, skip the judge, pick the base alone in Phase D, and say why. A missing pool inherits the parent and therefore skips this cross-family judge.
+
+Spawn one read-only native judge only after all candidates stop writing. It sees the rubric and the candidates by path label, scores each criterion, and recommends a base with rationale. It runs in parallel with the parent's reading in Phase D. A rejected explicit choice follows the runtime fallback rules and never silently changes the user's model or effort preferences.
 
 ## Phase D: Pick a base
 
-Read every candidate end to end before picking. Score each against the rubric criterion by criterion, not on holistic feel, and compare with the cross-judge. Agreement on the base confirms the pick. Disagreement means one of you is biased or the rubric was ambiguous. Read both rationales before deciding.
+Read every candidate end to end before picking. Score each against the rubric criterion by criterion, not on holistic feel, and compare with the cross-judge when Phase C ran one. Agreement on the base confirms the pick. Disagreement means one of you is biased or the rubric was ambiguous. Read both rationales before deciding.
 
 Pick the base a future maintainer can extend most easily without breaking invariants. When two feel tied, prefer the cleaner boundary or smaller API, per the Laziness Protocol.
 
@@ -46,4 +48,4 @@ Verify the synthesized artifact like any other output, per the **prove-it-works*
 
 ## Outputs
 
-One synthesized artifact, with a short synthesis note alongside naming the base and why, the cross-judge's verdict, each graft with its source candidate, what was rejected and why, any convergence or dropouts, and the verification result.
+One synthesized artifact, with a short synthesis note alongside naming the base and why, the cross-judge's verdict or that Phase C skipped the judge, each graft with its source candidate, what was rejected and why, any convergence or dropouts, and the verification result.

@@ -1,5 +1,15 @@
 # Pstack Codex updates
 
+## 0.15.36 — 2026-11-03
+
+Updated original **0.15.32 → 0.15.36**, source `4dd1d05818d19792e7cd6e818f1667f95f7e1dbe`, pristine snapshot `f1e82333be428871db30dc906a7501d23b3a592c`. The 464 upstream path changes retain 58 main skills and 23 playbooks. Later original main `ae5650febf4320793844c12c4adaa937f417f8da` has the same pstack subtree.
+
+- Imported the TypeScript statechart pipeline, bounded TLA+ checks, counterexample paths, differential corpus tests, and separate Pele SVG rendering. The old `.mjs` interfaces and portable preload harness are superseded. Fixed the macOS symlink fixture, the checker exit-union annotation, and two async signal-test callbacks; other executable statechart files remain upstream-exact.
+- Adopted upstream's simpler orchestration: one PR owner, independent current-head verification, and a first-unit pilot. The removed orchestration CLI stays removed. Native Codex delegation and coordinator-owned durable run files preserve authorization, actual worker limits, scheduler IDs, cancellation, recovery, single writers, and pinned leases. Existing stores must be reconciled before migration.
+- Autopilot-stack now stacks only dependent work and stops at verified delivery. Imported narrower verifier reruns, same-file trunk rebase triggers, goal-first briefs, subtitle checks, and measurement guidance.
+- Interrogate now reports only executable failures rerun by the coordinator in isolated checkouts. Arena skips its cross-family judge when no eligible configured family is available, explaining the gap. Model preferences and invocation metadata are preserved.
+- Full integrated statechart: **367 passed, zero failed, zero skipped**. Core: 61 Bun and four Node tests passed. TypeScript, metadata, relative links, provenance and independent review passed. See [validation](VALIDATION.md), [inventory](docs/upstream-0.15.36.tsv), and [fix history](docs/upstream-0.15.36-fixes.md). Live scheduling and PR workflows were not exercised.
+
 ## 0.15.32 — 2026-10-26
 
 Updated original **0.15.30 → 0.15.32**, source `99b609a72323b70204eab407c622f436e858e112`, pristine snapshot `68bfbf7b7b1d3c62b0e9375770efc1a99f4cec3e`. Forty-seven upstream paths changed; 58 main skills and 23 playbooks.
