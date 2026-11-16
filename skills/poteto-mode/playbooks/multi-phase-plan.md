@@ -151,7 +151,7 @@ Each live lane uses an isolated supported environment at the PR head. Schedule t
 
 ## Appendix D. Links and reading list
 
-<Docs to read before editing. Which PRs get `<resolved-package-root>/skills/how/SKILL.md` and `<resolved-package-root>/skills/interrogate/SKILL.md`. The trail per `<resolved-package-root>/skills/show-me-your-work/SKILL.md`.>
+<Docs to read before editing. Which PRs get `<resolved-package-root>/skills/interrogate/SKILL.md`. The trail per `<resolved-package-root>/skills/show-me-your-work/SKILL.md`.>
 ````
 
 **Reply:** the plan path, the PR ids with their dependencies and the review-gated set, what the prototypes proved and what stays unproven, and the check script's output.

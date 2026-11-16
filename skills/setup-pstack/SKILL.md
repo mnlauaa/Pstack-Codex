@@ -9,7 +9,7 @@ Read [the runtime contract](../poteto-mode/references/codex-runtime.md). Configu
 
 1. Inspect models and supported effort levels exposed by the active host. Preserve current selections. With no configuration or no advertised alternatives, use `inherit-parent` and omit effort overrides. Never invent a model ID.
 2. Apply preferences the user already supplied. Ask only for missing choices that matter. Budget labels `small`, `medium`, `large`, and `unlimited` express desired effort (`medium`, `high`, `xhigh`, `max`) where that model supports it; they never mean unlimited money or permission. Model and effort are separate values.
-3. Use the schema below. A single role is an object; a panel is a nonempty list of objects. Panel length controls the number of runs, not concurrent slots. The cross-judge pool orders preferred models for one judge from a known different family than the parent. `auto` and `inherit-parent` cannot supply that judge. If no supported entry qualifies, Arena skips the judge and reports why. Missing roles inherit the parent; missing panels use two independent inherited-model runs.
+3. Use the schema below. A single role is an object; a panel is a nonempty list of objects. Panel length controls the number of runs, not concurrent slots. The cross-judge pool orders preferred models for one judge from a known different vendor than the parent. `auto` and `inherit-parent` cannot supply that judge. If no supported entry qualifies, Arena skips the judge and reports why. Missing roles inherit the parent; missing panels use two independent inherited-model runs.
 4. Validate names against the host's supported set and efforts against the selected model. Keep `inherit-parent` and `auto` effort-free. For unsupported preferences report the mismatch and obtain or apply an already-authorized fallback. Preserve unrelated existing values. Write valid JSON idempotently.
 5. Show the resulting roles and location. Skills load this file at run start and the parent passes resolved choices to workers; it is not an automatically applied Codex rule. Offer the existing create-verification-skill workflow if the project lacks a real-app verification path.
 
@@ -23,10 +23,7 @@ Read [the runtime contract](../poteto-mode/references/codex-runtime.md). Configu
     "hillclimb": {"model": "inherit-parent"},
     "judgment and prose": {"model": "inherit-parent"},
     "hardest tasks": {"model": "inherit-parent"},
-    "how explorer": {"model": "inherit-parent"},
     "how explainer": {"model": "inherit-parent"},
-    "why investigators": {"model": "inherit-parent"},
-    "why synthesizer": {"model": "inherit-parent"},
     "reflect tooling": {"model": "inherit-parent"},
     "reflect judgment, divergent, synthesizer": {"model": "inherit-parent"},
     "arena runners": [{"model": "inherit-parent"}, {"model": "inherit-parent"}],
@@ -39,6 +36,8 @@ Read [the runtime contract](../poteto-mode/references/codex-runtime.md). Configu
 ```
 
 For an explicitly selected supported model, the role object may also contain `reasoning_effort`. Translate that to the actual host's spawn field; do not pass this JSON object directly as a tool argument.
+
+The retired `how explorer`, `why investigators`, and `why synthesizer` roles are no longer used. Preserve existing entries when updating a user's configuration; omit them in new configurations. `how explainer` still configures the single explanation delegate. Do not migrate provider defaults into Codex or silently replace existing model selections.
 
 ## Optional formal verification
 

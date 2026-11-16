@@ -1,0 +1,14 @@
+../../../tmp/pstack-20261116/control/skills/statechart/scripts/run.ts(480,9): error TS2322: Type '{ spec: { module: string; variables: string[]; invariants: string[]; properties: string[]; deadlock: boolean; written: ConfigSection[]; folder: string; }; exit: number; stop: Stop | undefined; ... 6 more ...; drawing: { ...; } | undefined; }' is not assignable to type 'CheckResult'.
+  Types of property 'exit' are incompatible.
+    Type 'number' is not assignable to type '0 | 1 | 2'.
+../../../tmp/pstack-20261116/control/skills/statechart/scripts/run.ts(496,5): error TS2322: Type '{ spec: { module: string; variables: string[]; invariants: string[]; properties: string[]; deadlock: boolean; written: ConfigSection[]; folder: string; }; exit: number; stop: Stop | undefined; ... 6 more ...; drawing: undefined; }' is not assignable to type 'CheckResult'.
+  Types of property 'exit' are incompatible.
+    Type 'number' is not assignable to type '0 | 1 | 2'.
+../../../tmp/pstack-20261116/control/skills/statechart/scripts/test/cli.test.ts(431,5): error TS2345: Argument of type '() => Promise<{ dir: string; reached: () => boolean; } & { java?: string; }>' is not assignable to parameter of type 'TestFn'.
+  Type 'Promise<{ dir: string; reached: () => boolean; } & { java?: string | undefined; }>' is not assignable to type 'void | Promise<void>'.
+    Type 'Promise<{ dir: string; reached: () => boolean; } & { java?: string | undefined; }>' is not assignable to type 'Promise<void>'.
+      Type '{ dir: string; reached: () => boolean; } & { java?: string | undefined; }' is not assignable to type 'void'.
+../../../tmp/pstack-20261116/control/skills/statechart/scripts/test/cli.test.ts(454,5): error TS2345: Argument of type '() => Promise<{ dir: string; reached: (parent: string) => boolean; } & { java?: string; }>' is not assignable to parameter of type 'TestFn'.
+  Type 'Promise<{ dir: string; reached: (parent: string) => boolean; } & { java?: string | undefined; }>' is not assignable to type 'void | Promise<void>'.
+    Type 'Promise<{ dir: string; reached: (parent: string) => boolean; } & { java?: string | undefined; }>' is not assignable to type 'Promise<void>'.
+      Type '{ dir: string; reached: (parent: string) => boolean; } & { java?: string | undefined; }' is not assignable to type 'void'.

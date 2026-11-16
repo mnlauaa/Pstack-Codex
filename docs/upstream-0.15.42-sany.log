@@ -1,0 +1,30 @@
+semantic exit 2
+SANY could not read /tmp/pstack-20261116/sany-smoke/semantic/Broken.tla (exit 1):
+*** Errors: 1
+
+line 3, col 13 to line 3, col 19 of module Broken
+
+Unknown operator: `missing'.
+
+parse exit 2
+SANY could not read /tmp/pstack-20261116/sany-smoke/parse/Broken.tla (exit 1):
+***Parse Error***
+Was expecting "Expression or Instance"
+Encountered "Beginning of definition" at line 3, column 9 and token "=="
+
+Residual stack trace follows:
+Definition starting at line 3, column 1.
+Module body starting at line 2, column 1.
+Module definition starting at line 1, column 1.
+
+
+Fatal errors while parsing TLA+ spec in file /tmp/pstack-20261116/sany-smoke/parse/Broken.tla
+
+tla2sany.semantic.AbortException
+*** Abort messages: 1
+
+In module Broken
+
+Could not parse module Broken from file /tmp/pstack-20261116/sany-smoke/parse/Broken.tla
+
+Two real SANY diagnostics checks passed; no output published.

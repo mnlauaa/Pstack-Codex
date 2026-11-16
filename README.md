@@ -4,7 +4,7 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.15.36 · **Upstream:** 0.15.36 · **Source commit:** [`4dd1d05`](https://github.com/cursor/plugins/tree/4dd1d05818d19792e7cd6e818f1667f95f7e1dbe/pstack)
+**Port version:** 0.15.42 · **Upstream:** 0.15.42 · **Source commit:** [`bf0c7cd`](https://github.com/cursor/plugins/tree/bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7/pstack)
 
 ## What’s included
 
@@ -16,7 +16,7 @@ This port tracks the original upstream while adapting its instructions to Codex�
 - `$ketchup` for a visual catch-up with every pending decision, its evidence, and risk.
 - `$in-your-own-words` to confirm the agent understands your goal before work starts.
 - [`$statechart`](skills/statechart/SKILL.md) to check a TLA+ model and show modeled behavior and bug paths as Mermaid charts; rendering is a separate step.
-- `$sharpen` to rewrite a prompt with expert methods, raw sources, and an outside check, without executing the task.
+- `$sharpen` to rewrite a prompt with expert methods, raw sources, an outside check, and experiments for empirical choices, without executing the task.
 - `$create-formal-verification-skill` and `$maintain-formal-verification-skill` for bounded property checks and keeping them aligned with the code. Verifiers are not bundled.
 - Source provenance, a change log, and a three-way merge guide for future upstream updates.
 
@@ -80,11 +80,11 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.15.36, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. Use the new [ketchup skill](skills/ketchup/SKILL.md) to catch up on a chat and its pending decisions.
+This port is version 0.15.42, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. This update simplifies `how` and `why`, reduces forced helper calls, and improves statechart nesting and parse errors. Arena cross-judges now require a different model vendor.
 
 ## Validation
 
-The integrated checks passed 367 statechart tests with no skips, 61 Bun tests, four Node tests, three provenance tests, TypeScript checks, and all 62 skill validators. See [VALIDATION.md](VALIDATION.md) for the control failures, fixes, and tested scope.
+The integrated checks passed 373 statechart tests with no skips, 61 Bun tests, four Node tests, three provenance tests, TypeScript checks, and all 62 skill validators. See [VALIDATION.md](VALIDATION.md) for the control failures, fixes, and tested scope.
 
 To run the script checks locally, with Bun and Node installed:
 

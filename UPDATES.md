@@ -1,5 +1,18 @@
 # Pstack Codex updates
 
+## 0.15.42 — 2026-11-16
+
+Updated original **0.15.36 → 0.15.42**, source `bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7`, pristine snapshot `2396940c1b55191357c50fc4105d3ec87663fac6`. The 59 upstream path changes retain 58 main skills and 23 playbooks.
+
+- `how` now uses one read-only native explainer; `why` follows the introducing commits, later changes, and PR discussions directly, with other sources when needed. Both retain scoped evidence and unavailable-capability reporting. Removed the retired how/why prompt and source playbooks, and updated their callers. Recall now owns its source investigators.
+- Implementation, investigation, architecture, comment review, and Benny trace code directly instead of requiring an extra `how` invocation. Sharpen asks the eventual task executor to prototype empirical choices while leaving product and preference decisions to the user; sharpening still only rewrites the prompt.
+- Arena cross-judges require a known different vendor, not just a different family. When the configured pool or host cannot supply one, the coordinator explains the skip and evaluates the candidates itself. Codex model/effort validation, inheritance, worker limits, and writer isolation remain.
+- Statechart draws incoming edges through nested parent-state entries and surfaces actual SANY parse and semantic diagnostics. Imported its updated tests and fixtures; retained only the existing exit-union annotation, macOS fixture path, and async callback fixes in two files.
+- Intentionally retained Codex setup semantics instead of importing upstream provider defaults, model-slug migration, global rules, or relative per-role budget changes. Existing user model choices stay intact. Retired roles are omitted from new examples and preserved unused in existing configuration. Marketplace identity, invocation policies, authorization, scheduling and published history are unchanged.
+- **373 statechart tests, 61 Bun tests, four Node tests, two real SANY smoke checks, three provenance tests, TypeScript, skill metadata, and relative links passed.** The unchanged core suite had one initial 2-second subprocess timeout during concurrent testing; it passed when rerun alone without edits. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.42.tsv).
+
+This scheduled update publishes repository branches only; it does not update an installed plugin or activate integrations.
+
 ## 0.15.36 — 2026-11-03
 
 Updated original **0.15.32 → 0.15.36**, source `4dd1d05818d19792e7cd6e818f1667f95f7e1dbe`, pristine snapshot `f1e82333be428871db30dc906a7501d23b3a592c`. The 464 upstream path changes retain 58 main skills and 23 playbooks. Later original main `ae5650febf4320793844c12c4adaa937f417f8da` has the same pstack subtree.

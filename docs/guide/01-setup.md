@@ -7,6 +7,8 @@ Use this package's root SKILL.md directly, or register the folder using a suppor
 
 The default is the parent model with no effort override. Run [setup-pstack](../../skills/setup-pstack/SKILL.md) when you want role-specific choices. It writes project-local `.codex/pstack/models.json`, loaded at run start. A role is a model/effort object; a panel is a list. Only actual host-supported model/effort combinations are accepted. An inherited-model panel supplies independent runs, not cross-provider diversity.
 
+Setup preserves existing model selections. Retired how-explorer and why roles are left in existing files but are no longer used; `how explainer` configures the single explanation delegate. Arena requires a known different vendor for its cross-judge and reports a skip when none is available.
+
 Re-read changed configuration before the next dispatch. Existing agents keep their launch settings. A longer panel uses more total work and is queued within the available worker slots.
 
 ## Verify the real app
