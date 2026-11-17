@@ -1,5 +1,18 @@
 # Pstack Codex updates
 
+## 0.15.43 — 2026-11-17
+
+Updated original **0.15.42 → 0.15.43**, source `3fa33bb0f927bea2ccacd48a3cfda95145fb6bae`, pristine snapshot `eecd0929bfeeefd5e66171c9aa9bf55744cd138e`. Seventy upstream paths changed. The port retains 58 main skills and 23 playbooks; upstream now has 22 playbooks.
+
+- Architect traces the affected systems and sketches two shapes inline; large or contested designs use Arena with the existing Codex architecture panel. Reflection reads scoped conversation evidence inline, proposes durable edits, and waits for approval before editing a source copy. Removed the retired design and reflection templates and updated callers.
+- New `worker.md` gives every delegate a pinned startup contract. The Codex adaptation preserves scope, required checks, supported models, isolation and authorization. Missing capabilities remain unverified. Upstream's blanket external-action permission, provider defaults and baseline-check exemptions are not imported.
+- Simplified principles, technical writing and unslop. PR bodies become short briefings, ready by default with user draft overrides. Opening a PR no longer starts babysitting automatically. Babysit reports rebases to the branch owner; owners retain lease and handoff safeguards. Shipping reuses its frozen PR list on restart.
+- Retained the Orchestrate playbook, full multi-phase plan contract, plan checker and its seven tests as explicit Codex extensions after upstream removed or simplified them. These preserve native scheduling, recorded IDs, recovery and plan markers required by this repository. No orchestration CLI is restored.
+- Existing user model selections, provider/effort semantics and retired configuration entries remain intact. New setup examples omit retired reflection roles. Packaging identities, invocation policies and published history are preserved.
+- **373 statechart tests, 61 Bun tests, four Node tests, three provenance tests, TypeScript, skill metadata and relative links passed.** Statechart source is unchanged upstream; the existing two-file macOS/type fixes remain. The first integrated statechart run lacked its declared `fast-check` test dependency; the complete rerun passed after provisioning it, with no source edits. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.43.tsv).
+
+This scheduled update publishes repository branches only; it does not update an installed plugin or activate integrations.
+
 ## 0.15.42 — 2026-11-16
 
 Updated original **0.15.36 → 0.15.42**, source `bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7`, pristine snapshot `2396940c1b55191357c50fc4105d3ec87663fac6`. The 59 upstream path changes retain 58 main skills and 23 playbooks.

@@ -4,7 +4,7 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.15.42 · **Upstream:** 0.15.42 · **Source commit:** [`bf0c7cd`](https://github.com/cursor/plugins/tree/bf0c7cd80abdbf7fe47b634978a7d1b4071f71a7/pstack)
+**Port version:** 0.15.43 · **Upstream:** 0.15.43 · **Source commit:** [`3fa33bb`](https://github.com/cursor/plugins/tree/3fa33bb0f927bea2ccacd48a3cfda95145fb6bae/pstack)
 
 ## What’s included
 
@@ -80,7 +80,7 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.15.42, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. This update simplifies `how` and `why`, reduces forced helper calls, and improves statechart nesting and parse errors. Arena cross-judges now require a different model vendor.
+This port is version 0.15.43, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. This update simplifies architecture, reflection and PR workflows and adds a scoped delegate startup contract. Codex retains its plan checker and Orchestrate playbook, removed by upstream, to preserve plan markers and scheduling/recovery behavior.
 
 ## Validation
 

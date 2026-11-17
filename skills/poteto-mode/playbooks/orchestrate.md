@@ -1,5 +1,7 @@
 ### Orchestrate
 
+Codex extension retained after upstream 0.15.43 removed this playbook. It preserves standing-program state, scheduling, leases and recovery.
+
 **You run the program, never the code. Decide which agent does each piece of work, then check what each one produces.** For a standing project handed to one coordinator chat: multi-day, many stacked PRs, dozens to hundreds of subagents, few human turns. One task driven to a predicate is Autonomous run. One ambitious run that needs a bespoke workflow is figure-it-out. Work that one agent could finish inside the session's budget is not a program.
 
 Run it with the host's native delegation tools under the Codex runtime contract. Keep durable program records in the resolved writable run directory outside the installed package. Use native waits for active workers and verified event subscriptions when available. A later wake requires an actual schedule and a recorded ID. Do not assume a Cursor Project tracker, Project store, cloud VM, or event subscription exists. No orchestration CLI or polling loop is needed, and the coordinator does not relay routine status messages between agents. Carry a completed dependency's evidence into the next worker's brief.

@@ -85,7 +85,7 @@ $poteto-mode full autopilot on this queue. each item is independent. i want them
 $poteto-mode autopilot these five changes, but don't merge. i'll land them in the morning.
 ```
 
-[Orchestrate](../../skills/poteto-mode/playbooks/orchestrate.md) is for a program that outlives any single agent: multi-day, many stacked PRs, fleets of subagents under one standing coordinator chat. The coordinator decides which agent does each piece of work, checks what each one produces, and never writes code itself. If one agent could finish the work in a session, the playbook itself routes you back to the overnight contract above:
+[Orchestrate](../../skills/poteto-mode/playbooks/orchestrate.md), retained as a Codex extension after upstream 0.15.43, is for a program that outlives any single agent: multi-day, many stacked PRs, fleets of subagents under one standing coordinator chat. The coordinator decides which agent does each piece of work, checks what each one produces, and never writes code itself. If one agent could finish the work in a session, the playbook itself routes you back to the overnight contract above:
 
 ```text
 $poteto-mode orchestrate the store migration. own it until every package is converted and merged. i'll check in twice a day.
@@ -93,7 +93,7 @@ $poteto-mode orchestrate the store migration. own it until every package is conv
 
 ## Run many projects in parallel
 
-The Orchestrate playbook uses one coordinator with durable state and a rolling worker queue. Use actual host scheduling for future wakes. Verify the execution host remains available; local work does not continue simply because a laptop is closed.
+The Orchestrate playbook uses one coordinator with durable state and a rolling worker queue. Each delegate first reads the pinned [worker contract](../../skills/poteto-mode/worker.md), which preserves the operator's scope and required checks. Use actual host scheduling for future wakes. Verify the execution host remains available; local work does not continue simply because a laptop is closed.
 
 A few habits help:
 

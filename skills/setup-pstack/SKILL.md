@@ -24,8 +24,6 @@ Read [the runtime contract](../poteto-mode/references/codex-runtime.md). Configu
     "judgment and prose": {"model": "inherit-parent"},
     "hardest tasks": {"model": "inherit-parent"},
     "how explainer": {"model": "inherit-parent"},
-    "reflect tooling": {"model": "inherit-parent"},
-    "reflect judgment, divergent, synthesizer": {"model": "inherit-parent"},
     "arena runners": [{"model": "inherit-parent"}, {"model": "inherit-parent"}],
     "arena cross-judge pool": [{"model": "inherit-parent"}],
     "swarm workers": {"model": "inherit-parent"},
@@ -37,7 +35,7 @@ Read [the runtime contract](../poteto-mode/references/codex-runtime.md). Configu
 
 For an explicitly selected supported model, the role object may also contain `reasoning_effort`. Translate that to the actual host's spawn field; do not pass this JSON object directly as a tool argument.
 
-The retired `how explorer`, `why investigators`, and `why synthesizer` roles are no longer used. Preserve existing entries when updating a user's configuration; omit them in new configurations. `how explainer` still configures the single explanation delegate. Do not migrate provider defaults into Codex or silently replace existing model selections.
+The retired `how explorer`, `why investigators`, `why synthesizer`, `reflect tooling`, and `reflect judgment, divergent, synthesizer` roles are no longer used. Preserve existing entries when updating a user's configuration; omit them in new configurations. `how explainer` still configures the single explanation delegate. The Codex port retains `architect runners` for large or contested designs routed to Arena. Reflection now runs inline. Do not migrate provider defaults into Codex or silently replace existing model selections.
 
 ## Optional formal verification
 

@@ -5,6 +5,7 @@ description: poteto's agent style for concise, detailed responses, deliberate su
 
 Before using this skill, read the shared [Codex runtime contract](references/codex-runtime.md) once per run. Resolve bundled skills by package path and follow that contract for tools, models, history, scheduling, and permissions.
 
+
 # Poteto mode
 
 Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's absolute path in every `poteto-agent` prompt.
@@ -13,26 +14,19 @@ Bundled skills live at `../<name>/SKILL.md` from this file, so put this file's a
 
 The Principles section below grounds every trigger. In your reply, name each principle that shaped a decision and the specific choice it changed. Cite only principles whose leaf SKILL.md you read this session.
 
-Remaining triggers:
+The remaining triggers live only here:
 
-- Your first message on a task → tell the user, in your own words, their goal, the problem they are solving, and, if the task ships a change, the smallest change you expect to meet it. Don't wait for confirmation. If the evidence rules out the change the user asked for, show it and stop. Restate the user's goal in each subagent brief, and open each PR's `## Why` with it. Open each final report with it too, your final reply included, except after a fully specified one-line edit.
-- About to use the available user-input tool on a "which approach", "how should I", or "what should this do" fork → classify it before you ask. If the answer is a fact you could observe by running something (behavior, timing, layout, output, perf, even whether an eval separates), it is not the human's to answer. Sketch it via the Prototype playbook (`playbooks/prototype.md`) and let the result decide. If the task is a read-only Investigation whose deliverable is a cited answer, stay in it and answer from the evidence rather than building a sketch. Reserve the question for a genuine product or preference call no experiment can settle. Under a full-autonomy grant, decide a call that the grant covers, act on it, and report it, with no reply word and no offer. Under the grant, apply a default for a call that only the operator can make. Report the default with a full explanation, and say in plain words what the operator could tell you to do instead. The operator answers in their own words. Never give a shorthand token to type back. Gates that the operator named and the Always-pause list in Autonomy still need the operator.
-- Any code → name the data shape first, and choose its organizing structure per **principle-model-the-domain**.
-- Code crossing a function boundary → the **architect** skill, parallel design exploration before implementing.
-- Parallel fan-out → the **swarm** skill for coverage matrices, races, gauntlets, and exploration partitions. Use **arena** for design or code bakeoffs with base selection and grafting.
-- Contested design → the **interrogate** skill (multi-model adversarial) before shipping.
-- Nontrivial multi-step → write the throughput checkpoint (Feature step 3).
-- Any prose surface → the **unslop** skill. Your reply is a prose surface. Write it per **Writing the reply**. Agent-facing prose also follows the **skill-creator** skill (Codex skill authoring, when available).
-- Docs, RFCs, readmes, PR descriptions, or commit messages → the **technical-writing** skill (`$technical-writing`).
-- Before commit → the cleanup pass in the Codex runtime reference.
-- Before review → the **no-comments** skill (`$no-comments`).
-- Shipping UI / IDE / CLI → the matching control skill. Use the existing project harness or available Codex browser, app, and terminal tools per the runtime contract. For bug fixes, reproduce first on the same surface yourself. Hand to the user only under the narrow Bug fix step 1 exception.
-- Running a benchmark, measuring perf yourself, or reporting a speedup or regression you measured → the **benchmark-checklist** skill before you report or act on the number.
-- Any PR-status request → the **Babysit** playbook (`playbooks/babysit.md`), using this package path to avoid another installed skill with the same name. That includes "babysit this", "get it green", "address the bugbot comments", and the commonest phrasing, "check on PR X" / "anything outstanding on X". Never triggered by merely opening a PR. Declare its mode before polling. The playbook's step 1 owns the request-to-mode mapping. Reaching for `drive` inside a phase agent stops that agent finishing its turn.
-- Asked to land or ship a green stack → the **Shipping** playbook (`playbooks/shipping.md`). Green is not safe. Nothing gets armed before an independent per-PR verdict, and only the contiguous verified run from the root lands.
-- Bugbot or the agentic security review commented → skeptical posture. They catch real bugs and also file non-issues and nitpicks, so assess each on its merits and dismiss noise with a concrete reason instead of churning code. Triage fix / dismiss / ask per `references/bugbot-triage.md`.
-- Broken skill mid-task → report the concrete limitation. Fix it only when that is necessary and within the user's scope; otherwise record the follow-up and continue independent work. Publish a separate PR only when authorized.
-- Long, autonomous, or multi-phase work, or any task the user steps away from to review later ("going to bed", "trust it when i'm back", "continue until X") → a decision trail via the **show-me-your-work** skill. Commit it when stakes need an auditable record. Keep it local otherwise.
+- First message → restate the user's goal and the smallest change that meets it, then proceed. Open each subagent brief, PR `## Why`, and final report with the goal.
+- Starting any native delegate for this run → the first line of its kickoff is `Read <path>/worker.md before anything else.`, with `<path>` the absolute path of this skill's folder. Pass the authorized task scope and the resolved runtime/model settings; reading this file grants no additional permissions. Keep the rest of the kickoff to the goal and the task, plus this file's absolute path for a `poteto-agent`.
+- A fork you could settle by running something → prototype it per `playbooks/prototype.md` instead of asking. A read-only investigation stays read-only. Ask only about unresolved product or preference decisions outside the existing grant.
+- Code → name the data shape first. Across a function boundary → **architect**. Fan-out → **swarm**. Bakeoff → **arena**. Contested design → **interrogate**.
+- Prose, your reply included → **unslop**. Docs, PR descriptions, commit messages → **technical-writing**.
+- Before commit → the cleanup pass in the Codex runtime contract. Before review → **no-comments**.
+- Shipping UI / IDE / CLI → discover the actual control tools and project verification path per the Codex runtime contract.
+- A number you measured → **benchmark-checklist**.
+- PR status → the **Babysit** playbook, resolved by this package path. Landing a green stack → the **Shipping** playbook.
+- Bot review comments → judge each on its merits.
+- Long or unattended work → **show-me-your-work**.
 
 ## Principles
 
@@ -89,7 +83,7 @@ Read the leaf skill in full for any principle you apply. Each entry names when i
 
 ## Subagents
 
-The chat that receives `$poteto-mode` owns and runs the playbook. Do not spawn a delegate merely to run the whole playbook. Use the bundled `agents/poteto-agent.md` role prompt for code-writing and helper delegates inside its steps. Routed review skills keep their own prompt templates. Bind all roles through the Codex runtime contract; Markdown filenames are not registered agent types.
+The chat that receives `$poteto-mode` owns and runs the playbook. Do not spawn a delegate merely to run the whole playbook. Use the bundled `agents/poteto-agent.md` role prompt for code-writing and helper delegates inside its steps. Routed skills keep their own scoped briefs and any retained prompt templates. Every delegate reads `worker.md` first. Bind all roles through the Codex runtime contract; Markdown filenames are not registered agent types.
 
 Use native asynchronous delegation, including supported steering and resumes, so other worker reports remain available. Pass explicit checkout paths and scoped briefs, and respect the available concurrency limit. Resolve role objects from setup-pstack's JSON configuration; default to inheritance. Keep independent review and label reduced model diversity. You own each delegate's result: inspect its evidence and diff before integrating.
 
@@ -99,27 +93,11 @@ Give new work to a fresh delegate with consolidated scope, including later direc
 
 ## Writing the reply
 
-Write the reply clean as you draft it. A cleanup pass after drafting does not remove these patterns.
-
-- **Short declarative sentences.** One thought per sentence, ended with a period.
-- **No long-dash character anywhere.** Write a file-list bullet as a sentence ("`main.js` owns persistence and the IPC handlers") and a bold section header as its own sentence ("**Verification.** End to end via CDP").
-- **A colon as a mid-sentence connector is also out** (unslop rule 14). A colon before a list is fine.
-- **Terse is not an excuse to drop content.** Short sentences, but every section the playbook's reply names stays: details, tradeoffs, choices, open decisions.
-- **Frame impact for the consumer and the maintainer.** Name who the work is for (an end user, a colleague importing the library) and what changes for them before any implementation detail. Then what the next engineer who owns this code inherits. If you can't say what either would notice, the work or the explanation is off.
-- **Never fabricate a link, citation, or transcript reference.** Link only artifacts you produced or read this session.
-- **Every claim carries its evidence or its label in the same sentence.** Measured, inferred, or guess. A prediction or an unseen cause is a guess. Never hand the human a check you could run.
-
-Every playbook ends with an evidenced reply. Include a PR link only when the task produced one, formatted as `https://github.com/<owner>/<repo>/pull/<number>`. The per-playbook lines below name only the content unique to that playbook.
-
-## Comments
-
-Comments follow the same rule as the reply. Write them clean as you go. Keep a comment only for a non-obvious *why* the code can't show. A verify or test script gets no phase-narrating comments such as `// Phase 1: add cards`. The assertion or log string documents the step, as in `assert(ok, 'persisted across restart')`. This applies to every file you produce, including the delegate's diff.
+Write short declarative sentences with no long dash and no colon as a connector. Lead with what changes for the user. Give each claim its evidence or a label (measured, inferred, or guess). Never hand the human a check you could run.
 
 ## Playbooks
 
-Use the available plan tool or a Markdown checklist whose first items are the matched playbook's steps, copied in verbatim, before any task-specific todos. A step you choose not to do stays in the list with a one-line `skip: <reason>`. Match the task to a playbook below, open its file, and copy its steps in verbatim.
-
-A large or cross-cutting effort (a migration across many call sites, an ambitious multi-part change), or work the user steps away from to trust later, routes to the **figure-it-out** skill even when a narrower playbook like Feature fits. Use **figure-it-out** whenever no bundled playbook fits. It designs a bespoke, rigorous playbook for the task. A standing project-scale program (multi-day, many stacked PRs, a fleet of subagents under one coordinator) routes to **Orchestrate** instead. figure-it-out designs one bespoke run, orchestrate runs the program.
+Match the task to a playbook and read its file from this package. Copy its steps into the available plan tool or a Markdown checklist before task-specific items. Large, cross-cutting, unattended, or unmatched work routes to **figure-it-out**. A standing program may use the retained Codex **Orchestrate** playbook with recorded state, leases, scheduling and cancellation.
 
 - **Investigation.** Read-only question: how does X work, why was Y built this way, are we sure about Z, should we do X or Y. `playbooks/investigation.md`.
 - **Bug fix.** A reported defect to reproduce, root-cause, and fix with runtime evidence. `playbooks/bug-fix.md`.
