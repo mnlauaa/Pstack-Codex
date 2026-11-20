@@ -1,0 +1,14 @@
+run.ts(474,9): error TS2322: Type '{ spec: { module: string; variables: string[]; invariants: string[]; properties: string[]; deadlock: boolean; written: ConfigSection[]; folder: string; }; exit: number; stop: Stop | undefined; ... 6 more ...; drawing: { ...; } | undefined; }' is not assignable to type 'CheckResult'.
+  Types of property 'exit' are incompatible.
+    Type 'number' is not assignable to type '0 | 1 | 2'.
+run.ts(490,5): error TS2322: Type '{ spec: { module: string; variables: string[]; invariants: string[]; properties: string[]; deadlock: boolean; written: ConfigSection[]; folder: string; }; exit: number; stop: Stop | undefined; ... 6 more ...; drawing: undefined; }' is not assignable to type 'CheckResult'.
+  Types of property 'exit' are incompatible.
+    Type 'number' is not assignable to type '0 | 1 | 2'.
+test/cli.test.ts(460,5): error TS2345: Argument of type '() => Promise<{ dir: string; reached: () => boolean; } & { java?: string; }>' is not assignable to parameter of type 'TestFn'.
+  Type 'Promise<{ dir: string; reached: () => boolean; } & { java?: string | undefined; }>' is not assignable to type 'void | Promise<void>'.
+    Type 'Promise<{ dir: string; reached: () => boolean; } & { java?: string | undefined; }>' is not assignable to type 'Promise<void>'.
+      Type '{ dir: string; reached: () => boolean; } & { java?: string | undefined; }' is not assignable to type 'void'.
+test/cli.test.ts(483,5): error TS2345: Argument of type '() => Promise<{ dir: string; reached: (parent: string) => boolean; } & { java?: string; }>' is not assignable to parameter of type 'TestFn'.
+  Type 'Promise<{ dir: string; reached: (parent: string) => boolean; } & { java?: string | undefined; }>' is not assignable to type 'void | Promise<void>'.
+    Type 'Promise<{ dir: string; reached: (parent: string) => boolean; } & { java?: string | undefined; }>' is not assignable to type 'Promise<void>'.
+      Type '{ dir: string; reached: (parent: string) => boolean; } & { java?: string | undefined; }' is not assignable to type 'void'.

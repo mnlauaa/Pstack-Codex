@@ -1,5 +1,17 @@
 # Pstack Codex updates
 
+## 0.15.46 — 2026-11-20
+
+Updated original **0.15.43 → 0.15.46**, source `fbb86c09bbb4a25e490aaed136899ced1e9140e4`, pristine snapshot `1e967a72510148f34895ff4023ed9fd70af13923`. Fifteen upstream paths changed; the collection remains 58 main skills and 23 Codex playbooks.
+
+- Statechart handles Windows CRLF and mixed TLC line endings, with explicit UTF-8 Java output. Thirty-three corpus regressions and one message-parser regression cover the new newline behavior.
+- Imported upstream's TypeScript janitor and shared process termination helper, replacing POSIX shell cleanup. POSIX uses process-group signals; Windows uses `taskkill`. Worker temporary paths now populate `TMPDIR`, `TEMP` and `TMP`. The skill documents direct Node invocation on native Windows while preserving scoped installation, scratch outputs and unavailable-tool reporting.
+- Retained only the existing exit-union annotation, canonical macOS test path and two async callback fixes in the same two statechart files. All other statechart script files match upstream. No new downstream executable patch was needed.
+- Intentionally omitted upstream Gemini 4 Neon defaults, automatic panel-model migrations and provider-specific effort rules from active Codex instructions. Existing supported model/effort selections and inheritance remain intact. The archived Claude adapter records upstream's new mapping without becoming an active Codex setup path.
+- **407 statechart tests, 61 Bun tests, four Node tests, three provenance tests, TypeScript, all 62 skill validators and relative links passed.** The untouched control retains the known macOS symlink failure and four type diagnostics. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.46.tsv).
+
+The ordinary merge preserves original snapshot ancestry and published history. This scheduled update does not refresh the installed plugin. Native Windows and real Bun/Deno statechart execution were not tested.
+
 ## 0.15.43 — 2026-11-17
 
 Updated original **0.15.42 → 0.15.43**, source `3fa33bb0f927bea2ccacd48a3cfda95145fb6bae`, pristine snapshot `eecd0929bfeeefd5e66171c9aa9bf55744cd138e`. Seventy upstream paths changed. The port retains 58 main skills and 23 playbooks; upstream now has 22 playbooks.

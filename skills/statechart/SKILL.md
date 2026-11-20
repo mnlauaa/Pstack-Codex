@@ -21,6 +21,8 @@ Work in a scratch folder outside the repo. Write a TLA+ spec and its config. The
 
 The `scripts/statechart` launcher selects a supported TypeScript runtime: Node 22.18 to 22.x, Node 23.6 or later, Bun 1.1.5 or later, or Deno 2.0 or later. Run it from the resolved package path, quote paths containing spaces, and give `--out` a new scratch output directory. Do not use the retired `.mjs`, reverse, or comparison commands.
 
+The launcher is a POSIX shell script. On native Windows, invoke `node --disable-warning=ExperimentalWarning "<skill dir>/scripts/statechart.ts" SPEC.tla [--config FILE] [--view FILE] [--out DIR]` directly with a supported Node version; apply the same scratch-folder and prerequisite checks.
+
 Before running, set `TLA2TOOLS` to an existing `tla2tools.jar` and `JAVA` to an available Java 11+ executable. Inspect those paths first. With `TLA2TOOLS` set, the checker uses `JAVA` or the `java` on PATH without mise. Without it, the helper can install Java and TLC with mise. Do not enter that installation path without authorization. Report missing tools as blocked, or provision them only within an already authorized installation scope. Rendering is a separate prerequisite described below.
 
 ## Write the spec

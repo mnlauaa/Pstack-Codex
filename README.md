@@ -4,7 +4,7 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.15.43 · **Upstream:** 0.15.43 · **Source commit:** [`3fa33bb`](https://github.com/cursor/plugins/tree/3fa33bb0f927bea2ccacd48a3cfda95145fb6bae/pstack)
+**Port version:** 0.15.46 · **Upstream:** 0.15.46 · **Source commit:** [`fbb86c0`](https://github.com/cursor/plugins/tree/fbb86c09bbb4a25e490aaed136899ced1e9140e4/pstack)
 
 ## What’s included
 
@@ -80,11 +80,11 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.15.43, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. This update simplifies architecture, reflection and PR workflows and adds a scoped delegate startup contract. Codex retains its plan checker and Orchestrate playbook, removed by upstream, to preserve plan markers and scheduling/recovery behavior.
+This port is version 0.15.46, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. This update imports statechart Windows newline handling, UTF-8 Java output and portable worker cleanup. Codex model defaults and existing user selections are preserved. The plan checker and Orchestrate extension remain available.
 
 ## Validation
 
-The integrated checks passed 373 statechart tests with no skips, 61 Bun tests, four Node tests, three provenance tests, TypeScript checks, and all 62 skill validators. See [VALIDATION.md](VALIDATION.md) for the control failures, fixes, and tested scope.
+The integrated checks passed 407 statechart tests with no skips, 61 Bun tests, four Node tests, three provenance tests, TypeScript checks, and all 62 skill validators. See [VALIDATION.md](VALIDATION.md) for the control failures, fixes, and tested scope.
 
 To run the script checks locally, with Bun and Node installed:
 

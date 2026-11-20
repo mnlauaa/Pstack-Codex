@@ -1,0 +1,2487 @@
+
+> test
+> node --disable-warning=ExperimentalWarning --test test/*.test.ts
+
+TAP version 13
+# Subtest: TLA+ values reach the view as the skill says: sequences from 1, sets as arrays
+ok 1 - TLA+ values reach the view as the skill says: sequences from 1, sets as arrays
+  ---
+  duration_ms: 1.023375
+  type: 'test'
+  ...
+# Subtest: a value outside the grammar TLC prints is an error, never a guess
+ok 2 - a value outside the grammar TLC prints is an error, never a guess
+  ---
+  duration_ms: 0.344416
+  type: 'test'
+  ...
+# Subtest: a label prints each value in TLA+, so values that TLC tells apart look apart
+ok 3 - a label prints each value in TLA+, so values that TLC tells apart look apart
+  ---
+  duration_ms: 0.254125
+  type: 'test'
+  ...
+# Subtest: equal TLA+ values share one key and unequal ones do not, as TLC compares them
+ok 4 - equal TLA+ values share one key and unequal ones do not, as TLC compares them
+  ---
+  duration_ms: 0.419083
+  type: 'test'
+  ...
+# Subtest: each corpus bug path is the shortest way to its rule
+ok 5 - each corpus bug path is the shortest way to its rule
+  ---
+  duration_ms: 237.78875
+  type: 'test'
+  ...
+# Subtest: a chart of only the bug paths words each one with the view, asked once for each state and step
+ok 6 - a chart of only the bug paths words each one with the view, asked once for each state and step
+  ---
+  duration_ms: 21.766542
+  type: 'test'
+  ...
+# Subtest: the graph that parseDot returns keeps none of the text it read
+ok 7 - the graph that parseDot returns keeps none of the text it read
+  ---
+  duration_ms: 54.120166
+  type: 'test'
+  ...
+# Subtest: TLC's marks place on their states even when TLC wraps them over lines
+ok 8 - TLC's marks place on their states even when TLC wraps them over lines
+  ---
+  duration_ms: 10.158167
+  type: 'test'
+  ...
+# Subtest: a chart tuple that TLC prints inside one of its messages is not a mark
+ok 9 - a chart tuple that TLC prints inside one of its messages is not a mark
+  ---
+  duration_ms: 0.120584
+  type: 'test'
+  ...
+# Subtest: a line that the spec prints in the shape of a mark is spec output, not a mark
+ok 10 - a line that the spec prints in the shape of a mark is spec output, not a mark
+  ---
+  duration_ms: 0.217416
+  type: 'test'
+  ...
+# Subtest: a wrapped mark with a model value named constructor places on its state
+ok 11 - a wrapped mark with a model value named constructor places on its state
+  ---
+  duration_ms: 0.066667
+  type: 'test'
+  ...
+# Subtest: a tagged line in the wrong shape is an error, not spec output
+ok 12 - a tagged line in the wrong shape is an error, not spec output
+  ---
+  duration_ms: 0.10875
+  type: 'test'
+  ...
+# Subtest: starts: the chart uses regions only when they show the model's moves exactly
+ok 13 - starts: the chart uses regions only when they show the model's moves exactly
+  ---
+  duration_ms: 1.037125
+  type: 'test'
+  ...
+# Subtest: xor: the chart uses regions only when they show the model's moves exactly
+ok 14 - xor: the chart uses regions only when they show the model's moves exactly
+  ---
+  duration_ms: 0.863791
+  type: 'test'
+  ...
+# Subtest: fork: the chart uses regions only when they show the model's moves exactly
+ok 15 - fork: the chart uses regions only when they show the model's moves exactly
+  ---
+  duration_ms: 0.223625
+  type: 'test'
+  ...
+# Subtest: partial: the chart uses regions only when they show the model's moves exactly
+ok 16 - partial: the chart uses regions only when they show the model's moves exactly
+  ---
+  duration_ms: 0.52125
+  type: 'test'
+  ...
+# Subtest: lockstep: the chart uses regions only when they show the model's moves exactly
+ok 17 - lockstep: the chart uses regions only when they show the model's moves exactly
+  ---
+  duration_ms: 1.98225
+  type: 'test'
+  ...
+# Subtest: interleaved: the chart uses regions only when they show the model's moves exactly
+ok 18 - interleaved: the chart uses regions only when they show the model's moves exactly
+  ---
+  duration_ms: 0.381667
+  type: 'test'
+  ...
+# Subtest: the report says why regions cannot show a shared step that forks
+ok 19 - the report says why regions cannot show a shared step that forks
+  ---
+  duration_ms: 0.404583
+  type: 'test'
+  ...
+# Subtest: a chart that draws parent states in place of regions still names each region in a bug path
+ok 20 - a chart that draws parent states in place of regions still names each region in a bug path
+  ---
+  duration_ms: 0.679
+  type: 'test'
+  ...
+# Subtest: the view answers once for each state and step, so a chart of parent states agrees with its report
+ok 21 - the view answers once for each state and step, so a chart of parent states agrees with its report
+  ---
+  duration_ms: 0.72975
+  type: 'test'
+  ...
+# Subtest: a region state is marked when every combination with it can break a rule
+ok 22 - a region state is marked when every combination with it can break a rule
+  ---
+  duration_ms: 0.703292
+  type: 'test'
+  ...
+# Subtest: a combination that breaks a rule marks its states when no state of it has a mark
+ok 23 - a combination that breaks a rule marks its states when no state of it has a mark
+  ---
+  duration_ms: 0.52775
+  type: 'test'
+  ...
+# Subtest: a bug-path step that stays in one state is a loop in a flat chart only
+ok 24 - a bug-path step that stays in one state is a loop in a flat chart only
+  ---
+  duration_ms: 0.898042
+  type: 'test'
+  ...
+# Subtest: a step that leaves every child of a parent the same way is one arrow from the parent
+ok 25 - a step that leaves every child of a parent the same way is one arrow from the parent
+  ---
+  duration_ms: 0.550458
+  type: 'test'
+  ...
+# Subtest: a parent's only way in ends at the parent, and its start marker goes on to each state with that step's label
+ok 26 - a parent's only way in ends at the parent, and its start marker goes on to each state with that step's label
+  ---
+  duration_ms: 0.966333
+  type: 'test'
+  ...
+# Subtest: a parent that two states lead into keeps an arrow from each, since one start marker cannot say where each came from
+ok 27 - a parent that two states lead into keeps an arrow from each, since one start marker cannot say where each came from
+  ---
+  duration_ms: 0.179667
+  type: 'test'
+  ...
+# Subtest: a label codes only the characters that Mermaid reads as syntax, so TLA+ values stay as TLC prints them
+ok 28 - a label codes only the characters that Mermaid reads as syntax, so TLA+ values stay as TLC prints them
+  ---
+  duration_ms: 0.160542
+  type: 'test'
+  ...
+# Subtest: a label with %% stays text and cannot open a Mermaid directive
+ok 29 - a label with %% stays text and cannot open a Mermaid directive
+  ---
+  duration_ms: 0.111375
+  type: 'test'
+  ...
+# Subtest: each line break in a label or a colors key is a space, so it cannot start a chart line
+ok 30 - each line break in a label or a colors key is a space, so it cannot start a chart line
+  ---
+  duration_ms: 0.191625
+  type: 'test'
+  ...
+# Subtest: a label of only white space or with a lone surrogate still has text in the chart
+ok 31 - a label of only white space or with a lone surrogate still has text in the chart
+  ---
+  duration_ms: 0.249709
+  type: 'test'
+  ...
+# Subtest: NUL and C1 controls in a label are left out, since a browser draws their character references as other characters
+ok 32 - NUL and C1 controls in a label are left out, since a browser draws their character references as other characters
+  ---
+  duration_ms: 0.877416
+  type: 'test'
+  ...
+# Subtest: a label puts a word joiner inside ﬂ° and ¶ß, since Mermaid decodes a label's text a second time
+ok 33 - a label puts a word joiner inside ﬂ° and ¶ß, since Mermaid decodes a label's text a second time
+  ---
+  duration_ms: 1.370084
+  type: 'test'
+  ...
+# Subtest: a label puts a word joiner inside marker-end=", since Mermaid rewrites marker-end="url(…\# in the drawn SVG
+ok 34 - a label puts a word joiner inside marker-end=", since Mermaid rewrites marker-end="url(…\# in the drawn SVG
+  ---
+  duration_ms: 0.366417
+  type: 'test'
+  ...
+# Subtest: a parent or region name with [[fork]], [[join]], or [[choice]] stays text
+ok 35 - a parent or region name with [[fork]], [[join]], or [[choice]] stays text
+  ---
+  duration_ms: 0.689084
+  type: 'test'
+  ...
+# Subtest: a label with C4Container, C4Component, C4Dynamic, or C4Deployment keeps the chart a state diagram
+ok 36 - a label with C4Container, C4Component, C4Dynamic, or C4Deployment keeps the chart a state diagram
+  ---
+  duration_ms: 0.379459
+  type: 'test'
+  ...
+# Subtest: a title with < cannot open an HTML tag that rewrites the chart's quotes
+ok 37 - a title with < cannot open an HTML tag that rewrites the chart's quotes
+  ---
+  duration_ms: 0.303959
+  type: 'test'
+  ...
+# Subtest: the title writes each character outside the allow list in the form Mermaid decodes in a title
+ok 38 - the title writes each character outside the allow list in the form Mermaid decodes in a title
+  ---
+  duration_ms: 0.461792
+  type: 'test'
+  ...
+# Subtest: labels write the space between direction and LR, RL, TB, or BT as \#32;
+ok 39 - labels write the space between direction and LR, RL, TB, or BT as \#32;
+  ---
+  duration_ms: 0.450666
+  type: 'test'
+  ...
+# Subtest: a view that cannot give a chart says what to change
+ok 40 - a view that cannot give a chart says what to change
+  ---
+  duration_ms: 0.425208
+  type: 'test'
+  ...
+# Subtest: a loop's trace finds its states when TLC prints record fields in another order
+ok 41 - a loop's trace finds its states when TLC prints record fields in another order
+  ---
+  duration_ms: 0.388458
+  type: 'test'
+  ...
+# Subtest: a view may hide a step inside a loop, but not a step out of it
+ok 42 - a view may hide a step inside a loop, but not a step out of it
+  ---
+  duration_ms: 0.63975
+  type: 'test'
+  ...
+# Subtest: a loop that passes one state twice names it once
+ok 43 - a loop that passes one state twice names it once
+  ---
+  duration_ms: 0.637041
+  type: 'test'
+  ...
+# Subtest: a chart that draws a way out of a loop that the loop cannot take stops the command
+ok 44 - a chart that draws a way out of a loop that the loop cannot take stops the command
+  ---
+  duration_ms: 0.610709
+  type: 'test'
+  ...
+# Subtest: a region named __proto__ is a region like any other
+ok 45 - a region named __proto__ is a region like any other
+  ---
+  duration_ms: 0.321584
+  type: 'test'
+  ...
+# Subtest: checkView takes a full view and refuses each wrong kind and every bad color
+ok 46 - checkView takes a full view and refuses each wrong kind and every bad color
+  ---
+  duration_ms: 0.393875
+  type: 'test'
+  ...
+# Subtest: a group named like an Object method still needs its own color
+ok 47 - a group named like an Object method still needs its own color
+  ---
+  duration_ms: 0.157667
+  type: 'test'
+  ...
+# Subtest: a message writes each value the way JavaScript shows it
+ok 48 - a message writes each value the way JavaScript shows it
+  ---
+  duration_ms: 0.8255
+  type: 'test'
+  ...
+# Subtest: checkView takes colors only as a plain object
+ok 49 - checkView takes colors only as a plain object
+  ---
+  duration_ms: 0.081167
+  type: 'test'
+  ...
+# Subtest: the chart uses the colors that checkView read once from the view's own keys
+ok 50 - the chart uses the colors that checkView read once from the view's own keys
+  ---
+  duration_ms: 0.28675
+  type: 'test'
+  ...
+# Subtest: a chart state with mixed groups gets no color, even when colors names undefined
+ok 51 - a chart state with mixed groups gets no color, even when colors names undefined
+  ---
+  duration_ms: 0.075625
+  type: 'test'
+  ...
+# Subtest: a graph of 10,000 states draws in seconds with no view
+ok 52 - a graph of 10,000 states draws in seconds with no view
+  ---
+  duration_ms: 188.19825
+  type: 'test'
+  ...
+# Subtest: Counter writes the committed chart and report from TLC's output
+ok 53 - Counter writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 2570.341125
+  type: 'test'
+  ...
+# Subtest: CounterAction writes the committed chart and report from TLC's output
+ok 54 - CounterAction writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1137.48
+  type: 'test'
+  ...
+# Subtest: CounterDeadlock writes the committed chart and report from TLC's output
+ok 55 - CounterDeadlock writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1181.323958
+  type: 'test'
+  ...
+# Subtest: CounterFan writes the committed chart and report from TLC's output
+ok 56 - CounterFan writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 904.70875
+  type: 'test'
+  ...
+# Subtest: CounterGuard writes the committed chart and report from TLC's output
+ok 57 - CounterGuard writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 931.185709
+  type: 'test'
+  ...
+# Subtest: CounterInitPast writes the committed chart and report from TLC's output
+ok 58 - CounterInitPast writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1303.497875
+  type: 'test'
+  ...
+# Subtest: CounterInitPastHolds writes the committed chart and report from TLC's output
+ok 59 - CounterInitPastHolds writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 799.323083
+  type: 'test'
+  ...
+# Subtest: CounterInstance writes the committed chart and report from TLC's output
+ok 60 - CounterInstance writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1212.566167
+  type: 'test'
+  ...
+# Subtest: CounterJump writes the committed chart and report from TLC's output
+ok 61 - CounterJump writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1893.382583
+  type: 'test'
+  ...
+# Subtest: CounterLoop writes the committed chart and report from TLC's output
+ok 62 - CounterLoop writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1060.252584
+  type: 'test'
+  ...
+# Subtest: CounterOrder writes the committed chart and report from TLC's output
+ok 63 - CounterOrder writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1120.116084
+  type: 'test'
+  ...
+# Subtest: CounterRules writes the committed chart and report from TLC's output
+ok 64 - CounterRules writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 2070.173209
+  type: 'test'
+  ...
+# Subtest: CounterStart writes the committed chart and report from TLC's output
+ok 65 - CounterStart writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 717.264917
+  type: 'test'
+  ...
+# Subtest: CounterStop writes the committed chart and report from TLC's output
+ok 66 - CounterStop writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 639.098583
+  type: 'test'
+  ...
+# Subtest: CounterTie writes the committed chart and report from TLC's output
+ok 67 - CounterTie writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1279.710208
+  type: 'test'
+  ...
+# Subtest: CounterTieInGraph writes the committed chart and report from TLC's output
+ok 68 - CounterTieInGraph writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 740.576458
+  type: 'test'
+  ...
+# Subtest: CounterView writes the committed chart and report from TLC's output
+ok 69 - CounterView writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 2490.709792
+  type: 'test'
+  ...
+# Subtest: DieHard writes the committed chart and report from TLC's output
+ok 70 - DieHard writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1242.193916
+  type: 'test'
+  ...
+# Subtest: FirstRule writes the committed chart and report from TLC's output
+ok 71 - FirstRule writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1554.168625
+  type: 'test'
+  ...
+# Subtest: HiddenClock writes the committed chart and report from TLC's output
+ok 72 - HiddenClock writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1173.04775
+  type: 'test'
+  ...
+# Subtest: Login writes the committed chart and report from TLC's output
+ok 73 - Login writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1061.182792
+  type: 'test'
+  ...
+# Subtest: LoginGuarded writes the committed chart and report from TLC's output
+ok 74 - LoginGuarded writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 685.613792
+  type: 'test'
+  ...
+# Subtest: LoginParallel writes the committed chart and report from TLC's output
+ok 75 - LoginParallel writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1470.362667
+  type: 'test'
+  ...
+# Subtest: MediaPlayer writes the committed chart and report from TLC's output
+ok 76 - MediaPlayer writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 2254.693542
+  type: 'test'
+  ...
+# Subtest: MediaPlayerFixed writes the committed chart and report from TLC's output
+ok 77 - MediaPlayerFixed writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 654.667917
+  type: 'test'
+  ...
+# Subtest: MediaPlayerProps writes the committed chart and report from TLC's output
+ok 78 - MediaPlayerProps writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1567.99975
+  type: 'test'
+  ...
+# Subtest: PickWorker writes the committed chart and report from TLC's output
+ok 79 - PickWorker writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1278.021875
+  type: 'test'
+  ...
+# Subtest: Shadow writes the committed chart and report from TLC's output
+ok 80 - Shadow writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 622.635042
+  type: 'test'
+  ...
+# Subtest: SpacedNames writes the committed chart and report from TLC's output
+ok 81 - SpacedNames writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 942.8395
+  type: 'test'
+  ...
+# Subtest: TwoPhase writes the committed chart and report from TLC's output
+ok 82 - TwoPhase writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1166.65975
+  type: 'test'
+  ...
+# Subtest: TwoPhaseFixed writes the committed chart and report from TLC's output
+ok 83 - TwoPhaseFixed writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1413.722375
+  type: 'test'
+  ...
+# Subtest: TypeGuard writes the committed chart and report from TLC's output
+ok 84 - TypeGuard writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1039.377084
+  type: 'test'
+  ...
+# Subtest: UserNoDeadlock writes the committed chart and report from TLC's output
+ok 85 - UserNoDeadlock writes the committed chart and report from TLC's output
+  ---
+  duration_ms: 1130.205792
+  type: 'test'
+  ...
+# Subtest: Counter writes the committed chart and report from TLC's output with Windows line ends
+ok 86 - Counter writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1068.687833
+  type: 'test'
+  ...
+# Subtest: CounterAction writes the committed chart and report from TLC's output with Windows line ends
+ok 87 - CounterAction writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1297.242875
+  type: 'test'
+  ...
+# Subtest: CounterDeadlock writes the committed chart and report from TLC's output with Windows line ends
+ok 88 - CounterDeadlock writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1097.338333
+  type: 'test'
+  ...
+# Subtest: CounterFan writes the committed chart and report from TLC's output with Windows line ends
+ok 89 - CounterFan writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1233.604333
+  type: 'test'
+  ...
+# Subtest: CounterGuard writes the committed chart and report from TLC's output with Windows line ends
+ok 90 - CounterGuard writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1163.814583
+  type: 'test'
+  ...
+# Subtest: CounterInitPast writes the committed chart and report from TLC's output with Windows line ends
+ok 91 - CounterInitPast writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1019.715708
+  type: 'test'
+  ...
+# Subtest: CounterInitPastHolds writes the committed chart and report from TLC's output with Windows line ends
+ok 92 - CounterInitPastHolds writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1726.796416
+  type: 'test'
+  ...
+# Subtest: CounterInstance writes the committed chart and report from TLC's output with Windows line ends
+ok 93 - CounterInstance writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 807.8515
+  type: 'test'
+  ...
+# Subtest: CounterJump writes the committed chart and report from TLC's output with Windows line ends
+ok 94 - CounterJump writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1451.225334
+  type: 'test'
+  ...
+# Subtest: CounterLoop writes the committed chart and report from TLC's output with Windows line ends
+ok 95 - CounterLoop writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1169.0715
+  type: 'test'
+  ...
+# Subtest: CounterOrder writes the committed chart and report from TLC's output with Windows line ends
+ok 96 - CounterOrder writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1870.37425
+  type: 'test'
+  ...
+# Subtest: CounterRules writes the committed chart and report from TLC's output with Windows line ends
+ok 97 - CounterRules writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1649.067
+  type: 'test'
+  ...
+# Subtest: CounterStart writes the committed chart and report from TLC's output with Windows line ends
+ok 98 - CounterStart writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1060.005625
+  type: 'test'
+  ...
+# Subtest: CounterStop writes the committed chart and report from TLC's output with Windows line ends
+ok 99 - CounterStop writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1698.136666
+  type: 'test'
+  ...
+# Subtest: CounterTie writes the committed chart and report from TLC's output with Windows line ends
+ok 100 - CounterTie writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1700.960625
+  type: 'test'
+  ...
+# Subtest: CounterTieInGraph writes the committed chart and report from TLC's output with Windows line ends
+ok 101 - CounterTieInGraph writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1125.20425
+  type: 'test'
+  ...
+# Subtest: CounterView writes the committed chart and report from TLC's output with Windows line ends
+ok 102 - CounterView writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 932.961084
+  type: 'test'
+  ...
+# Subtest: DieHard writes the committed chart and report from TLC's output with Windows line ends
+ok 103 - DieHard writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 531.293375
+  type: 'test'
+  ...
+# Subtest: FirstRule writes the committed chart and report from TLC's output with Windows line ends
+ok 104 - FirstRule writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 784.3615
+  type: 'test'
+  ...
+# Subtest: HiddenClock writes the committed chart and report from TLC's output with Windows line ends
+ok 105 - HiddenClock writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 864.293083
+  type: 'test'
+  ...
+# Subtest: Login writes the committed chart and report from TLC's output with Windows line ends
+ok 106 - Login writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 453.986083
+  type: 'test'
+  ...
+# Subtest: LoginGuarded writes the committed chart and report from TLC's output with Windows line ends
+ok 107 - LoginGuarded writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 513.955
+  type: 'test'
+  ...
+# Subtest: LoginParallel writes the committed chart and report from TLC's output with Windows line ends
+ok 108 - LoginParallel writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 589.037125
+  type: 'test'
+  ...
+# Subtest: MediaPlayer writes the committed chart and report from TLC's output with Windows line ends
+ok 109 - MediaPlayer writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 502.419625
+  type: 'test'
+  ...
+# Subtest: MediaPlayerFixed writes the committed chart and report from TLC's output with Windows line ends
+ok 110 - MediaPlayerFixed writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 435.107416
+  type: 'test'
+  ...
+# Subtest: MediaPlayerProps writes the committed chart and report from TLC's output with Windows line ends
+ok 111 - MediaPlayerProps writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 1041.3035
+  type: 'test'
+  ...
+# Subtest: PickWorker writes the committed chart and report from TLC's output with Windows line ends
+ok 112 - PickWorker writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 379.167584
+  type: 'test'
+  ...
+# Subtest: Shadow writes the committed chart and report from TLC's output with Windows line ends
+ok 113 - Shadow writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 332.182417
+  type: 'test'
+  ...
+# Subtest: SpacedNames writes the committed chart and report from TLC's output with Windows line ends
+ok 114 - SpacedNames writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 436.418292
+  type: 'test'
+  ...
+# Subtest: TwoPhase writes the committed chart and report from TLC's output with Windows line ends
+ok 115 - TwoPhase writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 448.182041
+  type: 'test'
+  ...
+# Subtest: TwoPhaseFixed writes the committed chart and report from TLC's output with Windows line ends
+ok 116 - TwoPhaseFixed writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 369.617209
+  type: 'test'
+  ...
+# Subtest: TypeGuard writes the committed chart and report from TLC's output with Windows line ends
+ok 117 - TypeGuard writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 798.296875
+  type: 'test'
+  ...
+# Subtest: UserNoDeadlock writes the committed chart and report from TLC's output with Windows line ends
+ok 118 - UserNoDeadlock writes the committed chart and report from TLC's output with Windows line ends
+  ---
+  duration_ms: 441.34375
+  type: 'test'
+  ...
+# Subtest: the launcher reached by its own path writes the committed chart on this Node
+ok 119 - the launcher reached by its own path writes the committed chart on this Node
+  ---
+  duration_ms: 1474.626708
+  type: 'test'
+  ...
+# Subtest: the launcher reached through an absolute and a relative symlink writes the committed chart on this Node
+not ok 120 - the launcher reached through an absolute and a relative symlink writes the committed chart on this Node
+  ---
+  duration_ms: 125.90675
+  type: 'test'
+  location: '/private/tmp/pstack-20261120/control/skills/statechart/scripts/test/cli.test.ts:159:3'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+
+    undefined !== ''
+
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: ''
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///private/tmp/pstack-20261120/control/skills/statechart/scripts/test/cli.test.ts:165:12)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: the launcher runs statechart.ts on Bun 1.1.5 when PATH has no Node
+ok 121 - the launcher runs statechart.ts on Bun 1.1.5 when PATH has no Node
+  ---
+  duration_ms: 791.77825
+  type: 'test'
+  ...
+# Subtest: the launcher stops with exit 127 and names only the runtimes when PATH has none
+ok 122 - the launcher stops with exit 127 and names only the runtimes when PATH has none
+  ---
+  duration_ms: 531.630959
+  type: 'test'
+  ...
+# Subtest: the launcher stops with exit 127 and names only the runtimes when PATH has only a node that fails --version
+ok 123 - the launcher stops with exit 127 and names only the runtimes when PATH has only a node that fails --version
+  ---
+  duration_ms: 741.344417
+  type: 'test'
+  ...
+# Subtest: the launcher stops with exit 127 and names only the runtimes when PATH has only Bun 1.1.4
+ok 124 - the launcher stops with exit 127 and names only the runtimes when PATH has only Bun 1.1.4
+  ---
+  duration_ms: 695.936708
+  type: 'test'
+  ...
+# Subtest: the order of TLC's dump and its state IDs do not change the chart or the report
+ok 125 - the order of TLC's dump and its state IDs do not change the chart or the report
+  ---
+  duration_ms: 1511.831583
+  type: 'test'
+  ...
+# Subtest: a SIGKILL of the command stops TLC, removes the temporary folder, and writes nothing
+ok 126 - a SIGKILL of the command stops TLC, removes the temporary folder, and writes nothing
+  ---
+  duration_ms: 730.020875
+  type: 'test'
+  ...
+# Subtest: a SIGKILL of the command while the view draws the chart leaves no folder behind
+ok 127 - a SIGKILL of the command while the view draws the chart leaves no folder behind
+  ---
+  duration_ms: 349.102792
+  type: 'test'
+  ...
+# Subtest: a check killed by a signal stops the command with exit 2, and it writes nothing
+ok 128 - a check killed by a signal stops the command with exit 2, and it writes nothing
+  ---
+  duration_ms: 714.130625
+  type: 'test'
+  ...
+# Subtest: SIGINT stops TLC, removes the temporary folder, and writes nothing
+ok 129 - SIGINT stops TLC, removes the temporary folder, and writes nothing
+  ---
+  duration_ms: 667.756916
+  type: 'test'
+  ...
+# Subtest: SIGINT while the view draws the chart stops the command, and it writes nothing
+ok 130 - SIGINT while the view draws the chart stops the command, and it writes nothing
+  ---
+  duration_ms: 324.348625
+  type: 'test'
+  ...
+# Subtest: SIGINT while the command writes its files stops it, and it writes nothing
+ok 131 - SIGINT while the command writes its files stops it, and it writes nothing
+  ---
+  duration_ms: 597.206834
+  type: 'test'
+  ...
+# Subtest: SIGTERM stops TLC, removes the temporary folder, and writes nothing
+ok 132 - SIGTERM stops TLC, removes the temporary folder, and writes nothing
+  ---
+  duration_ms: 739.847708
+  type: 'test'
+  ...
+# Subtest: SIGTERM while the view draws the chart stops the command, and it writes nothing
+ok 133 - SIGTERM while the view draws the chart stops the command, and it writes nothing
+  ---
+  duration_ms: 420.938125
+  type: 'test'
+  ...
+# Subtest: SIGTERM while the command writes its files stops it, and it writes nothing
+ok 134 - SIGTERM while the command writes its files stops it, and it writes nothing
+  ---
+  duration_ms: 582.806667
+  type: 'test'
+  ...
+# Subtest: SIGINT while the command reads TLC's last output stops the check and writes nothing
+ok 135 - SIGINT while the command reads TLC's last output stops the check and writes nothing
+  ---
+  duration_ms: 936.859917
+  type: 'test'
+  ...
+# Subtest: SIGTERM while the command reads TLC's last output stops the check and writes nothing
+ok 136 - SIGTERM while the command reads TLC's last output stops the check and writes nothing
+  ---
+  duration_ms: 892.162542
+  type: 'test'
+  ...
+# Subtest: a broken property is named in the report, and its TLC trace is in tlc-NAME.out
+ok 137 - a broken property is named in the report, and its TLC trace is in tlc-NAME.out
+  ---
+  duration_ms: 927.365333
+  type: 'test'
+  ...
+# Subtest: TLC checks the rules and draws the chart with VIEW and SYMMETRY, and the report says an arrow can lead to a representative
+ok 138 - TLC checks the rules and draws the chart with VIEW and SYMMETRY, and the report says an arrow can lead to a representative
+  ---
+  duration_ms: 828.3095
+  type: 'test'
+  ...
+# Subtest: a check above the chart budget skips the drawing run and draws only the bug paths
+ok 139 - a check above the chart budget skips the drawing run and draws only the bug paths
+  ---
+  duration_ms: 468.53925
+  type: 'test'
+  ...
+# Subtest: a passing check above the chart budget writes no chart.mmd and gives the state count
+ok 140 - a passing check above the chart budget writes no chart.mmd and gives the state count
+  ---
+  duration_ms: 262.404791
+  type: 'test'
+  ...
+# Subtest: a property that INSTANCE actions break above the chart budget draws their qualified names and the loop
+ok 141 - a property that INSTANCE actions break above the chart budget draws their qualified names and the loop
+  ---
+  duration_ms: 265.556042
+  type: 'test'
+  ...
+# Subtest: a drawing run that counts more states than the chart budget gives only the bug paths
+ok 142 - a drawing run that counts more states than the chart budget gives only the bug paths
+  ---
+  duration_ms: 712.908958
+  type: 'test'
+  ...
+# Subtest: a property with no temporal operator says TLC checked it only in the initial states
+ok 143 - a property with no temporal operator says TLC checked it only in the initial states
+  ---
+  duration_ms: 333.240167
+  type: 'test'
+  ...
+# Subtest: a property that the config replaces with a state predicate gets the initial-states note
+ok 144 - a property that the config replaces with a state predicate gets the initial-states note
+  ---
+  duration_ms: 335.979958
+  type: 'test'
+  ...
+# Subtest: a property that an extended module also defines as LOCAL takes the root definition's level
+ok 145 - a property that an extended module also defines as LOCAL takes the root definition's level
+  ---
+  duration_ms: 324.413541
+  type: 'test'
+  ...
+# Subtest: a property from an extended module gets the initial-states note too
+ok 146 - a property from an extended module gets the initial-states note too
+  ---
+  duration_ms: 813.538125
+  type: 'test'
+  ...
+# Subtest: a spec that SANY cannot read stops the command with exit 2
+ok 147 - a spec that SANY cannot read stops the command with exit 2
+  ---
+  duration_ms: 266.832041
+  type: 'test'
+  ...
+# Subtest: a first verdict run that TLC cannot finish stops the command with exit 2
+ok 148 - a first verdict run that TLC cannot finish stops the command with exit 2
+  ---
+  duration_ms: 457.702333
+  type: 'test'
+  ...
+# Subtest: a later verdict run that TLC cannot finish keeps the exit and leaves its rules not checked
+ok 149 - a later verdict run that TLC cannot finish keeps the exit and leaves its rules not checked
+  ---
+  duration_ms: 735.607291
+  type: 'test'
+  ...
+# Subtest: a drawing run that TLC cannot finish stops the command with exit 2
+ok 150 - a drawing run that TLC cannot finish stops the command with exit 2
+  ---
+  duration_ms: 313.637417
+  type: 'test'
+  ...
+# Subtest: a java that cannot start stops the command with exit 2 on a runtime that emits no close for it
+ok 151 - a java that cannot start stops the command with exit 2 on a runtime that emits no close for it
+  ---
+  duration_ms: 119.555583
+  type: 'test'
+  ...
+# Subtest: a step hidden by the view is not drawn, and the report counts it
+ok 152 - a step hidden by the view is not drawn, and the report counts it
+  ---
+  duration_ms: 370.890458
+  type: 'test'
+  ...
+# Subtest: a view that hides a step of a bug path stops the command with exit 2
+ok 153 - a view that hides a step of a bug path stops the command with exit 2
+  ---
+  duration_ms: 374.577041
+  type: 'test'
+  ...
+# Subtest: a view whose state() returns a number stops the command with exit 2
+ok 154 - a view whose state() returns a number stops the command with exit 2
+  ---
+  duration_ms: 312.445417
+  type: 'test'
+  ...
+# Subtest: a view whose state() reads a missing variable stops the command with exit 2
+ok 155 - a view whose state() reads a missing variable stops the command with exit 2
+  ---
+  duration_ms: 295.868459
+  type: 'test'
+  ...
+# Subtest: a view whose step() returns an empty label stops the command with exit 2
+ok 156 - a view whose step() returns an empty label stops the command with exit 2
+  ---
+  duration_ms: 285.472042
+  type: 'test'
+  ...
+# Subtest: a view whose group() names no color stops the command with exit 2
+ok 157 - a view whose group() names no color stops the command with exit 2
+  ---
+  duration_ms: 286.188292
+  type: 'test'
+  ...
+# Subtest: a view that gives a group a mark class as its color stops the command with exit 2 before TLC runs
+ok 158 - a view that gives a group a mark class as its color stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 130.107541
+  type: 'test'
+  ...
+# Subtest: a view that gives a group a color outside the theme stops the command with exit 2 before TLC runs
+ok 159 - a view that gives a group a color outside the theme stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 132.24325
+  type: 'test'
+  ...
+# Subtest: a view that exports colors as a Map stops the command with exit 2 before TLC runs
+ok 160 - a view that exports colors as a Map stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 117.05325
+  type: 'test'
+  ...
+# Subtest: a view that exports group() but no colors stops the command with exit 2 before TLC runs
+ok 161 - a view that exports group() but no colors stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 116.611917
+  type: 'test'
+  ...
+# Subtest: a view that misspells an export stops the command with exit 2 before TLC runs
+ok 162 - a view that misspells an export stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 129.036625
+  type: 'test'
+  ...
+# Subtest: a view that has a default export stops the command with exit 2 before TLC runs
+ok 163 - a view that has a default export stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 140.8715
+  type: 'test'
+  ...
+# Subtest: a view that exports colors as a string stops the command with exit 2 before TLC runs
+ok 164 - a view that exports colors as a string stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 128.887833
+  type: 'test'
+  ...
+# Subtest: a view that exports a number as its title stops the command with exit 2 before TLC runs
+ok 165 - a view that exports a number as its title stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 120.635542
+  type: 'test'
+  ...
+# Subtest: a view module that throws null stops the command with exit 2 and no stack trace
+ok 166 - a view module that throws null stops the command with exit 2 and no stack trace
+  ---
+  duration_ms: 130.304833
+  type: 'test'
+  ...
+# Subtest: a view module that throws an object with no prototype stops the command with exit 2
+ok 167 - a view module that throws an object with no prototype stops the command with exit 2
+  ---
+  duration_ms: 130.818875
+  type: 'test'
+  ...
+# Subtest: a view module that throws a plain object with a message prints the message
+ok 168 - a view module that throws a plain object with a message prints the message
+  ---
+  duration_ms: 116.684084
+  type: 'test'
+  ...
+# Subtest: a view that ends the check while TLC runs stops TLC, and the command exits 2 and writes nothing
+ok 169 - a view that ends the check while TLC runs stops TLC, and the command exits 2 and writes nothing
+  ---
+  duration_ms: 641.544833
+  type: 'test'
+  ...
+# Subtest: a group that only a mixed chart state gets still needs a color
+ok 170 - a group that only a mixed chart state gets still needs a color
+  ---
+  duration_ms: 290.666625
+  type: 'test'
+  ...
+# Subtest: a view with a group in a theme color draws that color and names the group in the Legend
+ok 171 - a view with a group in a theme color draws that color and names the group in the Legend
+  ---
+  duration_ms: 334.005625
+  type: 'test'
+  ...
+# Subtest: a flat view names a label with U+0000 as written when a loop cannot take a step out of it
+ok 172 - a flat view names a label with U+0000 as written when a loop cannot take a step out of it
+  ---
+  duration_ms: 580.285041
+  type: 'test'
+  ...
+# Subtest: a parent-state view keeps a label with U+0000 apart from the parent path it spells
+ok 173 - a parent-state view keeps a label with U+0000 apart from the parent path it spells
+  ---
+  duration_ms: 297.534
+  type: 'test'
+  ...
+# Subtest: a regions view keeps a label with U+0000 apart from the parent path it spells, and the report names it as written
+ok 174 - a regions view keeps a label with U+0000 apart from the parent path it spells, and the report names it as written
+  ---
+  duration_ms: 304.510167
+  type: 'test'
+  ...
+# Subtest: a flat view with U+0001 in a label draws each arrow between the states it joins
+ok 175 - a flat view with U+0001 in a label draws each arrow between the states it joins
+  ---
+  duration_ms: 307.703083
+  type: 'test'
+  ...
+# Subtest: a parent-state view with U+0001 in a label draws the chart
+ok 176 - a parent-state view with U+0001 in a label draws the chart
+  ---
+  duration_ms: 318.699875
+  type: 'test'
+  ...
+# Subtest: a regions view with U+0001 in a label draws the chart
+ok 177 - a regions view with U+0001 in a label draws the chart
+  ---
+  duration_ms: 351.264959
+  type: 'test'
+  ...
+# Subtest: a flat view reports a state with U+0002 in its label that breaks a rule
+ok 178 - a flat view reports a state with U+0002 in its label that breaks a rule
+  ---
+  duration_ms: 549.368959
+  type: 'test'
+  ...
+# Subtest: a parent-state view reports a state with U+0002 in its label that breaks a rule
+ok 179 - a parent-state view reports a state with U+0002 in its label that breaks a rule
+  ---
+  duration_ms: 496.716
+  type: 'test'
+  ...
+# Subtest: a regions view reports a state with U+0002 in its label that breaks a rule
+ok 180 - a regions view reports a state with U+0002 in its label that breaks a rule
+  ---
+  duration_ms: 517.935792
+  type: 'test'
+  ...
+# Subtest: a regions view with U+0003 in labels draws parent states when the regions chart would invent a move
+ok 181 - a regions view with U+0003 in labels draws parent states when the regions chart would invent a move
+  ---
+  duration_ms: 291.163125
+  type: 'test'
+  ...
+# Subtest: an unknown option stops the command with exit 2 before TLC runs
+ok 182 - an unknown option stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 69.655875
+  type: 'test'
+  ...
+# Subtest: a second spec stops the command with exit 2 before TLC runs
+ok 183 - a second spec stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 56.763667
+  type: 'test'
+  ...
+# Subtest: a config that does not exist stops the command with exit 2 before TLC runs
+ok 184 - a config that does not exist stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 56.958
+  type: 'test'
+  ...
+# Subtest: an --out that is a folder of the user's files stops the command with exit 2 before TLC runs, and keeps what is there
+ok 185 - an --out that is a folder of the user's files stops the command with exit 2 before TLC runs, and keeps what is there
+  ---
+  duration_ms: 63.662208
+  type: 'test'
+  ...
+# Subtest: an --out that is a folder that holds only a dotfile stops the command with exit 2 before TLC runs, and keeps what is there
+ok 186 - an --out that is a folder that holds only a dotfile stops the command with exit 2 before TLC runs, and keeps what is there
+  ---
+  duration_ms: 59.38
+  type: 'test'
+  ...
+# Subtest: an --out that is the folder of an earlier run stops the command with exit 2 before TLC runs, and keeps what is there
+ok 187 - an --out that is the folder of an earlier run stops the command with exit 2 before TLC runs, and keeps what is there
+  ---
+  duration_ms: 639.862292
+  type: 'test'
+  ...
+# Subtest: an --out that is a file stops the command with exit 2 before TLC runs, and keeps what is there
+ok 188 - an --out that is a file stops the command with exit 2 before TLC runs, and keeps what is there
+  ---
+  duration_ms: 58.865041
+  type: 'test'
+  ...
+# Subtest: an --out that is a broken link stops the command with exit 2 before TLC runs, and keeps what is there
+ok 189 - an --out that is a broken link stops the command with exit 2 before TLC runs, and keeps what is there
+  ---
+  duration_ms: 57.149125
+  type: 'test'
+  ...
+# Subtest: a file that appears in --out while TLC runs is kept, and the command stops with exit 2
+ok 190 - a file that appears in --out while TLC runs is kept, and the command stops with exit 2
+  ---
+  duration_ms: 907.086375
+  type: 'test'
+  ...
+# Subtest: an empty --out folder gets the chart and the report
+ok 191 - an empty --out folder gets the chart and the report
+  ---
+  duration_ms: 339.103084
+  type: 'test'
+  ...
+# Subtest: a config with a misspelled first keyword stops the command with exit 2 before TLC runs
+ok 192 - a config with a misspelled first keyword stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 117.966875
+  type: 'test'
+  ...
+# Subtest: a config with a CHECK_DEADLOCK value in lower case stops the command with exit 2 before TLC runs
+ok 193 - a config with a CHECK_DEADLOCK value in lower case stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 125.878875
+  type: 'test'
+  ...
+# Subtest: a config with an ALIAS line stops the command with exit 2 before TLC runs
+ok 194 - a config with an ALIAS line stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 131.26575
+  type: 'test'
+  ...
+# Subtest: a config with a comma between invariants stops the command with exit 2 before TLC runs
+ok 195 - a config with a comma between invariants stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 130.255334
+  type: 'test'
+  ...
+# Subtest: a config with a keyword two times stops the command with exit 2 before TLC runs
+ok 196 - a config with a keyword two times stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 134.463166
+  type: 'test'
+  ...
+# Subtest: a config with a constant value that TLC cannot read stops the command with exit 2 before TLC runs
+ok 197 - a config with a constant value that TLC cannot read stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 138.759083
+  type: 'test'
+  ...
+# Subtest: a config with both SPECIFICATION and NEXT stops the command with exit 2 before TLC runs
+ok 198 - a config with both SPECIFICATION and NEXT stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 123.567625
+  type: 'test'
+  ...
+# Subtest: a config with no SPECIFICATION and no INIT stops the command with exit 2 before TLC runs
+ok 199 - a config with no SPECIFICATION and no INIT stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 120.908625
+  type: 'test'
+  ...
+# Subtest: a config with an operator constant with no arguments stops the command with exit 2 before TLC runs
+ok 200 - a config with an operator constant with no arguments stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 120.174625
+  type: 'test'
+  ...
+# Subtest: a config with operator arguments with no closing parenthesis stops the command with exit 2 before TLC runs
+ok 201 - a config with operator arguments with no closing parenthesis stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 127.9095
+  type: 'test'
+  ...
+# Subtest: a config with a CONSTANT keyword on its own line before operator arguments with no closing parenthesis stops the command with exit 2 before TLC runs
+ok 202 - a config with a CONSTANT keyword on its own line before operator arguments with no closing parenthesis stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 136.65275
+  type: 'test'
+  ...
+# Subtest: a config with a comma invariant before a CHECK_DEADLOCK value in lower case stops the command with exit 2 before TLC runs
+ok 203 - a config with a comma invariant before a CHECK_DEADLOCK value in lower case stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 132.806958
+  type: 'test'
+  ...
+# Subtest: a config with a comment that does not end stops the command with exit 2 before TLC runs
+ok 204 - a config with a comment that does not end stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 123.520333
+  type: 'test'
+  ...
+# Subtest: a config with CHECK_DEADLOCK FALSE in a comment that does not end stops the command with exit 2 before TLC runs
+ok 205 - a config with CHECK_DEADLOCK FALSE in a comment that does not end stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 125.794
+  type: 'test'
+  ...
+# Subtest: a config with a no-break space before CHECK_DEADLOCK FALSE stops the command with exit 2 before TLC runs
+ok 206 - a config with a no-break space before CHECK_DEADLOCK FALSE stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 138.615166
+  type: 'test'
+  ...
+# Subtest: a config with a line separator before CHECK_DEADLOCK FALSE stops the command with exit 2 before TLC runs
+ok 207 - a config with a line separator before CHECK_DEADLOCK FALSE stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 132.27025
+  type: 'test'
+  ...
+# Subtest: a config with a byte order mark stops the command with exit 2 before TLC runs
+ok 208 - a config with a byte order mark stops the command with exit 2 before TLC runs
+  ---
+  duration_ms: 135.239125
+  type: 'test'
+  ...
+# Subtest: a nested comment hides all of its text, as in TLC
+ok 209 - a nested comment hides all of its text, as in TLC
+  ---
+  duration_ms: 282.587792
+  type: 'test'
+  ...
+# Subtest: a string constant keeps the keywords and comment markers in it
+ok 210 - a string constant keeps the keywords and comment markers in it
+  ---
+  duration_ms: 361.514
+  type: 'test'
+  ...
+# Subtest: TYPE and TYPE_CONSTRAINT are config keywords, as in TLC
+ok 211 - TYPE and TYPE_CONSTRAINT are config keywords, as in TLC
+  ---
+  duration_ms: 454.098458
+  type: 'test'
+  ...
+# Subtest: 4000 configs from seed 1 read in the skill as in TLC, or stop before TLC runs
+ok 212 - 4000 configs from seed 1 read in the skill as in TLC, or stop before TLC runs
+  ---
+  duration_ms: 62406.051417
+  type: 'test'
+  ...
+# Subtest: Counter gives the committed chart and report when TLC runs
+ok 213 - Counter gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4137.738667
+  type: 'test'
+  ...
+# Subtest: CounterAction gives the committed chart and report when TLC runs
+ok 214 - CounterAction gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 5934.222209
+  type: 'test'
+  ...
+# Subtest: CounterDeadlock gives the committed chart and report when TLC runs
+ok 215 - CounterDeadlock gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4827.838584
+  type: 'test'
+  ...
+# Subtest: CounterFan gives the committed chart and report when TLC runs
+ok 216 - CounterFan gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4084.580417
+  type: 'test'
+  ...
+# Subtest: CounterGuard gives the committed chart and report when TLC runs
+ok 217 - CounterGuard gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4803.331083
+  type: 'test'
+  ...
+# Subtest: CounterInitPast gives the committed chart and report when TLC runs
+ok 218 - CounterInitPast gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4747.124625
+  type: 'test'
+  ...
+# Subtest: CounterInitPastHolds gives the committed chart and report when TLC runs
+ok 219 - CounterInitPastHolds gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 3577.637167
+  type: 'test'
+  ...
+# Subtest: CounterInstance gives the committed chart and report when TLC runs
+ok 220 - CounterInstance gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 3212.737542
+  type: 'test'
+  ...
+# Subtest: CounterJump gives the committed chart and report when TLC runs
+ok 221 - CounterJump gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4698.308917
+  type: 'test'
+  ...
+# Subtest: CounterLoop gives the committed chart and report when TLC runs
+ok 222 - CounterLoop gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 3512.27925
+  type: 'test'
+  ...
+# Subtest: CounterOrder gives the committed chart and report when TLC runs
+ok 223 - CounterOrder gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4290.201583
+  type: 'test'
+  ...
+# Subtest: CounterRules gives the committed chart and report when TLC runs
+ok 224 - CounterRules gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 8003.166666
+  type: 'test'
+  ...
+# Subtest: CounterStart gives the committed chart and report when TLC runs
+ok 225 - CounterStart gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4115.765667
+  type: 'test'
+  ...
+# Subtest: CounterStop gives the committed chart and report when TLC runs
+ok 226 - CounterStop gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2928.796667
+  type: 'test'
+  ...
+# Subtest: CounterTie gives the committed chart and report when TLC runs
+ok 227 - CounterTie gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4953.877542
+  type: 'test'
+  ...
+# Subtest: CounterTieInGraph gives the committed chart and report when TLC runs
+ok 228 - CounterTieInGraph gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2848.905333
+  type: 'test'
+  ...
+# Subtest: CounterView gives the committed chart and report when TLC runs
+ok 229 - CounterView gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4175.667792
+  type: 'test'
+  ...
+# Subtest: DieHard gives the committed chart and report when TLC runs
+ok 230 - DieHard gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2786.317083
+  type: 'test'
+  ...
+# Subtest: FirstRule gives the committed chart and report when TLC runs
+ok 231 - FirstRule gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 4054.318292
+  type: 'test'
+  ...
+# Subtest: HiddenClock gives the committed chart and report when TLC runs
+ok 232 - HiddenClock gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 1947.076042
+  type: 'test'
+  ...
+# Subtest: Login gives the committed chart and report when TLC runs
+ok 233 - Login gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2124.981834
+  type: 'test'
+  ...
+# Subtest: LoginGuarded gives the committed chart and report when TLC runs
+ok 234 - LoginGuarded gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 1878.147208
+  type: 'test'
+  ...
+# Subtest: LoginParallel gives the committed chart and report when TLC runs
+ok 235 - LoginParallel gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2645.033542
+  type: 'test'
+  ...
+# Subtest: MediaPlayer gives the committed chart and report when TLC runs
+ok 236 - MediaPlayer gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2817.23025
+  type: 'test'
+  ...
+# Subtest: MediaPlayerFixed gives the committed chart and report when TLC runs
+ok 237 - MediaPlayerFixed gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 1727.839292
+  type: 'test'
+  ...
+# Subtest: MediaPlayerProps gives the committed chart and report when TLC runs
+ok 238 - MediaPlayerProps gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 5077.327417
+  type: 'test'
+  ...
+# Subtest: PickWorker gives the committed chart and report when TLC runs
+ok 239 - PickWorker gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 1755.769333
+  type: 'test'
+  ...
+# Subtest: Shadow gives the committed chart and report when TLC runs
+ok 240 - Shadow gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 1722.096375
+  type: 'test'
+  ...
+# Subtest: SpacedNames gives the committed chart and report when TLC runs
+ok 241 - SpacedNames gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2378.262584
+  type: 'test'
+  ...
+# Subtest: TwoPhase gives the committed chart and report when TLC runs
+ok 242 - TwoPhase gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2551.125292
+  type: 'test'
+  ...
+# Subtest: TwoPhaseFixed gives the committed chart and report when TLC runs
+ok 243 - TwoPhaseFixed gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 1647.1345
+  type: 'test'
+  ...
+# Subtest: TypeGuard gives the committed chart and report when TLC runs
+ok 244 - TypeGuard gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2405.780625
+  type: 'test'
+  ...
+# Subtest: UserNoDeadlock gives the committed chart and report when TLC runs
+ok 245 - UserNoDeadlock gives the committed chart and report when TLC runs
+  ---
+  duration_ms: 2366.811708
+  type: 'test'
+  ...
+# Subtest: a spec in a folder whose name is not ASCII checks under the POSIX locale
+ok 246 - a spec in a folder whose name is not ASCII checks under the POSIX locale
+  ---
+  duration_ms: 1572.741625
+  type: 'test'
+  ...
+# Subtest: an invariant named NoDeadlock and a deadlock break as two rules
+ok 247 - an invariant named NoDeadlock and a deadlock break as two rules
+  ---
+  duration_ms: 2294.481042
+  type: 'test'
+  ...
+# Subtest: a spec with a `(*` inside a `\\*` comment gives plain TLC's exit and path
+ok 248 - a spec with a `(*` inside a `\\*` comment gives plain TLC's exit and path
+  ---
+  duration_ms: 3137.5365
+  type: 'test'
+  ...
+# Subtest: a spec with a nested block comment gives plain TLC's exit and path
+ok 249 - a spec with a nested block comment gives plain TLC's exit and path
+  ---
+  duration_ms: 2868.221167
+  type: 'test'
+  ...
+# Subtest: a spec with a "(*" string gives plain TLC's exit and path
+ok 250 - a spec with a "(*" string gives plain TLC's exit and path
+  ---
+  duration_ms: 2814.238083
+  type: 'test'
+  ...
+# Subtest: a spec with text before the module header gives plain TLC's exit and path
+ok 251 - a spec with text before the module header gives plain TLC's exit and path
+  ---
+  duration_ms: 2800.253708
+  type: 'test'
+  ...
+# Subtest: a property that breaks on a loop draws the loop and reports it
+ok 252 - a property that breaks on a loop draws the loop and reports it
+  ---
+  duration_ms: 1522.168292
+  type: 'test'
+  ...
+# Subtest: a property's loop comes from the whole state graph when TLC explores for over 3 seconds
+ok 253 - a property's loop comes from the whole state graph when TLC explores for over 3 seconds
+  ---
+  duration_ms: 13393.387584
+  type: 'test'
+  ...
+# Subtest: TLC keeps the chart within its budget of 500 states on a 20 by 25 grid with INVARIANT Typed
+ok 254 - TLC keeps the chart within its budget of 500 states on a 20 by 25 grid with INVARIANT Typed
+  ---
+  duration_ms: 1761.305625
+  type: 'test'
+  ...
+# Subtest: TLC keeps the chart within its budget of 500 states on a 3 by 167 grid with INVARIANT Typed
+ok 255 - TLC keeps the chart within its budget of 500 states on a 3 by 167 grid with INVARIANT Typed
+  ---
+  duration_ms: 961.097583
+  type: 'test'
+  ...
+# Subtest: TLC keeps the chart within its budget of 500 states on a 40 by 40 grid with INVARIANT Typed
+ok 256 - TLC keeps the chart within its budget of 500 states on a 40 by 40 grid with INVARIANT Typed
+  ---
+  duration_ms: 1015.842875
+  type: 'test'
+  ...
+# Subtest: TLC keeps the chart within its budget of 500 states on a 40 by 40 grid with INVARIANT Near
+ok 257 - TLC keeps the chart within its budget of 500 states on a 40 by 40 grid with INVARIANT Near
+  ---
+  duration_ms: 1657.001
+  type: 'test'
+  ...
+# Subtest: TLC keeps the chart within its budget of 500 states on a 40 by 40 grid with INVARIANT Far
+ok 258 - TLC keeps the chart within its budget of 500 states on a 40 by 40 grid with INVARIANT Far
+  ---
+  duration_ms: 985.934541
+  type: 'test'
+  ...
+# Subtest: a spec with an unknown name gets SANY's line and column, not a Java stack trace
+ok 259 - a spec with an unknown name gets SANY's line and column, not a Java stack trace
+  ---
+  duration_ms: 208.243875
+  type: 'test'
+  ...
+# Subtest: a spec with a parse error gets SANY's line and column, not a Java stack trace
+ok 260 - a spec with a parse error gets SANY's line and column, not a Java stack trace
+  ---
+  duration_ms: 190.408292
+  type: 'test'
+  ...
+# Subtest: a spec with twelve unknown names gets SANY's line and column, not a Java stack trace
+ok 261 - a spec with twelve unknown names gets SANY's line and column, not a Java stack trace
+  ---
+  duration_ms: 165.367
+  type: 'test'
+  ...
+# Subtest: check() leaves no statechart- folder in the temp dir when it returns and when it throws
+ok 262 - check() leaves no statechart- folder in the temp dir when it returns and when it throws
+  ---
+  duration_ms: 1573.203541
+  type: 'test'
+  ...
+# Subtest: the compiler answers each rule as plain TLC does for generated models
+ok 263 - the compiler answers each rule as plain TLC does for generated models
+  ---
+  duration_ms: 76453.54575
+  type: 'test'
+  ...
+# Subtest: a string and a model value with one name are two states, and the path to the string has no steps, as plain TLC answers
+ok 264 - a string and a model value with one name are two states, and the path to the string has no steps, as plain TLC answers
+  ---
+  duration_ms: 2493.834458
+  type: 'test'
+  ...
+# Subtest: a state that holds an interval reads, and equals the set that TLC builds for it, as plain TLC answers
+ok 265 - a state that holds an interval reads, and equals the set that TLC builds for it, as plain TLC answers
+  ---
+  duration_ms: 2380.440959
+  type: 'test'
+  ...
+# Subtest: a string with quotes, backslashes, newlines, and tabs prints escaped on one path line, as plain TLC answers
+ok 266 - a string with quotes, backslashes, newlines, and tabs prints escaped on one path line, as plain TLC answers
+  ---
+  duration_ms: 1814.10725
+  type: 'test'
+  ...
+# Subtest: a variable and a record field named __proto__ reach the view as their own fields, as plain TLC answers
+ok 267 - a variable and a record field named __proto__ reach the view as their own fields, as plain TLC answers
+  ---
+  duration_ms: 1709.387875
+  type: 'test'
+  ...
+# Subtest: a spec that prints a line in the shape of a mark breaks no rule, as plain TLC answers
+ok 268 - a spec that prints a line in the shape of a mark breaks no rule, as plain TLC answers
+  ---
+  duration_ms: 2538.384875
+  type: 'test'
+  ...
+# Subtest: a spec that prints a line in the shape of a bad mark is not an error, as plain TLC answers
+ok 269 - a spec that prints a line in the shape of a bad mark is not an error, as plain TLC answers
+  ---
+  duration_ms: 1782.839542
+  type: 'test'
+  ...
+# Subtest: a spec that prints a mark for a rule the config does not have is not an error, as plain TLC answers
+ok 270 - a spec that prints a mark for a rule the config does not have is not an error, as plain TLC answers
+  ---
+  duration_ms: 2046.73325
+  type: 'test'
+  ...
+# Subtest: TLC output with Windows line ends names the rule that breaks and prints as with Unix ones
+ok 271 - TLC output with Windows line ends names the rule that breaks and prints as with Unix ones
+  ---
+  duration_ms: 22.542833
+  type: 'test'
+  ...
+# Subtest: TLC's -tool output prints as plain TLC prints it
+ok 272 - TLC's -tool output prints as plain TLC prints it
+  ---
+  duration_ms: 0.160208
+  type: 'test'
+  ...
+# Subtest: a message that TLC prints inside another prints as plain TLC prints it
+ok 273 - a message that TLC prints inside another prints as plain TLC prints it
+  ---
+  duration_ms: 0.054666
+  type: 'test'
+  ...
+# Subtest: an end line closes the innermost message whatever code it names
+ok 274 - an end line closes the innermost message whatever code it names
+  ---
+  duration_ms: 0.045791
+  type: 'test'
+  ...
+# Subtest: a message that TLC starts at the end of a line of text prints on that line
+ok 275 - a message that TLC starts at the end of a line of text prints on that line
+  ---
+  duration_ms: 0.092041
+  type: 'test'
+  ...
+# Subtest: output that ends where TLC died prints as plain TLC's output cut at the same point
+ok 276 - output that ends where TLC died prints as plain TLC's output cut at the same point
+  ---
+  duration_ms: 2.163167
+  type: 'test'
+  ...
+# Subtest: text outside TLC's messages, such as SANY's output, passes through unchanged
+ok 277 - text outside TLC's messages, such as SANY's output, passes through unchanged
+  ---
+  duration_ms: 0.121667
+  type: 'test'
+  ...
+# Subtest: TLC's run time prints as plain TLC prints it, with each field wrapping
+ok 278 - TLC's run time prints as plain TLC prints it, with each field wrapping
+  ---
+  duration_ms: 0.125917
+  type: 'test'
+  ...
+# Subtest: ir.ts imports nothing
+ok 279 - ir.ts imports nothing
+  ---
+  duration_ms: 67.725959
+  type: 'test'
+  ...
+# Subtest: each pass imports only ir.ts
+ok 280 - each pass imports only ir.ts
+  ---
+  duration_ms: 149.853416
+  type: 'test'
+  ...
+# Subtest: pipeline.ts reaches no node: module
+ok 281 - pipeline.ts reaches no node: module
+  ---
+  duration_ms: 124.1865
+  type: 'test'
+  ...
+# Subtest: ir.ts, the passes, pipeline.ts, the frontends, the backends, and every file they load are .ts files that name no listed runtime global and call no import()
+ok 282 - ir.ts, the passes, pipeline.ts, the frontends, the backends, and every file they load are .ts files that name no listed runtime global and call no import()
+  ---
+  duration_ms: 150.334583
+  type: 'test'
+  ...
+# Subtest: no frontend or backend loads a node: module when imported, even through another file
+ok 283 - no frontend or backend loads a node: module when imported, even through another file
+  ---
+  duration_ms: 1448.702458
+  type: 'test'
+  ...
+# Subtest: the pipeline turns a hand-built graph into the out folder's files with no TLC
+ok 284 - the pipeline turns a hand-built graph into the out folder's files with no TLC
+  ---
+  duration_ms: 4.786292
+  type: 'test'
+  ...
+# Subtest: an invariant and a property with one name stay two rules
+ok 285 - an invariant and a property with one name stay two rules
+  ---
+  duration_ms: 1.518792
+  type: 'test'
+  ...
+# Subtest: a PROPERTY that breaks with no path writes TLC's counterexample
+ok 286 - a PROPERTY that breaks with no path writes TLC's counterexample
+  ---
+  duration_ms: 0.540292
+  type: 'test'
+  ...
+# Subtest: a rule named NoDeadlock leaves the deadlock rule a name of its own
+ok 287 - a rule named NoDeadlock leaves the deadlock rule a name of its own
+  ---
+  duration_ms: 0.641834
+  type: 'test'
+  ...
+# Subtest: a run that does not check for deadlock never names CHECK_DEADLOCK
+ok 288 - a run that does not check for deadlock never names CHECK_DEADLOCK
+  ---
+  duration_ms: 0.379208
+  type: 'test'
+  ...
+# Subtest: a rule that breaks before another rule fails to evaluate breaks in either order
+ok 289 - a rule that breaks before another rule fails to evaluate breaks in either order
+  ---
+  duration_ms: 14263.546625
+  type: 'test'
+  ...
+# Subtest: a rule that breaks before a step fails to evaluate breaks
+ok 290 - a rule that breaks before a step fails to evaluate breaks
+  ---
+  duration_ms: 13499.218542
+  type: 'test'
+  ...
+# Subtest: a rule that breaks before it fails to evaluate breaks
+ok 291 - a rule that breaks before it fails to evaluate breaks
+  ---
+  duration_ms: 7565.151
+  type: 'test'
+  ...
+# Subtest: a rule that fails to evaluate before TLC reaches a break exits 2
+ok 292 - a rule that fails to evaluate before TLC reaches a break exits 2
+  ---
+  duration_ms: 5651.8465
+  type: 'test'
+  ...
+# Subtest: a rule that no verdict run checks stays not checked under a SYMMETRY
+ok 293 - a rule that no verdict run checks stays not checked under a SYMMETRY
+  ---
+  duration_ms: 6395.886834
+  type: 'test'
+  ...
+# Subtest: a deadlock breaks whatever shape the SPECIFICATION has
+ok 294 - a deadlock breaks whatever shape the SPECIFICATION has
+  ---
+  duration_ms: 16752.724708
+  type: 'test'
+  ...
+# Subtest: a SPECIFICATION from an INSTANCE checks deadlock and finds none
+ok 295 - a SPECIFICATION from an INSTANCE checks deadlock and finds none
+  ---
+  duration_ms: 3575.250792
+  type: 'test'
+  ...
+# Subtest: a state at a CONSTRAINT bound is no deadlock
+ok 296 - a state at a CONSTRAINT bound is no deadlock
+  ---
+  duration_ms: 3326.364959
+  type: 'test'
+  ...
+# Subtest: a model with no initial state passes as it does in TLC, and the report says why
+ok 297 - a model with no initial state passes as it does in TLC, and the report says why
+  ---
+  duration_ms: 3826.535625
+  type: 'test'
+  ...
+# Subtest: a run after a break stops at the state bound and leaves its rules not checked
+ok 298 - a run after a break stops at the state bound and leaves its rules not checked
+  ---
+  duration_ms: 4019.715542
+  type: 'test'
+  ...
+# Error: Not implemented: HTMLCanvasElement.prototype.getContext (without installing the canvas npm package)
+#     at module.exports (/private/tmp/pstack-20261116/cache/statechart/test-mermaid-11.16.0/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+#     at HTMLCanvasElementImpl.getContext (/private/tmp/pstack-20261116/cache/statechart/test-mermaid-11.16.0/node_modules/jsdom/lib/jsdom/living/nodes/HTMLCanvasElement-impl.js:42:5)
+#     at HTMLCanvasElement.getContext (/private/tmp/pstack-20261116/cache/statechart/test-mermaid-11.16.0/node_modules/jsdom/lib/jsdom/living/generated/HTMLCanvasElement.js:131:58)
+#     at VS (file:///private/tmp/pstack-20261116/cache/statechart/test-pele-1.9.0/node_modules/pele/dist/pele.js:40:1957)
+#     at qS (file:///private/tmp/pstack-20261116/cache/statechart/test-pele-1.9.0/node_modules/pele/dist/pele.js:40:2179)
+#     at Je (file:///private/tmp/pstack-20261116/cache/statechart/test-pele-1.9.0/node_modules/pele/dist/pele.js:41:30)
+#     at J0 (file:///private/tmp/pstack-20261116/cache/statechart/test-pele-1.9.0/node_modules/pele/dist/pele.js:129:4527)
+#     at Object.eA [as render] (file:///private/tmp/pstack-20261116/cache/statechart/test-pele-1.9.0/node_modules/pele/dist/pele.js:129:4406)
+#     at file:///private/tmp/pstack-20261116/cache/statechart/test-pele-1.9.0/node_modules/pele/dist/pele.js:43:894
+#     at zp (file:///private/tmp/pstack-20261116/cache/statechart/test-pele-1.9.0/node_modules/pele/dist/pele.js:8:2687) undefined
+# Subtest: charts/Braces.mmd renders in Pele 1.9.0 with each class on its node
+ok 299 - charts/Braces.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 49808.846792
+  type: 'test'
+  ...
+# Subtest: charts/Braces.mmd parses in mermaid.js, which chat views use
+ok 300 - charts/Braces.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 26.052875
+  type: 'test'
+  ...
+# Subtest: charts/Escapes.mmd renders in Pele 1.9.0 with each class on its node
+ok 301 - charts/Escapes.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 3.17
+  type: 'test'
+  ...
+# Subtest: charts/Escapes.mmd parses in mermaid.js, which chat views use
+ok 302 - charts/Escapes.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.455709
+  type: 'test'
+  ...
+# Subtest: charts/Phases.mmd renders in Pele 1.9.0 with each class on its node
+ok 303 - charts/Phases.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 1.475833
+  type: 'test'
+  ...
+# Subtest: charts/Phases.mmd parses in mermaid.js, which chat views use
+ok 304 - charts/Phases.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.670625
+  type: 'test'
+  ...
+# Subtest: corpus/Counter/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 305 - corpus/Counter/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.349792
+  type: 'test'
+  ...
+# Subtest: corpus/Counter/chart.mmd parses in mermaid.js, which chat views use
+ok 306 - corpus/Counter/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 6.118625
+  type: 'test'
+  ...
+# Subtest: corpus/CounterAction/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 307 - corpus/CounterAction/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 1.497792
+  type: 'test'
+  ...
+# Subtest: corpus/CounterAction/chart.mmd parses in mermaid.js, which chat views use
+ok 308 - corpus/CounterAction/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.550041
+  type: 'test'
+  ...
+# Subtest: corpus/CounterDeadlock/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 309 - corpus/CounterDeadlock/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.551042
+  type: 'test'
+  ...
+# Subtest: corpus/CounterDeadlock/chart.mmd parses in mermaid.js, which chat views use
+ok 310 - corpus/CounterDeadlock/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 3.425458
+  type: 'test'
+  ...
+# Subtest: corpus/CounterFan/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 311 - corpus/CounterFan/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 2.36725
+  type: 'test'
+  ...
+# Subtest: corpus/CounterFan/chart.mmd parses in mermaid.js, which chat views use
+ok 312 - corpus/CounterFan/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 10.348417
+  type: 'test'
+  ...
+# Subtest: corpus/CounterGuard/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 313 - corpus/CounterGuard/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.447417
+  type: 'test'
+  ...
+# Subtest: corpus/CounterGuard/chart.mmd parses in mermaid.js, which chat views use
+ok 314 - corpus/CounterGuard/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.314666
+  type: 'test'
+  ...
+# Subtest: corpus/CounterInitPast/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 315 - corpus/CounterInitPast/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.455792
+  type: 'test'
+  ...
+# Subtest: corpus/CounterInitPast/chart.mmd parses in mermaid.js, which chat views use
+ok 316 - corpus/CounterInitPast/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.023333
+  type: 'test'
+  ...
+# Subtest: corpus/CounterInitPastHolds/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 317 - corpus/CounterInitPastHolds/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.078125
+  type: 'test'
+  ...
+# Subtest: corpus/CounterInitPastHolds/chart.mmd parses in mermaid.js, which chat views use
+ok 318 - corpus/CounterInitPastHolds/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 0.299417
+  type: 'test'
+  ...
+# Subtest: corpus/CounterInstance/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 319 - corpus/CounterInstance/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.404959
+  type: 'test'
+  ...
+# Subtest: corpus/CounterInstance/chart.mmd parses in mermaid.js, which chat views use
+ok 320 - corpus/CounterInstance/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.517667
+  type: 'test'
+  ...
+# Subtest: corpus/CounterJump/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 321 - corpus/CounterJump/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.431542
+  type: 'test'
+  ...
+# Subtest: corpus/CounterJump/chart.mmd parses in mermaid.js, which chat views use
+ok 322 - corpus/CounterJump/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.414792
+  type: 'test'
+  ...
+# Subtest: corpus/CounterLoop/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 323 - corpus/CounterLoop/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.364334
+  type: 'test'
+  ...
+# Subtest: corpus/CounterLoop/chart.mmd parses in mermaid.js, which chat views use
+ok 324 - corpus/CounterLoop/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.0075
+  type: 'test'
+  ...
+# Subtest: corpus/CounterOrder/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 325 - corpus/CounterOrder/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.452916
+  type: 'test'
+  ...
+# Subtest: corpus/CounterOrder/chart.mmd parses in mermaid.js, which chat views use
+ok 326 - corpus/CounterOrder/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.745292
+  type: 'test'
+  ...
+# Subtest: corpus/CounterRules/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 327 - corpus/CounterRules/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.418417
+  type: 'test'
+  ...
+# Subtest: corpus/CounterRules/chart.mmd parses in mermaid.js, which chat views use
+ok 328 - corpus/CounterRules/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.582375
+  type: 'test'
+  ...
+# Subtest: corpus/CounterStart/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 329 - corpus/CounterStart/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.348917
+  type: 'test'
+  ...
+# Subtest: corpus/CounterStart/chart.mmd parses in mermaid.js, which chat views use
+ok 330 - corpus/CounterStart/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.530416
+  type: 'test'
+  ...
+# Subtest: corpus/CounterStop/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 331 - corpus/CounterStop/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.234333
+  type: 'test'
+  ...
+# Subtest: corpus/CounterStop/chart.mmd parses in mermaid.js, which chat views use
+ok 332 - corpus/CounterStop/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.028083
+  type: 'test'
+  ...
+# Subtest: corpus/CounterTie/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 333 - corpus/CounterTie/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.515291
+  type: 'test'
+  ...
+# Subtest: corpus/CounterTie/chart.mmd parses in mermaid.js, which chat views use
+ok 334 - corpus/CounterTie/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.808292
+  type: 'test'
+  ...
+# Subtest: corpus/CounterTieInGraph/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 335 - corpus/CounterTieInGraph/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.474333
+  type: 'test'
+  ...
+# Subtest: corpus/CounterTieInGraph/chart.mmd parses in mermaid.js, which chat views use
+ok 336 - corpus/CounterTieInGraph/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.072708
+  type: 'test'
+  ...
+# Subtest: corpus/CounterView/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 337 - corpus/CounterView/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.572209
+  type: 'test'
+  ...
+# Subtest: corpus/CounterView/chart.mmd parses in mermaid.js, which chat views use
+ok 338 - corpus/CounterView/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.972
+  type: 'test'
+  ...
+# Subtest: corpus/DieHard/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 339 - corpus/DieHard/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 7.277958
+  type: 'test'
+  ...
+# Subtest: corpus/DieHard/chart.mmd parses in mermaid.js, which chat views use
+ok 340 - corpus/DieHard/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 20.189166
+  type: 'test'
+  ...
+# Subtest: corpus/FirstRule/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 341 - corpus/FirstRule/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.468667
+  type: 'test'
+  ...
+# Subtest: corpus/FirstRule/chart.mmd parses in mermaid.js, which chat views use
+ok 342 - corpus/FirstRule/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.674833
+  type: 'test'
+  ...
+# Subtest: corpus/HiddenClock/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 343 - corpus/HiddenClock/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.273583
+  type: 'test'
+  ...
+# Subtest: corpus/HiddenClock/chart.mmd parses in mermaid.js, which chat views use
+ok 344 - corpus/HiddenClock/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.041708
+  type: 'test'
+  ...
+# Subtest: corpus/Login/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 345 - corpus/Login/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 2.5025
+  type: 'test'
+  ...
+# Subtest: corpus/Login/chart.mmd parses in mermaid.js, which chat views use
+ok 346 - corpus/Login/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 7.135375
+  type: 'test'
+  ...
+# Subtest: corpus/LoginGuarded/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 347 - corpus/LoginGuarded/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 1.453209
+  type: 'test'
+  ...
+# Subtest: corpus/LoginGuarded/chart.mmd parses in mermaid.js, which chat views use
+ok 348 - corpus/LoginGuarded/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 4.101334
+  type: 'test'
+  ...
+# Subtest: corpus/LoginParallel/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 349 - corpus/LoginParallel/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 1.713208
+  type: 'test'
+  ...
+# Subtest: corpus/LoginParallel/chart.mmd parses in mermaid.js, which chat views use
+ok 350 - corpus/LoginParallel/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 6.380916
+  type: 'test'
+  ...
+# Subtest: corpus/MediaPlayer/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 351 - corpus/MediaPlayer/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 1.8115
+  type: 'test'
+  ...
+# Subtest: corpus/MediaPlayer/chart.mmd parses in mermaid.js, which chat views use
+ok 352 - corpus/MediaPlayer/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 3.519792
+  type: 'test'
+  ...
+# Subtest: corpus/MediaPlayerFixed/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 353 - corpus/MediaPlayerFixed/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.879208
+  type: 'test'
+  ...
+# Subtest: corpus/MediaPlayerFixed/chart.mmd parses in mermaid.js, which chat views use
+ok 354 - corpus/MediaPlayerFixed/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 5.432833
+  type: 'test'
+  ...
+# Subtest: corpus/MediaPlayerProps/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 355 - corpus/MediaPlayerProps/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.958667
+  type: 'test'
+  ...
+# Subtest: corpus/MediaPlayerProps/chart.mmd parses in mermaid.js, which chat views use
+ok 356 - corpus/MediaPlayerProps/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 6.969583
+  type: 'test'
+  ...
+# Subtest: corpus/PickWorker/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 357 - corpus/PickWorker/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.271167
+  type: 'test'
+  ...
+# Subtest: corpus/PickWorker/chart.mmd parses in mermaid.js, which chat views use
+ok 358 - corpus/PickWorker/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 0.892125
+  type: 'test'
+  ...
+# Subtest: corpus/Shadow/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 359 - corpus/Shadow/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.250208
+  type: 'test'
+  ...
+# Subtest: corpus/Shadow/chart.mmd parses in mermaid.js, which chat views use
+ok 360 - corpus/Shadow/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 2.787875
+  type: 'test'
+  ...
+# Subtest: corpus/SpacedNames/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 361 - corpus/SpacedNames/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.48875
+  type: 'test'
+  ...
+# Subtest: corpus/SpacedNames/chart.mmd parses in mermaid.js, which chat views use
+ok 362 - corpus/SpacedNames/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 3.993542
+  type: 'test'
+  ...
+# Subtest: corpus/TwoPhase/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 363 - corpus/TwoPhase/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 2.389583
+  type: 'test'
+  ...
+# Subtest: corpus/TwoPhase/chart.mmd parses in mermaid.js, which chat views use
+ok 364 - corpus/TwoPhase/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 5.628084
+  type: 'test'
+  ...
+# Subtest: corpus/TwoPhaseFixed/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 365 - corpus/TwoPhaseFixed/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.824416
+  type: 'test'
+  ...
+# Subtest: corpus/TwoPhaseFixed/chart.mmd parses in mermaid.js, which chat views use
+ok 366 - corpus/TwoPhaseFixed/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 6.139042
+  type: 'test'
+  ...
+# Subtest: corpus/TypeGuard/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 367 - corpus/TypeGuard/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.395833
+  type: 'test'
+  ...
+# Subtest: corpus/TypeGuard/chart.mmd parses in mermaid.js, which chat views use
+ok 368 - corpus/TypeGuard/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.394292
+  type: 'test'
+  ...
+# Subtest: corpus/UserNoDeadlock/chart.mmd renders in Pele 1.9.0 with each class on its node
+ok 369 - corpus/UserNoDeadlock/chart.mmd renders in Pele 1.9.0 with each class on its node
+  ---
+  duration_ms: 0.455791
+  type: 'test'
+  ...
+# Subtest: corpus/UserNoDeadlock/chart.mmd parses in mermaid.js, which chat views use
+ok 370 - corpus/UserNoDeadlock/chart.mmd parses in mermaid.js, which chat views use
+  ---
+  duration_ms: 1.717709
+  type: 'test'
+  ...
+# Subtest: random labels and colors keep their text and the chart's shape in Mermaid and Pele
+ok 371 - random labels and colors keep their text and the chart's shape in Mermaid and Pele
+  ---
+  duration_ms: 1601.582042
+  type: 'test'
+  ...
+# Subtest: an arrow into a parent from its only way in stays out of the parent's title bar in Pele 1.9.0
+ok 372 - an arrow into a parent from its only way in stays out of the parent's title bar in Pele 1.9.0
+  ---
+  duration_ms: 1.069708
+  type: 'test'
+  ...
+# Subtest: the theme in references/render.md colors each class that the charts use
+ok 373 - the theme in references/render.md colors each class that the charts use
+  ---
+  duration_ms: 0.048958
+  type: 'test'
+  ...
+# Subtest: each corpus spec's TLC output reads as plain TLC prints it at -workers 1
+    # Subtest: Counter
+    ok 1 - Counter
+      ---
+      duration_ms: 6270.312834
+      type: 'test'
+      ...
+    # Subtest: CounterAction
+    ok 2 - CounterAction
+      ---
+      duration_ms: 11321.287875
+      type: 'test'
+      ...
+    # Subtest: CounterDeadlock
+    ok 3 - CounterDeadlock
+      ---
+      duration_ms: 8415.699833
+      type: 'test'
+      ...
+    # Subtest: CounterFan
+    ok 4 - CounterFan
+      ---
+      duration_ms: 8438.270375
+      type: 'test'
+      ...
+    # Subtest: CounterGuard
+    ok 5 - CounterGuard
+      ---
+      duration_ms: 8437.714417
+      type: 'test'
+      ...
+    # Subtest: CounterInitPast
+    ok 6 - CounterInitPast
+      ---
+      duration_ms: 8228.650667
+      type: 'test'
+      ...
+    # Subtest: CounterInitPastHolds
+    ok 7 - CounterInitPastHolds
+      ---
+      duration_ms: 5695.760417
+      type: 'test'
+      ...
+    # Subtest: CounterInstance
+    ok 8 - CounterInstance
+      ---
+      duration_ms: 5346.206417
+      type: 'test'
+      ...
+    # Subtest: CounterJump
+    ok 9 - CounterJump
+      ---
+      duration_ms: 8098.119875
+      type: 'test'
+      ...
+    # Subtest: CounterLoop
+    ok 10 - CounterLoop
+      ---
+      duration_ms: 5269.674417
+      type: 'test'
+      ...
+    # Subtest: CounterOrder
+    ok 11 - CounterOrder
+      ---
+      duration_ms: 7718.981125
+      type: 'test'
+      ...
+    # Subtest: CounterRules
+    ok 12 - CounterRules
+      ---
+      duration_ms: 12602.309167
+      type: 'test'
+      ...
+    # Subtest: CounterStart
+    ok 13 - CounterStart
+      ---
+      duration_ms: 8338.428292
+      type: 'test'
+      ...
+    # Subtest: CounterStop
+    ok 14 - CounterStop
+      ---
+      duration_ms: 5426.40775
+      type: 'test'
+      ...
+    # Subtest: CounterTie
+    ok 15 - CounterTie
+      ---
+      duration_ms: 14550.578083
+      type: 'test'
+      ...
+    # Subtest: CounterTieInGraph
+    ok 16 - CounterTieInGraph
+      ---
+      duration_ms: 7836.36425
+      type: 'test'
+      ...
+    # Subtest: CounterView
+    ok 17 - CounterView
+      ---
+      duration_ms: 12823.128167
+      type: 'test'
+      ...
+    # Subtest: DieHard
+    ok 18 - DieHard
+      ---
+      duration_ms: 9357.491542
+      type: 'test'
+      ...
+    # Subtest: FirstRule
+    ok 19 - FirstRule
+      ---
+      duration_ms: 11722.6425
+      type: 'test'
+      ...
+    # Subtest: HiddenClock
+    ok 20 - HiddenClock
+      ---
+      duration_ms: 5481.606083
+      type: 'test'
+      ...
+    # Subtest: Login
+    ok 21 - Login
+      ---
+      duration_ms: 4916.111416
+      type: 'test'
+      ...
+    # Subtest: LoginGuarded
+    ok 22 - LoginGuarded
+      ---
+      duration_ms: 4783.35625
+      type: 'test'
+      ...
+    # Subtest: LoginParallel
+    ok 23 - LoginParallel
+      ---
+      duration_ms: 7812.546209
+      type: 'test'
+      ...
+    # Subtest: MediaPlayer
+    ok 24 - MediaPlayer
+      ---
+      duration_ms: 7886.589458
+      type: 'test'
+      ...
+    # Subtest: MediaPlayerFixed
+    ok 25 - MediaPlayerFixed
+      ---
+      duration_ms: 5003.160375
+      type: 'test'
+      ...
+    # Subtest: MediaPlayerProps
+    ok 26 - MediaPlayerProps
+      ---
+      duration_ms: 15963.784875
+      type: 'test'
+      ...
+    # Subtest: PickWorker
+    ok 27 - PickWorker
+      ---
+      duration_ms: 5882.272166
+      type: 'test'
+      ...
+    # Subtest: Shadow
+    ok 28 - Shadow
+      ---
+      duration_ms: 5559.2135
+      type: 'test'
+      ...
+    # Subtest: SpacedNames
+    ok 29 - SpacedNames
+      ---
+      duration_ms: 7796.45975
+      type: 'test'
+      ...
+    # Subtest: TwoPhase
+    ok 30 - TwoPhase
+      ---
+      duration_ms: 6835.332167
+      type: 'test'
+      ...
+    # Subtest: TwoPhaseFixed
+    ok 31 - TwoPhaseFixed
+      ---
+      duration_ms: 5242.657417
+      type: 'test'
+      ...
+    # Subtest: TypeGuard
+    ok 32 - TypeGuard
+      ---
+      duration_ms: 6330.899167
+      type: 'test'
+      ...
+    # Subtest: UserNoDeadlock
+    ok 33 - UserNoDeadlock
+      ---
+      duration_ms: 5523.753459
+      type: 'test'
+      ...
+    1..33
+ok 374 - each corpus spec's TLC output reads as plain TLC prints it at -workers 1
+  ---
+  duration_ms: 68002.840292
+  type: 'test'
+  ...
+1..374
+# tests 407
+# suites 0
+# pass 406
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 153845.267541
