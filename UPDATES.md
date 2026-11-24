@@ -1,5 +1,15 @@
 # Pstack Codex updates
 
+## 0.15.48 — 2026-11-24
+
+Updated original **0.15.46 → 0.15.48**, source `96af3b7a4eaf4bab2535d1591f29aae61a3c605d`, pristine snapshot `5589e78da6578a3113609e5a3b9d00591768ff0c`. Six upstream paths changed; the collection now has 59 main skills and 23 Codex playbooks.
+
+- Added explicit-only `$reframe`: start from the user's raw description and files, distinguish possible problems, teach source-checked expert terminology, compare neighboring fields, then rewrite the description. It preserves user constraints and does not implement the underlying task. Inaccessible sources remain unverified and unconfirmed citations are omitted.
+- Updated help, guide, package version, provenance and the customization map. Existing Codex model settings, authorization, scheduling, invocation policies and all executable scripts are unchanged.
+- **61 Bun tests, four Node tests, three provenance tests, core TypeScript, all 63 skill validators and relative links passed.** Untouched upstream core controls also passed. Statechart scripts are byte-identical to the validated 0.15.46 port; its 407-test result remains historical evidence and was not rerun. See [validation](VALIDATION.md) and [inventory](docs/upstream-0.15.48.tsv).
+
+The ordinary merge preserves original snapshot ancestry and published history. This scheduled update does not refresh the installed plugin. New instruction behavior was reviewed statically; no live model-authored reframe workflow was exercised.
+
 ## 0.15.46 — 2026-11-20
 
 Updated original **0.15.43 → 0.15.46**, source `fbb86c09bbb4a25e490aaed136899ced1e9140e4`, pristine snapshot `1e967a72510148f34895ff4023ed9fd70af13923`. Fifteen upstream paths changed; the collection remains 58 main skills and 23 Codex playbooks.

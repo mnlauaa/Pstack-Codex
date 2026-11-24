@@ -4,11 +4,11 @@ A community-maintained Codex port of [Lauren Tan’s pstack](https://github.com/
 
 This port tracks the original upstream while adapting its instructions to Codex’s tools and authorization boundaries. It is not an official Cursor or OpenAI project.
 
-**Port version:** 0.15.46 · **Upstream:** 0.15.46 · **Source commit:** [`fbb86c0`](https://github.com/cursor/plugins/tree/fbb86c09bbb4a25e490aaed136899ced1e9140e4/pstack)
+**Port version:** 0.15.48 · **Upstream:** 0.15.48 · **Source commit:** [`96af3b7`](https://github.com/cursor/plugins/tree/96af3b7a4eaf4bab2535d1591f29aae61a3c605d/pstack)
 
 ## What’s included
 
-- **58 main skills** for implementation, investigation, architecture, reviews, testing, and technical writing.
+- **59 main skills** for implementation, investigation, architecture, reviews, testing, and technical writing.
 - **23 playbooks** for coordinated development and longer-running work.
 - Codex adaptations for native delegation, model inheritance, worktree isolation, scoped history, and supported scheduling.
 - Plan validation, worktree auditing, and GitHub PR-watching scripts.
@@ -17,6 +17,7 @@ This port tracks the original upstream while adapting its instructions to Codex�
 - `$in-your-own-words` to confirm the agent understands your goal before work starts.
 - [`$statechart`](skills/statechart/SKILL.md) to check a TLA+ model and show modeled behavior and bug paths as Mermaid charts; rendering is a separate step.
 - `$sharpen` to rewrite a prompt with expert methods, raw sources, an outside check, and experiments for empirical choices, without executing the task.
+- [`$reframe`](skills/reframe/SKILL.md) to name your problem with source-checked expert terms and neighboring-field analogies, then rewrite your description without implementing it.
 - `$create-formal-verification-skill` and `$maintain-formal-verification-skill` for bounded property checks and keeping them aligned with the code. Verifiers are not bundled.
 - Source provenance, a change log, and a three-way merge guide for future upstream updates.
 
@@ -31,7 +32,7 @@ codex plugin marketplace list
 
 Restart the desktop app, open Plugins, select **Pstack for Codex**, and install **pstack-codex**. Start a new chat and select **poteto-help** for a tour or **poteto-mode** to run a workflow. Adding the marketplace makes the plugin discoverable; it does not itself install the plugin.
 
-The [marketplace catalog](.agents/plugins/marketplace.json) points to this repository’s root plugin. Plugin installation discovers the 58 main skills under `skills/`; the root `SKILL.md` is a separate entry for direct use, and the dormant Benny skills are outside that discovery directory.
+The [marketplace catalog](.agents/plugins/marketplace.json) points to this repository’s root plugin. Plugin installation discovers the 59 main skills under `skills/`; the root `SKILL.md` is a separate entry for direct use, and the dormant Benny skills are outside that discovery directory.
 
 To refresh the marketplace after new commits:
 
@@ -80,11 +81,11 @@ The [guide](docs/guide/README.md) retains the engineering walkthroughs. Use the 
 
 We track original `cursor/plugins/pstack` directly. The `upstream` branch holds its untouched subtree; `main` carries the Codex adaptation. Future changes merge through these shared ancestors. Maintainers should start with [AGENTS.md](AGENTS.md) and [UPSTREAM.md](UPSTREAM.md).
 
-This port is version 0.15.46, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. This update imports statechart Windows newline handling, UTF-8 Java output and portable worker cleanup. Codex model defaults and existing user selections are preserved. The plan checker and Orchestrate extension remain available.
+This port is version 0.15.48, matching the integrated upstream version. [UPDATES.md](UPDATES.md) lists the features, fixes, and retained Codex differences. [UPSTREAM.md](UPSTREAM.md) explains how to merge the next original pstack update; [UPSTREAM.json](UPSTREAM.json) pins the integrated source. This update adds explicit-only `$reframe` for grounded terminology and clearer requirements. Codex scope, model settings, authorization and scheduling remain unchanged.
 
 ## Validation
 
-The integrated checks passed 407 statechart tests with no skips, 61 Bun tests, four Node tests, three provenance tests, TypeScript checks, and all 62 skill validators. See [VALIDATION.md](VALIDATION.md) for the control failures, fixes, and tested scope.
+This integration passed 61 Bun tests, four Node tests, three provenance tests, core TypeScript checks and all 63 skill validators. The unchanged statechart scripts retain the 407-test validation from 0.15.46; that suite was not rerun for this instruction-only update. See [VALIDATION.md](VALIDATION.md) for the control failures, fixes, and tested scope.
 
 To run the script checks locally, with Bun and Node installed:
 

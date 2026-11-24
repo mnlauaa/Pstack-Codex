@@ -1,3 +1,18 @@
+# Validation of pstack-codex 0.15.48 — 2026-11-24
+
+Pinned original `96af3b7a4eaf4bab2535d1591f29aae61a3c605d`; archive PAX identity and SHA-256 checked. Pristine snapshot `5589e78da6578a3113609e5a3b9d00591768ff0c`, tree `971573532de6714a4ddff8ec39b52d021ebf161a`, matches original file bytes and executable modes. This is a pinned main snapshot; signatures were not verified.
+
+- Untouched core control passed **54 Bun tests / 154 assertions**, strict TypeScript and shell syntax. [Control log](docs/upstream-0.15.48-core-control.log).
+- Integrated core passed **61 Bun tests / 179 assertions and four Node regression tests**, strict TypeScript and shell syntax. Tools: Node 22.23.1, Bun 1.4.2 and TypeScript 7.0.2. Dependencies were installed only in writable temporary copies. [Integrated log](docs/upstream-0.15.48-core-port.log). The initial metadata check could not load a stale temporary PyYAML installation; provisioning PyYAML 6.0.3 in this run's temporary directory restored the validator, without repository changes.
+- All upstream and integrated executable scripts are unchanged from their respective 0.15.46 baselines. Statechart's 407-test passing result below remains historical evidence; the statechart suite and its typecheck were not rerun for this instruction-only update. Its previously documented platform and runtime coverage limits remain.
+- Three provenance regression tests, integrated snapshot ancestry and `git diff --check` passed. All 63 skill entrypoints passed the available skill-creator validator; 64 YAML files, seven JSON files and concrete relative links parsed/resolved. The collection contains 59 discovered main skills and 23 playbooks.
+- Static instruction review covered ambiguous descriptions (list distinguishing signs before choosing), raw task-scoped inputs, preservation of user constraints, terminology and rewrite-only output, and unavailable source access (disclose the gap, omit unconfirmed citations, never claim a link was opened). New `agents/openai.yaml` retains upstream's explicit-only invocation policy. These are instruction evaluations, not live model compliance tests.
+- Existing invocation policies, shared runtime, marketplace catalog, license, maintenance instructions and all script files are byte-identical to the prior integrated commit. The user's untracked model configuration is unchanged. No deployment workflow was added.
+
+No independent agent review, live reframe workflow, external citation retrieval, delegated workflow, PR lifecycle, persistent scheduler, cloud integration or installed-plugin refresh was exercised. The ordinary merge retains the pristine snapshot as a parent. See [inventory](docs/upstream-0.15.48.tsv).
+
+---
+
 # Validation of pstack-codex 0.15.46 — 2026-11-20
 
 Pinned original `fbb86c09bbb4a25e490aaed136899ced1e9140e4`; original releases and tags returned empty lists, so this is a pinned main snapshot. Archive PAX identity and SHA-256 `bb01b2820df415b77d33ce45339c9f4e7dcc0a3b529b60959a013bfe113805e3` checked. Pristine snapshot `1e967a72510148f34895ff4023ed9fd70af13923`, tree `b47cf6d63625b48fd77893233044849935cdae3d`, matches the original subtree bytes and modes. Signatures were not verified. The first codeload request returned HTTP 429; downloading the same pinned archive through GitHub's official API succeeded. Saved logs normalize trailing whitespace only.
